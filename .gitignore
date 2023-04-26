@@ -4,3 +4,4 @@ examples/domain_adaptation/image_classification/custom_dan/analysis-2023-02-03-1
 *.csv
 *.feather
 /home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/
+**/custom_dan*/
