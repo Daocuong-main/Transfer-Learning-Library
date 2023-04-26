@@ -1,0 +1,5 @@
+examples/domain_adaptation/image_classification/custom_dan/analysis-2023-02-03-15_14_04.txt
+*.pth
+*.pdf
+*.csv
+*.feather
