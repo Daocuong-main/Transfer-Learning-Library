@@ -1,0 +1,1 @@
+glances --enable-plugin all,sensors --disable-plugin network,ip,irq,diskio,fs,docker,cloud,amps,processlist,folders,now,load,amps,ports,processcount

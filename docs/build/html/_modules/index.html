@@ -1,0 +1,568 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview: module code &mdash; Transfer Learning Library 0.0.19 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="../_static/pygments.css" type="text/css" /> -->
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+</head>
+
+<div class="container-fluid header-holder tutorials-header" id="header-holder">
+  <div class="container">
+    <div class="header-container">
+      <a class="header-logo" href="https://shiftlab.github.io/pytorch/" aria-label="PyTorch"></a>
+
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="https://shiftlab.github.io/pytorch/get-started">Get Started</a>
+          </li>
+
+          <li>
+            <a href="https://shiftlab.github.io/pytorch/features">Features</a>
+          </li>
+
+          <li>
+            <a href="https://shiftlab.github.io/pytorch/ecosystem">Ecosystem</a>
+          </li>
+
+          <li>
+            <a href="https://shiftlab.github.io/pytorch/blog/">Blog</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://shiftlab.github.io/pytorch/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pytorch/pytorch">Github</a>
+          </li>
+        </ul>
+      </div>
+
+      <a class="main-menu-open-button" href="#" data-behavior="open-mobile-menu"></a>
+    </div>
+
+  </div>
+</div>
+
+
+<body class="pytorch-body">
+
+   
+  <div>
+
+    
+
+    <div class="table-of-contents-link-wrapper">
+      <span>Table of Contents</span>
+      <a href="#" class="toggle-table-of-contents" data-behavior="toggle-table-of-contents"></a>
+    </div>
+
+    <nav data-toggle="wy-nav-shift" class="pytorch-left-menu" id="pytorch-left-menu">
+      <div class="pytorch-side-scroll">
+        <div class="pytorch-menu pytorch-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          <div class="pytorch-left-menu-search">
+            
+
+            
+
+            
+
+
+  
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search Docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+            
+          </div>
+
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Transfer Learning API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/alignment/index.html">Feature Alignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/translation.html">Domain Translation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/self_training.html">Self Training Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/reweight.html">Re-weighting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/normalization.html">Normalization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/regularization.html">Regularization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/ranking.html">Ranking</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Common API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/vision/index.html">Vision</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tllib/utils/index.html">Utilities</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="pytorch-container">
+
+      <section data-toggle="wy-nav-shift" class="pytorch-content-wrap">
+        <div class="pytorch-page-level-bar" id="pytorch-page-level-bar">
+          <div class="pytorch-breadcrumbs-wrapper">
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="pytorch-breadcrumbs">
+    
+      <li>
+        <a href="../index.html">
+          
+            Docs
+          
+        </a> &gt;
+      </li>
+
+        
+      <li>Overview: module code</li>
+    
+    
+      <li class="pytorch-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+</div>
+          </div>
+
+          <div class="pytorch-shortcuts-wrapper" id="pytorch-shortcuts-wrapper">
+            Shortcuts
+          </div>
+        </div>
+
+        <div class="pytorch-content-left">
+          
+          <div class="rst-content">
+          
+            <div role="main" class="main-content" itemscope="itemscope" itemtype="http://schema.org/Article">
+             <article itemprop="articleBody" class="pytorch-article">
+              
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="tllib/alignment/adda.html">tllib.alignment.adda</a></li>
+<li><a href="tllib/alignment/advent.html">tllib.alignment.advent</a></li>
+<li><a href="tllib/alignment/bsp.html">tllib.alignment.bsp</a></li>
+<li><a href="tllib/alignment/cdan.html">tllib.alignment.cdan</a></li>
+<li><a href="tllib/alignment/coral.html">tllib.alignment.coral</a></li>
+<li><a href="tllib/alignment/dan.html">tllib.alignment.dan</a></li>
+<li><a href="tllib/alignment/dann.html">tllib.alignment.dann</a></li>
+<li><a href="tllib/alignment/jan.html">tllib.alignment.jan</a></li>
+<li><a href="tllib/alignment/mcd.html">tllib.alignment.mcd</a></li>
+<li><a href="tllib/alignment/mdd.html">tllib.alignment.mdd</a></li>
+<li><a href="tllib/alignment/osbp.html">tllib.alignment.osbp</a></li>
+<li><a href="tllib/alignment/regda.html">tllib.alignment.regda</a></li>
+<li><a href="tllib/modules/classifier.html">tllib.modules.classifier</a></li>
+<li><a href="tllib/modules/domain_discriminator.html">tllib.modules.domain_discriminator</a></li>
+<li><a href="tllib/modules/entropy.html">tllib.modules.entropy</a></li>
+<li><a href="tllib/modules/grl.html">tllib.modules.grl</a></li>
+<li><a href="tllib/modules/kernels.html">tllib.modules.kernels</a></li>
+<li><a href="tllib/modules/loss.html">tllib.modules.loss</a></li>
+<li><a href="tllib/modules/regressor.html">tllib.modules.regressor</a></li>
+<li><a href="tllib/normalization/afn.html">tllib.normalization.afn</a></li>
+<li><a href="tllib/normalization/ibn.html">tllib.normalization.ibn</a></li>
+<li><a href="tllib/normalization/mixstyle.html">tllib.normalization.mixstyle</a></li>
+<ul><li><a href="tllib/normalization/mixstyle/resnet.html">tllib.normalization.mixstyle.resnet</a></li>
+</ul><li><a href="tllib/normalization/stochnorm.html">tllib.normalization.stochnorm</a></li>
+<li><a href="tllib/ranking/hscore.html">tllib.ranking.hscore</a></li>
+<li><a href="tllib/ranking/leep.html">tllib.ranking.leep</a></li>
+<li><a href="tllib/ranking/logme.html">tllib.ranking.logme</a></li>
+<li><a href="tllib/ranking/nce.html">tllib.ranking.nce</a></li>
+<li><a href="tllib/regularization/bi_tuning.html">tllib.regularization.bi_tuning</a></li>
+<li><a href="tllib/regularization/bss.html">tllib.regularization.bss</a></li>
+<li><a href="tllib/regularization/co_tuning.html">tllib.regularization.co_tuning</a></li>
+<li><a href="tllib/regularization/delta.html">tllib.regularization.delta</a></li>
+<li><a href="tllib/regularization/lwf.html">tllib.regularization.lwf</a></li>
+<li><a href="tllib/reweight/groupdro.html">tllib.reweight.groupdro</a></li>
+<li><a href="tllib/reweight/iwan.html">tllib.reweight.iwan</a></li>
+<li><a href="tllib/reweight/pada.html">tllib.reweight.pada</a></li>
+<li><a href="tllib/self_training/dst.html">tllib.self_training.dst</a></li>
+<li><a href="tllib/self_training/flexmatch.html">tllib.self_training.flexmatch</a></li>
+<li><a href="tllib/self_training/mcc.html">tllib.self_training.mcc</a></li>
+<li><a href="tllib/self_training/mean_teacher.html">tllib.self_training.mean_teacher</a></li>
+<li><a href="tllib/self_training/pi_model.html">tllib.self_training.pi_model</a></li>
+<li><a href="tllib/self_training/pseudo_label.html">tllib.self_training.pseudo_label</a></li>
+<li><a href="tllib/self_training/self_ensemble.html">tllib.self_training.self_ensemble</a></li>
+<li><a href="tllib/self_training/self_tuning.html">tllib.self_training.self_tuning</a></li>
+<li><a href="tllib/self_training/uda.html">tllib.self_training.uda</a></li>
+<li><a href="tllib/translation/cycada.html">tllib.translation.cycada</a></li>
+<li><a href="tllib/translation/cyclegan/discriminator.html">tllib.translation.cyclegan.discriminator</a></li>
+<li><a href="tllib/translation/cyclegan/generator.html">tllib.translation.cyclegan.generator</a></li>
+<li><a href="tllib/translation/cyclegan/loss.html">tllib.translation.cyclegan.loss</a></li>
+<li><a href="tllib/translation/cyclegan/transform.html">tllib.translation.cyclegan.transform</a></li>
+<li><a href="tllib/translation/cyclegan/util.html">tllib.translation.cyclegan.util</a></li>
+<li><a href="tllib/translation/fourier_transform.html">tllib.translation.fourier_transform</a></li>
+<li><a href="tllib/translation/spgan/loss.html">tllib.translation.spgan.loss</a></li>
+<li><a href="tllib/translation/spgan/siamese.html">tllib.translation.spgan.siamese</a></li>
+<li><a href="tllib/utils/analysis.html">tllib.utils.analysis</a></li>
+<ul><li><a href="tllib/utils/analysis/a_distance.html">tllib.utils.analysis.a_distance</a></li>
+<li><a href="tllib/utils/analysis/tsne.html">tllib.utils.analysis.tsne</a></li>
+</ul><li><a href="tllib/utils/data.html">tllib.utils.data</a></li>
+<li><a href="tllib/utils/logger.html">tllib.utils.logger</a></li>
+<li><a href="tllib/utils/meter.html">tllib.utils.meter</a></li>
+<li><a href="tllib/utils/metric.html">tllib.utils.metric</a></li>
+<li><a href="tllib/vision/datasets/aircrafts.html">tllib.vision.datasets.aircrafts</a></li>
+<li><a href="tllib/vision/datasets/caltech101.html">tllib.vision.datasets.caltech101</a></li>
+<li><a href="tllib/vision/datasets/coco70.html">tllib.vision.datasets.coco70</a></li>
+<li><a href="tllib/vision/datasets/cub200.html">tllib.vision.datasets.cub200</a></li>
+<li><a href="tllib/vision/datasets/digits.html">tllib.vision.datasets.digits</a></li>
+<li><a href="tllib/vision/datasets/domainnet.html">tllib.vision.datasets.domainnet</a></li>
+<li><a href="tllib/vision/datasets/dtd.html">tllib.vision.datasets.dtd</a></li>
+<li><a href="tllib/vision/datasets/eurosat.html">tllib.vision.datasets.eurosat</a></li>
+<li><a href="tllib/vision/datasets/food101.html">tllib.vision.datasets.food101</a></li>
+<li><a href="tllib/vision/datasets/imagelist.html">tllib.vision.datasets.imagelist</a></li>
+<li><a href="tllib/vision/datasets/keypoint_detection/freihand.html">tllib.vision.datasets.keypoint_detection.freihand</a></li>
+<li><a href="tllib/vision/datasets/keypoint_detection/hand_3d_studio.html">tllib.vision.datasets.keypoint_detection.hand_3d_studio</a></li>
+<li><a href="tllib/vision/datasets/keypoint_detection/human36m.html">tllib.vision.datasets.keypoint_detection.human36m</a></li>
+<li><a href="tllib/vision/datasets/keypoint_detection/keypoint_dataset.html">tllib.vision.datasets.keypoint_detection.keypoint_dataset</a></li>
+<li><a href="tllib/vision/datasets/keypoint_detection/lsp.html">tllib.vision.datasets.keypoint_detection.lsp</a></li>
+<li><a href="tllib/vision/datasets/keypoint_detection/rendered_hand_pose.html">tllib.vision.datasets.keypoint_detection.rendered_hand_pose</a></li>
+<li><a href="tllib/vision/datasets/keypoint_detection/surreal.html">tllib.vision.datasets.keypoint_detection.surreal</a></li>
+<li><a href="tllib/vision/datasets/office31.html">tllib.vision.datasets.office31</a></li>
+<li><a href="tllib/vision/datasets/officecaltech.html">tllib.vision.datasets.officecaltech</a></li>
+<li><a href="tllib/vision/datasets/officehome.html">tllib.vision.datasets.officehome</a></li>
+<li><a href="tllib/vision/datasets/openset.html">tllib.vision.datasets.openset</a></li>
+<li><a href="tllib/vision/datasets/oxfordflowers.html">tllib.vision.datasets.oxfordflowers</a></li>
+<li><a href="tllib/vision/datasets/oxfordpets.html">tllib.vision.datasets.oxfordpets</a></li>
+<li><a href="tllib/vision/datasets/pacs.html">tllib.vision.datasets.pacs</a></li>
+<li><a href="tllib/vision/datasets/partial.html">tllib.vision.datasets.partial</a></li>
+<ul><li><a href="tllib/vision/datasets/partial/caltech_imagenet.html">tllib.vision.datasets.partial.caltech_imagenet</a></li>
+<li><a href="tllib/vision/datasets/partial/imagenet_caltech.html">tllib.vision.datasets.partial.imagenet_caltech</a></li>
+</ul><li><a href="tllib/vision/datasets/patchcamelyon.html">tllib.vision.datasets.patchcamelyon</a></li>
+<li><a href="tllib/vision/datasets/regression/dsprites.html">tllib.vision.datasets.regression.dsprites</a></li>
+<li><a href="tllib/vision/datasets/regression/image_regression.html">tllib.vision.datasets.regression.image_regression</a></li>
+<li><a href="tllib/vision/datasets/regression/mpi3d.html">tllib.vision.datasets.regression.mpi3d</a></li>
+<li><a href="tllib/vision/datasets/reid/dukemtmc.html">tllib.vision.datasets.reid.dukemtmc</a></li>
+<li><a href="tllib/vision/datasets/reid/market1501.html">tllib.vision.datasets.reid.market1501</a></li>
+<li><a href="tllib/vision/datasets/reid/msmt17.html">tllib.vision.datasets.reid.msmt17</a></li>
+<li><a href="tllib/vision/datasets/resisc45.html">tllib.vision.datasets.resisc45</a></li>
+<li><a href="tllib/vision/datasets/retinopathy.html">tllib.vision.datasets.retinopathy</a></li>
+<li><a href="tllib/vision/datasets/segmentation/cityscapes.html">tllib.vision.datasets.segmentation.cityscapes</a></li>
+<li><a href="tllib/vision/datasets/segmentation/gta5.html">tllib.vision.datasets.segmentation.gta5</a></li>
+<li><a href="tllib/vision/datasets/segmentation/segmentation_list.html">tllib.vision.datasets.segmentation.segmentation_list</a></li>
+<li><a href="tllib/vision/datasets/segmentation/synthia.html">tllib.vision.datasets.segmentation.synthia</a></li>
+<li><a href="tllib/vision/datasets/stanford_cars.html">tllib.vision.datasets.stanford_cars</a></li>
+<li><a href="tllib/vision/datasets/stanford_dogs.html">tllib.vision.datasets.stanford_dogs</a></li>
+<li><a href="tllib/vision/datasets/sun397.html">tllib.vision.datasets.sun397</a></li>
+<li><a href="tllib/vision/datasets/visda2017.html">tllib.vision.datasets.visda2017</a></li>
+<li><a href="tllib/vision/models/keypoint_detection/loss.html">tllib.vision.models.keypoint_detection.loss</a></li>
+<li><a href="tllib/vision/models/keypoint_detection/pose_resnet.html">tllib.vision.models.keypoint_detection.pose_resnet</a></li>
+<li><a href="tllib/vision/models/reid/identifier.html">tllib.vision.models.reid.identifier</a></li>
+<li><a href="tllib/vision/models/reid/loss.html">tllib.vision.models.reid.loss</a></li>
+<li><a href="tllib/vision/models/reid/resnet.html">tllib.vision.models.reid.resnet</a></li>
+<li><a href="tllib/vision/models/resnet.html">tllib.vision.models.resnet</a></li>
+<li><a href="tllib/vision/models/segmentation/deeplabv2.html">tllib.vision.models.segmentation.deeplabv2</a></li>
+<li><a href="tllib/vision/transforms.html">tllib.vision.transforms</a></li>
+<ul><li><a href="tllib/vision/transforms/keypoint_detection.html">tllib.vision.transforms.keypoint_detection</a></li>
+<li><a href="tllib/vision/transforms/segmentation.html">tllib.vision.transforms.segmentation</a></li>
+</ul></ul>
+
+             </article>
+             
+            </div>
+            <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright THUML Group.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+          </div>
+        </div>
+
+        <div class="pytorch-content-right" id="pytorch-content-right">
+          <div class="pytorch-right-menu" id="pytorch-right-menu">
+            <div class="pytorch-side-scroll" id="pytorch-side-scroll-right">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.0.19',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/vendor/popper.min.js"></script>
+  <script type="text/javascript" src="../_static/js/vendor/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+  <!-- Begin Footer -->
+
+  <div class="container-fluid docs-tutorials-resources" id="docs-tutorials-resources">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <h2>Docs</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur</p>
+          <a class="with-right-arrow" href="https://pytorch.org/docs/stable/index.html">View Docs</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Tutorials</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur</p>
+          <a class="with-right-arrow" href="https://pytorch.org/tutorials">View Tutorials</a>
+        </div>
+
+        <div class="col-md-4 text-center">
+          <h2>Resources</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur</p>
+          <a class="with-right-arrow" href="https://shiftlab.github.io/pytorch/resources">View Resources</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-logo-wrapper">
+        <a href="https://shiftlab.github.io/pytorch/" class="footer-logo"></a>
+      </div>
+
+      <div class="footer-links-wrapper">
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://shiftlab.github.io/pytorch/">PyTorch</a></li>
+            <li><a href="https://shiftlab.github.io/pytorch/get-started">Get Started</a></li>
+            <li><a href="https://shiftlab.github.io/pytorch/features">Features</a></li>
+            <li><a href="https://shiftlab.github.io/pytorch/ecosystem">Ecosystem</a></li>
+            <li><a href="https://shiftlab.github.io/pytorch/blog/">Blog</a></li>
+            <li><a href="https://shiftlab.github.io/pytorch/resources">Resources</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <ul>
+            <li class="list-title"><a href="https://shiftlab.github.io/pytorch/support">Support</a></li>
+            <li><a href="https://pytorch.org/tutorials">Tutorials</a></li>
+            <li><a href="https://pytorch.org/docs/stable/index.html">Docs</a></li>
+            <li><a href="https://discuss.pytorch.org" target="_blank">Discuss</a></li>
+            <li><a href="https://github.com/pytorch/pytorch/issues" target="_blank">Github Issues</a></li>
+            <li><a href="https://pytorch.slack.com" target="_blank">Slack</a></li>
+            <li><a href="https://github.com/pytorch/pytorch/blob/master/CONTRIBUTING.md" target="_blank">Contributing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col follow-us-col">
+          <ul>
+            <li class="list-title">Follow Us</li>
+            <li>
+              <div id="mc_embed_signup">
+                <form
+                  action="https://twitter.us14.list-manage.com/subscribe/post?u=75419c71fe0a935e53dfa4a3f&id=91d0dccd39"
+                  method="post"
+                  id="mc-embedded-subscribe-form"
+                  name="mc-embedded-subscribe-form"
+                  class="email-subscribe-form validate"
+                  target="_blank"
+                  novalidate>
+                  <div id="mc_embed_signup_scroll" class="email-subscribe-form-fields-wrapper">
+                    <div class="mc-field-group">
+                      <label for="mce-EMAIL" style="display:none;">Email Address</label>
+                      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+                    </div>
+
+                    <div id="mce-responses" class="clear">
+                      <div class="response" id="mce-error-response" style="display:none"></div>
+                      <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_75419c71fe0a935e53dfa4a3f_91d0dccd39" tabindex="-1" value=""></div>
+
+                    <div class="clear">
+                      <input type="submit" value="" name="subscribe" id="mc-embedded-subscribe" class="button email-subscribe-button">
+                    </div>
+                  </div>
+                </form>
+              </div>
+
+            </li>
+          </ul>
+
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com/pytorch" target="_blank" class="facebook"></a>
+            <a href="https://twitter.com/pytorch" target="_blank" class="twitter"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- End Footer -->
+
+  <!-- Begin Mobile Menu -->
+
+  <div class="mobile-main-menu">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="mobile-main-menu-header-container">
+          <a class="header-logo" href="https://shiftlab.github.io/pytorch/" aria-label="PyTorch"></a>
+          <a class="main-menu-close-button" href="#" data-behavior="close-mobile-menu"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="mobile-main-menu-links-container">
+      <div class="main-menu">
+        <ul>
+          <li>
+            <a href="#">Get Started</a>
+          </li>
+
+          <li>
+            <a href="#">Features</a>
+          </li>
+
+          <li>
+            <a href="#">Ecosystem</a>
+          </li>
+
+          <li>
+            <a href="https://shiftlab.github.io/pytorch/blog/">Blog</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/tutorials">Tutorials</a>
+          </li>
+
+          <li>
+            <a href="https://pytorch.org/docs/stable/index.html">Docs</a>
+          </li>
+
+          <li>
+            <a href="https://shiftlab.github.io/pytorch/resources">Resources</a>
+          </li>
+
+          <li>
+            <a href="https://github.com/pytorch/pytorch">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <script type="text/javascript" src="../_static/js/vendor/anchor.min.js"></script>
+
+  <script type="text/javascript">
+    mobileMenu.bind();
+    mobileTOC.bind();
+    pytorchAnchors.bind();
+
+    $(window).on("load", function() {
+      sideMenus.bind();
+      scrollToAnchor.bind();
+      highlightNavigation.bind();
+    })
+
+    // Add class to links that have code blocks, since we cannot create links in code blocks
+    $("article.pytorch-article a span.pre").each(function(e) {
+      $(this).closest("a").addClass("has-code");
+    });
+  </script>
+</body>
+</html>
