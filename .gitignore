@@ -5,3 +5,4 @@ examples/domain_adaptation/image_classification/custom_dan/analysis-2023-02-03-1
 *.feather
 /data/*/
 **/custom_dan*/
+examples/domain_adaptation/image_classification/data/
