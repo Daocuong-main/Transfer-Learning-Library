@@ -360,7 +360,7 @@ def main(args: argparse.Namespace):
         return
 
     if args.phase == 'test':
-        acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time = custom_utils.validate(
+        acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time, report_table = custom_utils.validate(
             test_loader, classifier, args, device)
         print("Test result below...")
         print("test_acc1 = {:3.5f}".format(acc1))
@@ -373,6 +373,7 @@ def main(args: argparse.Namespace):
         print('avg_time = {:3.5f}'.format(avg_time))
         print('min_time = {:3.5f}'.format(min_time))
         print('max_time = {:3.5f}'.format(max_time))
+        print(report_table)
         fig, ax = plt.subplots(figsize=(10, 10))
         conf_filename = osp.join(logger.visualize_directory, 'conf.pdf')
         disp = ConfusionMatrixDisplay(
@@ -395,7 +396,7 @@ def main(args: argparse.Namespace):
         train_acc.append(train_acc1)
         train_loss.append(train_loss1)
         # evaluate on validation set
-        acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time = custom_utils.validate(
+        acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time, report_table = custom_utils.validate(
             val_loader, classifier, args, device)
         val_acc.append(acc1)
         val_loss.append(loss1)
@@ -423,7 +424,7 @@ def main(args: argparse.Namespace):
 
     # evaluate on test set
     classifier.load_state_dict(torch.load(logger.get_checkpoint_path('best')))
-    acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time = custom_utils.validate(
+    acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time, report_table = custom_utils.validate(
         test_loader, classifier, args, device)
     print("Test result below...")
     print("test_acc1 = {:3.5f}".format(acc1))
@@ -436,6 +437,7 @@ def main(args: argparse.Namespace):
     print('avg_time = {:3.5f}'.format(avg_time))
     print('min_time = {:3.5f}'.format(min_time))
     print('max_time = {:3.5f}'.format(max_time))
+    print(report_table)
     # graph
     fig = plt.figure(figsize=(10, 6))
     plot_graph(list(range(0, args.epochs)),

@@ -15,7 +15,7 @@ import tllib.vision.datasets as datasets
 import os.path as osp
 import time
 from PIL import Image
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 import numpy as np
 import torch
 import torch.nn as nn
@@ -186,12 +186,13 @@ def validate(val_loader, model, args, device) -> float:
         if confmat:
             print(confmat.format(args.class_names))
     conf_mat = confusion_matrix(all_targets, all_preds)
+    report_table = classification_report(all_targets, all_preds, target_names = args.class_names, digits=5, zero_division=0)
     avg_time = float(sum(predict_time)/len(predict_time))
     min_time = min(predict_time)
     max_time = max(predict_time)
     # return top1.avg, losses.avg
 
-    return top1.avg, losses.avg, scoremas.avg, scoremis.avg, precisionmas.avg, precisionmis.avg, recallmas.avg, recallmis.avg, conf_mat, avg_time, min_time, max_time
+    return top1.avg, losses.avg, scoremas.avg, scoremis.avg, precisionmas.avg, precisionmis.avg, recallmas.avg, recallmis.avg, conf_mat, avg_time, min_time, max_time, report_table
 
 
 def get_train_transform(resizing='default', scale=(0.08, 1.0), ratio=(3. / 4., 4. / 3.), random_horizontal_flip=True,
