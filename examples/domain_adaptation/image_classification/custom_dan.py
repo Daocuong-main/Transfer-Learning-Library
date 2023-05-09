@@ -109,12 +109,6 @@ def mahalanobis_distance(difference, num_random_features):
     num_samples, _ = difference.shape
     sigma = torch.cov(difference.T)
 
-    # try:
-    #     torch.linalg.pinv(sigma)
-    # except LinAlgError:
-    #     warn('covariance matrix is singular. Pvalue returned is 1.1')
-    #     raise
-
     mu = torch.mean(difference, 0)
 
     if num_random_features == 1:
@@ -124,25 +118,6 @@ def mahalanobis_distance(difference, num_random_features):
         stat = num_samples * torch.matmul(mu, torch.matmul(sigma, mu.T))
 
     return chi2.sf(stat.detach().cpu(), num_random_features)
-
-# def mahalanobis_distance(difference, num_random_features):
-#     num_samples, _ = shape(difference)
-#     sigma = cov(transpose(difference))
-
-#     try:
-#         linalg.inv(sigma)
-#     except LinAlgError:
-#         warn('covariance matrix is singular. Pvalue returned is 1.1')
-#         raise
-
-#     mu = mean(difference, 0)
-
-#     if num_random_features == 1:
-#         stat = float(num_samples * mu ** 2) / float(sigma)
-#     else:
-#         stat = num_samples * mu.dot(solve(sigma, transpose(mu)))
-
-#     return chi2.sf(stat, num_random_features)
 
 class MeanEmbeddingTest:
 
@@ -173,7 +148,8 @@ class MeanEmbeddingTest:
 
         _, dimension = self.data_x.size()
         obs = self.vector_of_differences(dimension)
-
+        print(f'obs: {obs}')
+        print(f'obs size: {obs.size()}')
         return mahalanobis_distance(obs, self.number_of_frequencies)
 
 def split_data(df, frac=0.2):
@@ -450,7 +426,7 @@ def main(args: argparse.Namespace):
         if acc1 > best_acc1:
             shutil.copy(logger.get_checkpoint_path('latest'),
                         logger.get_checkpoint_path('best'))
-        print(conf_mat)
+        # print(conf_mat)
         best_acc1 = max(acc1, best_acc1)
     # Calculate the elapsed time
     elapsed_time = time.time() - start_time
@@ -559,6 +535,7 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
             mkme_loss = MeanEmbeddingTest(
                 f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, device=device)
             transfer_loss = mkme_loss.compute_pvalue()
+            print(f'transfer_loss: {trans_losses}')
         # print(transfer_loss)
         loss = cls_loss + transfer_loss * args.trade_off
 

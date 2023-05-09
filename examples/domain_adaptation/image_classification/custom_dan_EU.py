@@ -129,6 +129,8 @@ class MeanEmbeddingTest:
 
         _, dimension = self.data_x.size()
         obs = self.vector_of_differences(dimension)
+        print(f'obs: {obs}')
+        print(f'obs size: {obs.size()}')
         return torch.norm(obs)
 
 
@@ -406,7 +408,7 @@ def main(args: argparse.Namespace):
         if acc1 > best_acc1:
             shutil.copy(logger.get_checkpoint_path('latest'),
                         logger.get_checkpoint_path('best'))
-        print(conf_mat)
+        # print(conf_mat)
         best_acc1 = max(acc1, best_acc1)
     # Calculate the elapsed time
     elapsed_time = time.time() - start_time
@@ -500,9 +502,9 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
 
         cls_loss = F.cross_entropy(y_s, labels_s)
         # print("f_s")
-        # print(f_s)
+        # print(f_s.size())
         # print("f_t")
-        # print(f_t)
+        # print(f_t.size())
         if args.loss_function == 'MKMMD':
 
             transfer_loss = mkmmd_loss(f_s, f_t)
@@ -515,6 +517,7 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
             mkme_loss = MeanEmbeddingTest(
                 f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, device=device)
             transfer_loss = mkme_loss.compute_pvalue()
+            print(f'transfer_loss: {trans_losses}')
         # print(transfer_loss)
         loss = cls_loss + transfer_loss * args.trade_off
 
