@@ -262,4 +262,3 @@ if __name__ == '__main__':
                              "When phase is 'analysis', only analysis the model.")
     args = parser.parse_args()
     main(args)
-

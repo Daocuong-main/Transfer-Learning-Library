@@ -50,10 +50,6 @@ gc.collect()
 torch.cuda.empty_cache()
 warnings.filterwarnings("ignore", category=UserWarning)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-"""
-@author: Junguang Jiang
-@contact: JiangJunguang1123@outlook.com
-"""
 
 
 def tsne_visualize(source_feature: torch.Tensor, target_feature: torch.Tensor, filename: str, source_color='r', target_color='b'):
@@ -105,52 +101,64 @@ def tsne_visualize(source_feature: torch.Tensor, target_feature: torch.Tensor, f
     # save figure
     plt.savefig(filename)
 
-def mahalanobis_distance(difference, num_random_features):
+
+def pinverse(difference, num_random_features):
     num_samples, _ = difference.shape
     sigma = torch.cov(difference.T)
-
     mu = torch.mean(difference, 0)
-
     if num_random_features == 1:
-        stat = float(num_samples * torch.pow(mu,2)) / float(sigma)
+        stat = float(num_samples * torch.pow(mu, 2)) / float(sigma)
     else:
         sigma = torch.pinverse(sigma)
-        stat = num_samples * torch.matmul(mu, torch.matmul(sigma, mu.T))
-
+        right_side = torch.matmul(mu, torch.matmul(sigma, mu.T))
+        stat = num_samples * right_side
     return chi2.sf(stat.detach().cpu(), num_random_features)
+
+
+def unnorm(difference, num_random_features):
+    num_samples, _ = difference.shape
+    sigma = torch.cov(difference.T)
+    mu = torch.mean(difference, 0)
+    if num_random_features == 1:
+        stat = float(num_samples * torch.pow(mu, 2)) / float(sigma)
+    else:
+        right_side = torch.matmul(mu, mu.T)
+        stat = num_samples * right_side
+    return chi2.sf(stat.detach().cpu(), num_random_features)
+
 
 class MeanEmbeddingTest:
 
-    def __init__(self, data_x, data_y, scale, number_of_random_frequencies, device):
+    def __init__(self, data_x, data_y, scale, number_of_random_frequencies, method, device):
         self.device = device
         self.data_x = scale * data_x.to(device)
         self.data_y = scale * data_y.to(device)
         self.number_of_frequencies = number_of_random_frequencies
         self.scale = scale
+        self.method = method
 
     def get_estimate(self, data, point):
         z = data - self.scale * point
         z2 = torch.norm(z, p=2, dim=1)**2
         return torch.exp(-z2/2.0)
 
-
     def get_difference(self, point):
         return self.get_estimate(self.data_x, point) - self.get_estimate(self.data_y, point)
 
-
     def vector_of_differences(self, dim):
-        points = torch.randn(self.number_of_frequencies,
-                             dim, device=self.device)
+        points = torch.tensor(numpy.random.randn(
+            self.number_of_frequencies, dim)).to(device)
         a = [self.get_difference(point) for point in points]
         return torch.stack(a).T
-    
+
     def compute_pvalue(self):
 
         _, dimension = self.data_x.size()
         obs = self.vector_of_differences(dimension)
-        print(f'obs: {obs}')
-        print(f'obs size: {obs.size()}')
-        return mahalanobis_distance(obs, self.number_of_frequencies)
+        if self.method == "unnorm":
+            return unnorm(obs, self.number_of_frequencies)
+        return pinverse(obs, self.number_of_frequencies)
+
 
 def split_data(df, frac=0.2):
     seletected = df['flow_id'].drop_duplicates().sample(frac=frac)
@@ -299,7 +307,7 @@ def main(args: argparse.Namespace):
         print('Concate data')
         args.class_names = ['Ecommerce', 'Video', 'Google_Service']
         num_classes = len(args.class_names)
-        if args.kich_ban == "S2T":
+        if args.scenario == "S2T":
             train_source = pd.read_feather(
                 '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
             train_target = pd.read_feather(
@@ -535,7 +543,7 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
             mkme_loss = MeanEmbeddingTest(
                 f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, device=device)
             transfer_loss = mkme_loss.compute_pvalue()
-            print(f'transfer_loss: {trans_losses}')
+            # print(f'transfer_loss: {transfer_loss}')
         # print(transfer_loss)
         loss = cls_loss + transfer_loss * args.trade_off
 
@@ -642,7 +650,9 @@ if __name__ == '__main__':
     parser.add_argument("--phase", type=str, default='train', choices=['train', 'test', 'analysis'],
                         help="When phase is 'test', only test the model."
                              "When phase is 'analysis', only analysis the model.")
-    parser.add_argument('-kb', '--kich-ban', metavar='KICh BAN',
-                        default='S2T', help='Kich ban du lieu')
+    parser.add_argument('-scenario', metavar='Scenario',
+                        default='S2T', help='Scenario')
+    parser.add_argument('-ts', '--test_statistic', metavar='Two-sample test statistic',
+                        help='Two-sample test statistic method', default='pinverse', type=str)
     args = parser.parse_args()
     main(args)
