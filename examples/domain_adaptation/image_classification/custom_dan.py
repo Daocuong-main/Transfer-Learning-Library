@@ -25,8 +25,11 @@ import torch
 import torch.backends.cudnn as cudnn
 import torch.nn as nn
 import torch.nn.functional as F
+import utils
 from custom_utils import plot_graph
 from matplotlib import pyplot as plt
+from numpy import (concatenate, cos, cov, exp, mean, newaxis, shape, sin,
+                   transpose)
 from numpy.linalg import LinAlgError, linalg, solve
 from scipy.stats import chi2
 from sklearn.manifold import TSNE
@@ -127,6 +130,30 @@ def unnorm(difference, num_random_features):
     return chi2.sf(stat.detach().cpu(), num_random_features)
 
 
+def smooth(data):
+    w = torch.linalg.norm(data, dim=1)
+    w = torch.exp(-w ** 2 / 2.0)
+    return w[:, newaxis]
+
+
+def smooth_cf(data, w, random_frequencies):
+    n, _ = data.shape
+    _, d = random_frequencies.shape
+    mat = torch.matmul(data,random_frequencies)
+    arr = torch.cat((torch.sin(mat) * w, torch.cos(mat) * w), dim = 1)
+    n1, d1 = arr.shape
+    assert n1 == n and d1 == 2 * d and w.shape == (n, 1)
+    return arr
+
+
+def smooth_difference(random_frequencies, X, Y):
+    x_smooth = smooth(X)
+    y_smooth = smooth(Y)
+    characteristic_function_x = smooth_cf(X, x_smooth, random_frequencies)
+    characteristic_function_y = smooth_cf(Y, y_smooth, random_frequencies)
+    return characteristic_function_x - characteristic_function_y
+
+
 class MeanEmbeddingTest:
 
     def __init__(self, data_x, data_y, scale, number_of_random_frequencies, method, device):
@@ -159,6 +186,30 @@ class MeanEmbeddingTest:
             return unnorm(obs, self.number_of_frequencies)
         return pinverse(obs, self.number_of_frequencies)
 
+class SmoothCFTest:
+
+    def _gen_random(self, dimension):
+        return torch.tensor(numpy.random.randn(dimension, self.num_random_features).astype(np.float32)).to(self.device)
+
+
+    def __init__(self, data_x, data_y, scale, num_random_features, device, method):
+        self.device = device
+        self.method = method
+        self.data_x = scale*data_x.to(self.device)
+        self.data_y = scale*data_y.to(self.device)
+        self.num_random_features = num_random_features
+
+        _, dimension_x = numpy.shape(self.data_x)
+        _, dimension_y = numpy.shape(self.data_y)
+        assert dimension_x == dimension_y
+        self.random_frequencies = self._gen_random(dimension_x)
+
+
+    def compute_pvalue(self):
+        difference = smooth_difference(self.random_frequencies, self.data_x, self.data_y)
+        if self.method == "unnorm":
+            return unnorm(difference, self.num_random_features)
+        return pinverse(difference, self.num_random_features)
 
 def split_data(df, frac=0.2):
     seletected = df['flow_id'].drop_duplicates().sample(frac=frac)
@@ -244,6 +295,31 @@ def main(args: argparse.Namespace):
     cudnn.benchmark = True
 
     # Data loading code
+    
+    # #Original code
+    # train_transform = utils.get_train_transform(args.train_resizing, scale=args.scale, ratio=args.ratio,
+    #                                             random_horizontal_flip=not args.no_hflip,
+    #                                             random_color_jitter=False, resize_size=args.resize_size,
+    #                                             norm_mean=args.norm_mean, norm_std=args.norm_std)
+    # val_transform = utils.get_val_transform(args.val_resizing, resize_size=args.resize_size,
+    #                                         norm_mean=args.norm_mean, norm_std=args.norm_std)
+    # print("train_transform: ", train_transform)
+    # print("val_transform: ", val_transform)
+
+    # train_source_dataset, train_target_dataset, val_dataset, test_dataset, num_classes, args.class_names = \
+    #     utils.get_dataset(args.data, args.root, args.source, args.target, train_transform, val_transform)
+    # train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
+    #                                  shuffle=True, num_workers=args.workers, drop_last=True)
+    # train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
+    #                                  shuffle=True, num_workers=args.workers, drop_last=True)
+    # val_loader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+    # test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+
+    # train_source_iter = ForeverDataIterator(train_source_loader)
+    # train_target_iter = ForeverDataIterator(train_target_loader)
+    
+    #Modified code
+    
     if args.data == 'GQUIC':
         print('GQUIC data')
         args.class_names = ['File_transfer', 'Music', 'VoIP', 'Youtube']
@@ -350,6 +426,7 @@ def main(args: argparse.Namespace):
     # print(summary(backbone, (3, 244, 244)))
     # print("Classifier")
     # print(summary(classifier, (3, 244, 244)))
+    
     # define optimizer and lr scheduler
     optimizer = SGD(classifier.get_parameters(), args.lr,
                     momentum=args.momentum, weight_decay=args.wd, nesterov=True)
@@ -534,14 +611,13 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
         if args.loss_function == 'MKMMD':
 
             transfer_loss = mkmmd_loss(f_s, f_t)
-        elif args.loss_function == "Both":
-            mkme_loss = MeanEmbeddingTest(
-                f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, device=device)
-            transfer_loss = (mkmmd_loss(f_s, f_t) +
-                             mkme_loss.compute_pvalue())/2.0
+        elif args.loss_function == "SCF":
+            scf_loss = SmoothCFTest(
+                f_s, f_t, scale=args.scale_parameter, num_random_features=args.random_frequencies, method=args.test_statistic ,device=device)
+            transfer_loss = scf_loss.compute_pvalue()
         else:
             mkme_loss = MeanEmbeddingTest(
-                f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, device=device)
+                f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, method=args.test_statistic ,device=device)
             transfer_loss = mkme_loss.compute_pvalue()
             # print(f'transfer_loss: {transfer_loss}')
         # print(transfer_loss)
@@ -599,7 +675,7 @@ if __name__ == '__main__':
     #                     default=(0.229, 0.224, 0.225), help='normalization std')
     # model parameters
     parser.add_argument('-lf', '--loss-function', metavar='LOSS FUNCTION',
-                        default='MKMMD', help='loss function MK-MMD or MK-ME')
+                        default='MKMMD', help='loss function MK-MMD, MK-ME, SCF')
     parser.add_argument('-s_param', '--scale-parameter', type=float,
                         default=1, help='scale parameter of MK-ME loss function')
     parser.add_argument('-rf', '--random-frequencies', type=int,
@@ -652,7 +728,7 @@ if __name__ == '__main__':
                              "When phase is 'analysis', only analysis the model.")
     parser.add_argument('-scenario', metavar='Scenario',
                         default='S2T', help='Scenario')
-    parser.add_argument('-ts', '--test_statistic', metavar='Two-sample test statistic',
+    parser.add_argument('-ts', '--test-statistic', metavar='Two-sample test statistic',
                         help='Two-sample test statistic method', default='pinverse', type=str)
     args = parser.parse_args()
     main(args)

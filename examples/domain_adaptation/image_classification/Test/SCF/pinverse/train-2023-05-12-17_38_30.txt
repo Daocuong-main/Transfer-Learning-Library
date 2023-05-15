@@ -1,0 +1,11 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, data='Both', epochs=150, iters_per_epoch=500, label=3, log='Test/SCF/pinverse', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='pinverse', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+=> using model 'resnet50'
+Traceback (most recent call last):
+  File "custom_dan.py", line 734, in <module>
+    main(args)
+  File "custom_dan.py", line 500, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 616, in train
+    f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, method=args.test_statistic ,device=device)
+TypeError: __init__() got an unexpected keyword argument 'number_of_random_frequencies'

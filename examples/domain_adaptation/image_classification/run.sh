@@ -42,3 +42,11 @@
 # python custom_dan_EU.py -d Both -a resnet50 -lf MKMMD --epochs 150 -b 16 -i 500 -kb S2T --trade-off 1 --log Test/MKMMD --per-class-eval
 # python custom_dan_EU.py -d Both -a resnet50 -lf MKME --epochs 150 -b 16 -i 500 -kb S2T --trade-off 1 --log Test/non_cov --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf MKME --epochs 150 -b 16 -i 500 -kb S2T --trade-off 1 --log Test/pinverse --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/unnorm --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/pinverse --per-class-eval
+
+# python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/unnorm --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/pinverse --per-class-eval
+
+# python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 0 --log Test/zero_lambda --per-class-eval
