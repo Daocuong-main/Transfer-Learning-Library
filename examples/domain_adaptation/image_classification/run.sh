@@ -43,10 +43,89 @@
 # python custom_dan_EU.py -d Both -a resnet50 -lf MKME --epochs 150 -b 16 -i 500 -kb S2T --trade-off 1 --log Test/non_cov --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf MKME --epochs 150 -b 16 -i 500 -kb S2T --trade-off 1 --log Test/pinverse --per-class-eval
 
-python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/unnorm --per-class-eval
-python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/pinverse --per-class-eval
+#1
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/pinverse/S2T --per-class-eval
 
-# python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/unnorm --per-class-eval
-# python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/pinverse --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/pinverse/S2T --per-class-eval
 
-# python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 0 --log Test/zero_lambda --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 0 --log Test/zero_lambda/S2T --per-class-eval
+#2
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 0 --log Test/zero_lambda/S2T --per-class-eval
+#3
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 0 --log Test/zero_lambda/S2T --per-class-eval
+#4
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 0 --log Test/zero_lambda/S2T --per-class-eval
+#5
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/SCF/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/unnorm/S2T --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 1 --log Test/ME/pinverse/S2T --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario S2T --trade-off 0 --log Test/zero_lambda/S2T --per-class-eval
+
+#1
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 0 --log Test/zero_lambda/T2S --per-class-eval
+
+#2
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 0 --log Test/zero_lambda/T2S --per-class-eval
+
+#3
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 0 --log Test/zero_lambda/T2S --per-class-eval
+
+#4
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 0 --log Test/zero_lambda/T2S --per-class-eval
+
+#5
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/SCF/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/unnorm/T2S --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 1 --log Test/ME/pinverse/T2S --per-class-eval
+
+python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 150 -b 16 -i 500 -scenario T2S --trade-off 0 --log Test/zero_lambda/T2S --per-class-eval
+

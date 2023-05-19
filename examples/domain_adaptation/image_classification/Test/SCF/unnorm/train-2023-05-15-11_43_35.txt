@@ -1,0 +1,62 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, data='Both', epochs=150, iters_per_epoch=500, label=3, log='Test/SCF/unnorm', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='unnorm', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 2.39 (2.39)	Data 0.0 (0.0)	Loss 2.04 (2.04)	Trans Loss 1.0000 (1.0000)	Cls Acc 50.0 (50.0)
+Epoch: [0][100/500]	Time 0.06 (0.09)	Data 0.0 (0.0)	Loss 1.12 (1.61)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (74.5)
+Epoch: [0][200/500]	Time 0.07 (0.08)	Data 0.0 (0.0)	Loss 1.12 (1.39)	Trans Loss 1.0000 (1.0000)	Cls Acc 93.8 (83.9)
+Epoch: [0][300/500]	Time 0.07 (0.07)	Data 0.0 (0.0)	Loss 1.19 (1.31)	Trans Loss 1.0000 (1.0000)	Cls Acc 87.5 (87.3)
+Epoch: [0][400/500]	Time 0.07 (0.07)	Data 0.0 (0.0)	Loss 1.09 (1.26)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (89.3)
+Test: [  0/147]	Time  0.091 ( 0.091)	Loss 1.2874e-05 (1.2874e-05)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.018 ( 0.018)	Loss 1.9411e+00 (5.7844e-01)	Acc@1  68.75 ( 78.47)
+ * Acc@1 77.248
+ * F1 macro = 0.62988
+ * F1 micro= 0.77248
+ * precision macro= 0.70558
+ * precision micro= 0.77248
+ * recall macro = 0.59414
+ * recall micro = 0.77248
+global correct: 77.2
+mean correct:78.9
+mean IoU: 64.0
++----------------+-------------------+--------------------+
+|     class      |        acc        |        iou         |
++----------------+-------------------+--------------------+
+|   Ecommerce    |       100.0       |       100.0        |
+|     Video      | 49.89247131347656 | 46.492984771728516 |
+| Google_Service | 86.77042388916016 | 45.51020431518555  |
++----------------+-------------------+--------------------+
+Epoch: [1][  0/500]	Time 0.06 (0.06)	Data 0.0 (0.0)	Loss 1.02 (1.02)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [1][100/500]	Time 0.06 (0.07)	Data 0.0 (0.0)	Loss 1.11 (1.03)	Trans Loss 1.0000 (1.0000)	Cls Acc 93.8 (98.9)
+Epoch: [1][200/500]	Time 0.06 (0.06)	Data 0.0 (0.0)	Loss 1.05 (1.05)	Trans Loss 1.0000 (1.0000)	Cls Acc 93.8 (98.3)
+Epoch: [1][300/500]	Time 0.06 (0.07)	Data 0.0 (0.0)	Loss 1.01 (1.04)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (98.6)
+Epoch: [1][400/500]	Time 0.07 (0.07)	Data 0.0 (0.0)	Loss 1.00 (1.03)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (98.9)
+Test: [  0/147]	Time  0.071 ( 0.071)	Loss 5.9605e-07 (5.9605e-07)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.018 ( 0.019)	Loss 3.2851e+00 (1.1578e+00)	Acc@1  37.50 ( 73.21)
+ * Acc@1 73.541
+ * F1 macro = 0.64587
+ * F1 micro= 0.73541
+ * precision macro= 0.74350
+ * precision micro= 0.73541
+ * recall macro = 0.61338
+ * recall micro = 0.73541
+global correct: 73.5
+mean correct:76.7
+mean IoU: 59.7
++----------------+-------------------+-------------------+
+|     class      |        acc        |        iou        |
++----------------+-------------------+-------------------+
+|   Ecommerce    |       100.0       |  99.8893814086914 |
+|     Video      | 37.09677505493164 | 35.71428680419922 |
+| Google_Service | 92.99610900878906 | 43.53369903564453 |
++----------------+-------------------+-------------------+
+Epoch: [2][  0/500]	Time 0.06 (0.06)	Data 0.0 (0.0)	Loss 1.00 (1.00)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [2][100/500]	Time 0.07 (0.07)	Data 0.0 (0.0)	Loss 1.01 (1.01)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (99.7)
+Epoch: [2][200/500]	Time 0.07 (0.07)	Data 0.0 (0.0)	Loss 1.00 (1.01)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (99.8)
+Traceback (most recent call last):
+  File "custom_dan.py", line 734, in <module>
+    main(args)
+  File "custom_dan.py", line 500, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 595, in train
+    x_s = x_s.to(device)
+KeyboardInterrupt
