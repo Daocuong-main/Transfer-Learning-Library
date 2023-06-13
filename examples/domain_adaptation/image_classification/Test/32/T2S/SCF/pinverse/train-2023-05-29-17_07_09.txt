@@ -1,0 +1,20 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, data='Both', epochs=100, iters_per_epoch=500, label=3, log='Test/32/T2S/SCF/pinverse/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='pinverse', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+Traceback (most recent call last):
+  File "custom_dan.py", line 737, in <module>
+    main(args)
+  File "custom_dan.py", line 404, in main
+    train_source_dataset = data_processing(train_source)
+  File "custom_dan.py", line 249, in data_processing
+    result = raw_data.groupby('flow_id')['Label'].apply(list).to_dict()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/groupby/generic.py", line 223, in apply
+    return super().apply(func, *args, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/groupby/groupby.py", line 1275, in apply
+    result = self._python_apply_general(f, self._selected_obj)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/groupby/groupby.py", line 1309, in _python_apply_general
+    keys, values, mutated = self.grouper.apply(f, data, self.axis)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/groupby/ops.py", line 847, in apply
+    for key, group in zipped:
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/groupby/ops.py", line 1332, in __iter__
+    yield self._chop(sdata, slice(start, end))
+KeyboardInterrupt

@@ -48,7 +48,7 @@ from tllib.utils.data import ForeverDataIterator
 from tllib.utils.logger import CompleteLogger
 from tllib.utils.meter import AverageMeter, ProgressMeter
 from tllib.utils.metric import accuracy
-
+torch.set_printoptions(profile="full")
 gc.collect()
 torch.cuda.empty_cache()
 warnings.filterwarnings("ignore", category=UserWarning)
@@ -184,7 +184,8 @@ class MeanEmbeddingTest:
         obs = self.vector_of_differences(dimension)
         if self.method == "unnorm":
             return unnorm(obs, self.number_of_frequencies)
-        return pinverse(obs, self.number_of_frequencies)
+        else:
+            return pinverse(obs, self.number_of_frequencies)
 
 class SmoothCFTest:
 
@@ -516,15 +517,16 @@ def main(args: argparse.Namespace):
     # Calculate the elapsed time
     elapsed_time = time.time() - start_time
 
-    # Convert elapsed time to hours, minutes, seconds, and smaller units of seconds
-    hours, rem = divmod(elapsed_time, 3600)
-    minutes, rem = divmod(rem, 60)
-    seconds, microseconds = divmod(rem, 1)
-    microseconds = round(microseconds, 3)
+    # # Convert elapsed time to hours, minutes, seconds, and smaller units of seconds
+    # hours, rem = divmod(elapsed_time, 3600)
+    # minutes, rem = divmod(rem, 60)
+    # seconds, microseconds = divmod(rem, 1)
+    # microseconds = round(microseconds, 3)
 
     # Print the elapsed time
-    print("Elapsed time: {:0>2}:{:0>2}:{:05.3f}".format(
-        int(hours), int(minutes), seconds + microseconds))
+    # print("Elapsed time: {:0>2}:{:0>2}:{:05.3f}".format(
+    #     int(hours), int(minutes), seconds + microseconds))
+    print("Elapsed time: {}".format(elapsed_time))
     print("best_acc1 = {:3.5f}".format(best_acc1))
 
     # evaluate on test set

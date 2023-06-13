@@ -1,0 +1,21 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, data='Both', epochs=100, iters_per_epoch=500, label=3, log='Test/32/T2S/SCF/pinverse/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='pinverse', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+=> using model 'resnet50'
+Traceback (most recent call last):
+  File "custom_dan.py", line 737, in <module>
+    main(args)
+  File "custom_dan.py", line 423, in main
+    backbone = custom_utils.get_model(args.arch, pretrain=not args.scratch)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/custom_utils.py", line 47, in get_model
+    backbone = models.__dict__[model_name](pretrained=pretrain)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/vision/models/resnet.py", line 97, in resnet50
+    **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/vision/models/resnet.py", line 53, in _resnet
+    model = ResNet(block, layers, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/vision/models/resnet.py", line 22, in __init__
+    super(ResNet, self).__init__(*args, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torchvision/models/resnet.py", line 210, in __init__
+    nn.init.kaiming_normal_(m.weight, mode="fan_out", nonlinearity="relu")
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/init.py", line 451, in kaiming_normal_
+    return tensor.normal_(0, std)
+KeyboardInterrupt
