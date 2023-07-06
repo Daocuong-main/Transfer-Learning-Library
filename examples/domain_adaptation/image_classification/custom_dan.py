@@ -11,12 +11,11 @@ import random
 import shutil
 import time
 import warnings
-from warnings import warn
 
+import utils
 import custom_utils
 import cv2
 import matplotlib
-import matplotlib.colors as col
 import matplotlib.pyplot as plt
 import numpy
 import numpy as np
@@ -25,16 +24,12 @@ import torch
 import torch.backends.cudnn as cudnn
 import torch.nn as nn
 import torch.nn.functional as F
-import utils
 from custom_utils import plot_graph
 from matplotlib import pyplot as plt
-from numpy import (concatenate, cos, cov, exp, mean, newaxis, shape, sin,
-                   transpose)
-from numpy.linalg import LinAlgError, linalg, solve
+from numpy import newaxis
 from scipy.stats import chi2
 from sklearn.manifold import TSNE
 from sklearn.metrics import ConfusionMatrixDisplay
-from torch.distributions import Chi2
 from torch.optim import SGD
 from torch.optim.lr_scheduler import LambdaLR
 from torch.utils.data import DataLoader, Dataset
@@ -43,7 +38,7 @@ from torchsummary import summary
 from tllib.alignment.dan import (ImageClassifier,
                                  MultipleKernelMaximumMeanDiscrepancy)
 from tllib.modules.kernels import GaussianKernel
-from tllib.utils.analysis import a_distance, collect_feature, tsne
+from tllib.utils.analysis import a_distance, collect_feature
 from tllib.utils.data import ForeverDataIterator
 from tllib.utils.logger import CompleteLogger
 from tllib.utils.meter import AverageMeter, ProgressMeter
@@ -296,125 +291,129 @@ def main(args: argparse.Namespace):
     cudnn.benchmark = True
 
     # Data loading code
-    
-    # #Original code
-    # train_transform = utils.get_train_transform(args.train_resizing, scale=args.scale, ratio=args.ratio,
-    #                                             random_horizontal_flip=not args.no_hflip,
-    #                                             random_color_jitter=False, resize_size=args.resize_size,
-    #                                             norm_mean=args.norm_mean, norm_std=args.norm_std)
-    # val_transform = utils.get_val_transform(args.val_resizing, resize_size=args.resize_size,
-    #                                         norm_mean=args.norm_mean, norm_std=args.norm_std)
-    # print("train_transform: ", train_transform)
-    # print("val_transform: ", val_transform)
-
-    # train_source_dataset, train_target_dataset, val_dataset, test_dataset, num_classes, args.class_names = \
-    #     utils.get_dataset(args.data, args.root, args.source, args.target, train_transform, val_transform)
-    # train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
-    #                                  shuffle=True, num_workers=args.workers, drop_last=True)
-    # train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
-    #                                  shuffle=True, num_workers=args.workers, drop_last=True)
-    # val_loader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
-    # test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
-
-    # train_source_iter = ForeverDataIterator(train_source_loader)
-    # train_target_iter = ForeverDataIterator(train_target_loader)
-    
+        
     #Modified code
-    
-    if args.data == 'GQUIC':
-        print('GQUIC data')
-        args.class_names = ['File_transfer', 'Music', 'VoIP', 'Youtube']
-        num_classes = 4
+    if args.data == 'GQUIC' and args.data == 'Capture' and args.data == 'Both':
+        if args.data == 'GQUIC':
+            print('GQUIC data')
+            args.class_names = ['File_transfer', 'Music', 'VoIP', 'Youtube']
+            num_classes = 4
 
-        # Set data path
-        Train_path = '/home/bkcs/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Train/GQUIC_data_256.feather'
-        Test_path = '/home/bkcs/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Test/GQUIC_test_256.feather'
-        fallback_Train_path = '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Train/GQUIC_data_256.feather'
-        fallback_Test_path = '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Test/GQUIC_test_256.feather'
+            # Set data path
+            Train_path = '/home/bkcs/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Train/GQUIC_data_256.feather'
+            Test_path = '/home/bkcs/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Test/GQUIC_test_256.feather'
+            fallback_Train_path = '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Train/GQUIC_data_256.feather'
+            fallback_Test_path = '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Test/GQUIC_test_256.feather'
 
-        if os.path.isfile(Train_path):
-            Train_data = pd.read_feather(Train_path)
-            Test_data = pd.read_feather(Test_path)
+            if os.path.isfile(Train_path):
+                Train_data = pd.read_feather(Train_path)
+                Test_data = pd.read_feather(Test_path)
+            else:
+                print("File not found at path:", Train_path)
+                print("Change to:", fallback_Train_path)
+                Train_data = pd.read_feather(fallback_Train_path)
+                Test_data = pd.read_feather(fallback_Test_path)
+            train_source, train_target = source_target_split(
+                Train_data, choice=args.label)
+            train_target, val_raw = split_data(train_target)
+            test_raw = Test_data
+            del Train_data
+            del Test_data
+        elif args.data == 'Capture':
+            print('Capture data')
+            args.class_names = ['Ecommerce', 'Video']
+            num_classes = 2
+
+            # Set data path
+            Train_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
+            Test_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
+            fallback_Train_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
+            fallback_Test_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
+
+            if os.path.isfile(Train_path):
+                Train_data = pd.read_feather(Train_path)
+                Test_data = pd.read_feather(Test_path)
+            else:
+                print("File not found at path:", Train_path)
+                print("Change to:", fallback_Train_path)
+                Train_data = pd.read_feather(fallback_Train_path)
+                Test_data = pd.read_feather(fallback_Test_path)
+
+            label_mapping = {1: 0, 2: 0, 3: 0, 4: 1, 5: 1}
+
+            source_labels = [1, 3, 5]
+            target_labels = [2, 4]
+
+            train_source = Train_data.loc[Train_data['Label'].isin(source_labels)]
+            train_target = Train_data.loc[Train_data['Label'].isin(target_labels)]
+            val_raw = Test_data.loc[Test_data['Label'].isin(source_labels)]
+            test_raw = Test_data.loc[Test_data['Label'].isin(target_labels)]
+
+            train_source = remapping(train_source, label_mapping)
+            train_target = remapping(train_target, label_mapping)
+            val_raw = remapping(val_raw, label_mapping)
+            test_raw = remapping(test_raw, label_mapping)
         else:
-            print("File not found at path:", Train_path)
-            print("Change to:", fallback_Train_path)
-            Train_data = pd.read_feather(fallback_Train_path)
-            Test_data = pd.read_feather(fallback_Test_path)
-        train_source, train_target = source_target_split(
-            Train_data, choice=args.label)
-        train_target, val_raw = split_data(train_target)
-        test_raw = Test_data
-        del Train_data
-        del Test_data
-    elif args.data == 'Capture':
-        print('Capture data')
-        args.class_names = ['Ecommerce', 'Video']
-        num_classes = 2
+            print('Concate data')
+            args.class_names = ['Ecommerce', 'Video', 'Google_Service']
+            num_classes = len(args.class_names)
+            if args.scenario == "S2T":
+                train_source = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
+                train_target = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target.feather')
+                test_raw = val_raw = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw.feather')
+            else:
+                train_target = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
+                train_source = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target.feather')
+                test_raw = val_raw = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw.feather')
 
-        # Set data path
-        Train_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
-        Test_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
-        fallback_Train_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
-        fallback_Test_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
+        train_source_dataset = data_processing(train_source)
+        train_target_dataset = data_processing(train_target)
+        val_dataset = data_processing(val_raw)
+        test_dataset = data_processing(test_raw)
+        del train_source, train_target, val_raw, test_raw
 
-        if os.path.isfile(Train_path):
-            Train_data = pd.read_feather(Train_path)
-            Test_data = pd.read_feather(Test_path)
-        else:
-            print("File not found at path:", Train_path)
-            print("Change to:", fallback_Train_path)
-            Train_data = pd.read_feather(fallback_Train_path)
-            Test_data = pd.read_feather(fallback_Test_path)
+        train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
+                                        shuffle=True, num_workers=args.workers, drop_last=True)
+        train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
+                                        shuffle=True, num_workers=args.workers, drop_last=True)
+        val_loader = DataLoader(
+            val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+        test_loader = DataLoader(
+            test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
 
-        label_mapping = {1: 0, 2: 0, 3: 0, 4: 1, 5: 1}
+        train_source_iter = ForeverDataIterator(train_source_loader)
+        train_target_iter = ForeverDataIterator(train_target_loader)
 
-        source_labels = [1, 3, 5]
-        target_labels = [2, 4]
+    #Original code
 
-        train_source = Train_data.loc[Train_data['Label'].isin(source_labels)]
-        train_target = Train_data.loc[Train_data['Label'].isin(target_labels)]
-        val_raw = Test_data.loc[Test_data['Label'].isin(source_labels)]
-        test_raw = Test_data.loc[Test_data['Label'].isin(target_labels)]
+    if args.data != 'GQUIC' and args.data != 'Capture' and args.data != 'Both':
 
-        train_source = remapping(train_source, label_mapping)
-        train_target = remapping(train_target, label_mapping)
-        val_raw = remapping(val_raw, label_mapping)
-        test_raw = remapping(test_raw, label_mapping)
-    else:
-        print('Concate data')
-        args.class_names = ['Ecommerce', 'Video', 'Google_Service']
-        num_classes = len(args.class_names)
-        if args.scenario == "S2T":
-            train_source = pd.read_feather(
-                '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
-            train_target = pd.read_feather(
-                '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target.feather')
-            test_raw = val_raw = pd.read_feather(
-                '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw.feather')
-        else:
-            train_target = pd.read_feather(
-                '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
-            train_source = pd.read_feather(
-                '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target.feather')
-            test_raw = val_raw = pd.read_feather(
-                '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw.feather')
+        train_transform = utils.get_train_transform(args.train_resizing, scale=args.scale, ratio=args.ratio,
+                                                    random_horizontal_flip=not args.no_hflip,
+                                                    random_color_jitter=False, resize_size=args.resize_size,
+                                                    norm_mean=args.norm_mean, norm_std=args.norm_std)
+        val_transform = utils.get_val_transform(args.val_resizing, resize_size=args.resize_size,
+                                                norm_mean=args.norm_mean, norm_std=args.norm_std)
+        print("train_transform: ", train_transform)
+        print("val_transform: ", val_transform)
 
-    train_source_dataset = data_processing(train_source)
-    train_target_dataset = data_processing(train_target)
-    val_dataset = data_processing(val_raw)
-    test_dataset = data_processing(test_raw)
-    del train_source, train_target, val_raw, test_raw
-    train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
-                                     shuffle=True, num_workers=args.workers, drop_last=True)
-    train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
-                                     shuffle=True, num_workers=args.workers, drop_last=True)
-    val_loader = DataLoader(
-        val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
-    test_loader = DataLoader(
-        test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+        train_source_dataset, train_target_dataset, val_dataset, test_dataset, num_classes, args.class_names = \
+            utils.get_dataset(args.data, args.root, args.source, args.target, train_transform, val_transform)
+        train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
+                                        shuffle=True, num_workers=args.workers, drop_last=True)
+        train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
+                                        shuffle=True, num_workers=args.workers, drop_last=True)
+        val_loader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+        test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
 
-    train_source_iter = ForeverDataIterator(train_source_loader)
-    train_target_iter = ForeverDataIterator(train_target_loader)
+        train_source_iter = ForeverDataIterator(train_source_loader)
+        train_target_iter = ForeverDataIterator(train_target_loader)
 
     # create model
     print("=> using model '{}'".format(args.arch))
