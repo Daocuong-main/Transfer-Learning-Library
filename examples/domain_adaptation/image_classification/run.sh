@@ -80,7 +80,7 @@
 #     done
 # done
 
-for ((iter=1; iter<=3; iter++))
+for ((iter=1; iter<=1; iter++))
 do
     python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 250 -b 16 -i 500 -scenario S2T --trade-off 2 --log Test/Change_lambda/S2T/unnorm/SCF/2/ --per-class-eval
     python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 250 -b 16 -i 500 -scenario S2T --trade-off 0.2 --log Test/Change_lambda/S2T/unnorm/ME/0.2/ --per-class-eval
