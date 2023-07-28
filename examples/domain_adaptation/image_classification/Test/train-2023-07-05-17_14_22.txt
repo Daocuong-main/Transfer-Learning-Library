@@ -1,0 +1,191 @@
+Namespace(arch='resnet50', batch_size=32, bottleneck_dim=256, data='Office31', epochs=3, iters_per_epoch=10, log='Test/', lr=0.01, lr_decay=0.75, lr_gamma=0.001, momentum=0.9, no_hflip=False, no_pool=False, norm_mean=(0.485, 0.456, 0.406), norm_std=(0.229, 0.224, 0.225), per_class_eval=True, phase='train', print_freq=100, ratio=[0.75, 1.3333333333333333], resize_size=224, root='data/office31', scale=[0.08, 1.0], scratch=False, seed=1, source=['A'], target=['W'], trade_off=1.0, train_resizing='default', val_resizing='default', weight_decay=0.001, workers=2)
+dann.py:40: UserWarning: You have chosen to seed training. This will turn on the CUDNN deterministic setting, which can slow down your training considerably! You may see unexpected behavior when restarting from checkpoints.
+  warnings.warn('You have chosen to seed training. '
+train_transform:  Compose(
+    Compose(
+    ResizeImage(size=(256, 256))
+    RandomResizedCrop(size=(224, 224), scale=(0.08, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear), antialias=None)
+)
+    RandomHorizontalFlip(p=0.5)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+val_transform:  Compose(
+    Compose(
+    ResizeImage(size=(256, 256))
+    CenterCrop(size=(224, 224))
+)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+=> using model 'resnet50'
+/home/bkcs/miniconda3/lib/python3.7/site-packages/torchvision/models/_utils.py:253: UserWarning: Accessing the model URLs via the internal dictionary of the module is deprecated since 0.13 and may be removed in the future. Please access them via the appropriate Weights Enum instead.
+  "Accessing the model URLs via the internal dictionary of the module is deprecated since 0.13 and may "
+lr: 0.001
+Epoch: [0][ 0/10]	Time  5.14 ( 5.14)	Data  0.01 ( 0.01)	Loss   4.33 (  4.33)	Cls Acc 3.1 (3.1)	Domain Acc 42.2 (42.2)
+Test: [ 0/25]	Time  1.538 ( 1.538)	Loss 3.1549e+00 (3.1549e+00)	Acc@1   6.25 (  6.25)
+ * Acc@1 43.648
+global correct: 43.6
+mean correct:41.5
+mean IoU: 26.9
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    back_pack     | 10.344827651977539 | 10.344827651977539 |
+|       bike       |       100.0        | 91.30435180664062  |
+|   bike_helmet    | 89.28571319580078  | 32.05128479003906  |
+|     bookcase     |        0.0         |        0.0         |
+|      bottle      |        0.0         |        0.0         |
+|    calculator    |  3.22580623626709  |  3.22580623626709  |
+|    desk_chair    |        97.5        |        78.0        |
+|    desk_lamp     |  44.4444465637207  | 19.51219367980957  |
+| desktop_computer |        0.0         |        0.0         |
+|   file_cabinet   | 5.263157844543457  | 5.263157844543457  |
+|    headphones    |       100.0        | 42.85714340209961  |
+|     keyboard     | 70.37036895751953  | 55.88235092163086  |
+| laptop_computer  |        20.0        |        20.0        |
+|   letter_tray    | 10.526315689086914 | 4.255319118499756  |
+|   mobile_phone   | 56.66666793823242  |  38.6363639831543  |
+|     monitor      | 27.906978607177734 | 27.906978607177734 |
+|      mouse       | 26.666667938232422 | 21.62162208557129  |
+|       mug        | 81.48148345947266  | 78.57142639160156  |
+|  paper_notebook  | 67.85713958740234  | 67.85713958740234  |
+|       pen        |       65.625       | 56.75675964355469  |
+|      phone       |        87.5        | 26.923078536987305 |
+|     printer      |       100.0        |  43.4782600402832  |
+|    projector     | 30.000001907348633 | 29.032257080078125 |
+|     punchers     |        0.0         |        0.0         |
+|   ring_binder    |        27.5        | 26.19047737121582  |
+|      ruler       |        0.0         |        0.0         |
+|     scissors     |        24.0        |        20.0        |
+|     speaker      |        50.0        |       18.75        |
+|     stapler      | 4.1666669845581055 |        4.0         |
+|  tape_dispenser  |  86.9565200805664  | 12.658227920532227 |
+|    trash_can     |        0.0         |        0.0         |
++------------------+--------------------+--------------------+
+lr: 0.0009925650290240804
+Epoch: [1][ 0/10]	Time  4.80 ( 4.80)	Data  0.01 ( 0.01)	Loss   2.88 (  2.88)	Cls Acc 40.6 (40.6)	Domain Acc 92.2 (92.2)
+Test: [ 0/25]	Time  1.403 ( 1.403)	Loss 2.4313e+00 (2.4313e+00)	Acc@1  25.00 ( 25.00)
+ * Acc@1 60.755
+global correct: 60.8
+mean correct:59.5
+mean IoU: 43.4
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    back_pack     | 62.06896209716797  | 51.42857360839844  |
+|       bike       |       100.0        |       100.0        |
+|   bike_helmet    | 85.71428680419922  |        75.0        |
+|     bookcase     | 58.33333206176758  |        50.0        |
+|      bottle      |        0.0         |        0.0         |
+|    calculator    | 25.80644989013672  | 25.80644989013672  |
+|    desk_chair    |        97.5        | 84.78260803222656  |
+|    desk_lamp     |       100.0        | 24.324325561523438 |
+| desktop_computer | 4.761904716491699  | 4.761904716491699  |
+|   file_cabinet   |       100.0        | 70.37036895751953  |
+|    headphones    | 96.29629516601562  | 83.87096405029297  |
+|     keyboard     | 96.29629516601562  | 60.46511459350586  |
+| laptop_computer  | 56.66666793823242  | 56.66666793823242  |
+|   letter_tray    | 15.789472579956055 | 10.714285850524902 |
+|   mobile_phone   | 33.333335876464844 | 27.77777862548828  |
+|     monitor      | 65.11627960205078  | 48.27585983276367  |
+|      mouse       | 63.33333206176758  | 61.29032516479492  |
+|       mug        | 92.59259033203125  |  80.6451644897461  |
+|  paper_notebook  | 60.71428680419922  |        50.0        |
+|       pen        |       100.0        | 65.30612182617188  |
+|      phone       |       81.25        | 48.14814758300781  |
+|     printer      |        90.0        | 46.153846740722656 |
+|    projector     |        70.0        | 44.680850982666016 |
+|     punchers     |        0.0         |        0.0         |
+|   ring_binder    | 7.500000476837158  | 7.500000476837158  |
+|      ruler       | 9.090909004211426  | 9.090909004211426  |
+|     scissors     |        96.0        | 45.28302001953125  |
+|     speaker      | 60.000003814697266 | 22.22222328186035  |
+|     stapler      | 54.16666793823242  | 29.545454025268555 |
+|  tape_dispenser  |  43.4782600402832  |  43.4782600402832  |
+|    trash_can     | 19.047618865966797 | 17.39130401611328  |
++------------------+--------------------+--------------------+
+lr: 0.0009852577760521605
+Epoch: [2][ 0/10]	Time  4.67 ( 4.67)	Data  0.01 ( 0.01)	Loss   1.67 (  1.67)	Cls Acc 62.5 (62.5)	Domain Acc 98.4 (98.4)
+Test: [ 0/25]	Time  1.376 ( 1.376)	Loss 1.4148e+00 (1.4148e+00)	Acc@1  90.62 ( 90.62)
+ * Acc@1 65.912
+global correct: 65.9
+mean correct:65.1
+mean IoU: 50.1
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    back_pack     | 79.31034851074219  | 63.88888931274414  |
+|       bike       |       100.0        | 95.45454406738281  |
+|   bike_helmet    | 85.71428680419922  | 85.71428680419922  |
+|     bookcase     | 66.66667175292969  | 57.142860412597656 |
+|      bottle      |        0.0         |        0.0         |
+|    calculator    | 90.32257843017578  | 65.11627960205078  |
+|    desk_chair    |        95.0        | 90.47618865966797  |
+|    desk_lamp     |       100.0        |        36.0        |
+| desktop_computer | 19.047618865966797 |        12.5        |
+|   file_cabinet   |       100.0        | 42.22222137451172  |
+|    headphones    |       100.0        |       84.375       |
+|     keyboard     | 81.48148345947266  | 75.86206817626953  |
+| laptop_computer  |        90.0        |  61.3636360168457  |
+|   letter_tray    |  26.3157901763916  | 16.129032135009766 |
+|   mobile_phone   | 3.3333334922790527 | 3.3333334922790527 |
+|     monitor      | 20.930233001708984 | 20.454545974731445 |
+|      mouse       |       100.0        | 55.55555725097656  |
+|       mug        |       100.0        |       100.0        |
+|  paper_notebook  |        75.0        |  63.6363639831543  |
+|       pen        |       100.0        | 57.142860412597656 |
+|      phone       |       68.75        | 57.894737243652344 |
+|     printer      |        75.0        | 57.69230651855469  |
+|    projector     |        70.0        | 55.26315689086914  |
+|     punchers     | 3.7037036418914795 | 3.7037036418914795 |
+|   ring_binder    |        47.5        | 37.25490188598633  |
+|      ruler       |  36.3636360168457  | 33.333335876464844 |
+|     scissors     |        80.0        | 76.92308044433594  |
+|     speaker      |        40.0        | 19.047618865966797 |
+|     stapler      |        50.0        |        37.5        |
+|  tape_dispenser  | 69.56521606445312  |        64.0        |
+|    trash_can     | 42.85714340209961  | 23.076923370361328 |
++------------------+--------------------+--------------------+
+best_acc1 = 65.9
+Test: [ 0/25]	Time  1.396 ( 1.396)	Loss 1.4148e+00 (1.4148e+00)	Acc@1  90.62 ( 90.62)
+ * Acc@1 65.912
+global correct: 65.9
+mean correct:65.1
+mean IoU: 50.1
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    back_pack     | 79.31034851074219  | 63.88888931274414  |
+|       bike       |       100.0        | 95.45454406738281  |
+|   bike_helmet    | 85.71428680419922  | 85.71428680419922  |
+|     bookcase     | 66.66667175292969  | 57.142860412597656 |
+|      bottle      |        0.0         |        0.0         |
+|    calculator    | 90.32257843017578  | 65.11627960205078  |
+|    desk_chair    |        95.0        | 90.47618865966797  |
+|    desk_lamp     |       100.0        |        36.0        |
+| desktop_computer | 19.047618865966797 |        12.5        |
+|   file_cabinet   |       100.0        | 42.22222137451172  |
+|    headphones    |       100.0        |       84.375       |
+|     keyboard     | 81.48148345947266  | 75.86206817626953  |
+| laptop_computer  |        90.0        |  61.3636360168457  |
+|   letter_tray    |  26.3157901763916  | 16.129032135009766 |
+|   mobile_phone   | 3.3333334922790527 | 3.3333334922790527 |
+|     monitor      | 20.930233001708984 | 20.454545974731445 |
+|      mouse       |       100.0        | 55.55555725097656  |
+|       mug        |       100.0        |       100.0        |
+|  paper_notebook  |        75.0        |  63.6363639831543  |
+|       pen        |       100.0        | 57.142860412597656 |
+|      phone       |       68.75        | 57.894737243652344 |
+|     printer      |        75.0        | 57.69230651855469  |
+|    projector     |        70.0        | 55.26315689086914  |
+|     punchers     | 3.7037036418914795 | 3.7037036418914795 |
+|   ring_binder    |        47.5        | 37.25490188598633  |
+|      ruler       |  36.3636360168457  | 33.333335876464844 |
+|     scissors     |        80.0        | 76.92308044433594  |
+|     speaker      |        40.0        | 19.047618865966797 |
+|     stapler      |        50.0        |        37.5        |
+|  tape_dispenser  | 69.56521606445312  |        64.0        |
+|    trash_can     | 42.85714340209961  | 23.076923370361328 |
++------------------+--------------------+--------------------+
+test_acc1 = 65.9

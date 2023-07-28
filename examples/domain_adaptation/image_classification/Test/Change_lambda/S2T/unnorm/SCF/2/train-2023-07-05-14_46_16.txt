@@ -1,0 +1,12 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, data='Both', epochs=250, iters_per_epoch=500, label=3, log='Test/Change_lambda/S2T/unnorm/SCF/2/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='unnorm', trade_off=2.0, wd=0.0005, workers=2)
+Concate data
+Traceback (most recent call last):
+  File "custom_dan.py", line 736, in <module>
+    main(args)
+  File "custom_dan.py", line 389, in main
+    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/io/feather_format.py", line 98, in read_feather
+    import_optional_dependency("pyarrow")
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/compat/_optional.py", line 110, in import_optional_dependency
+    raise ImportError(msg) from None
+ImportError: Missing optional dependency 'pyarrow'.  Use pip or conda to install pyarrow.

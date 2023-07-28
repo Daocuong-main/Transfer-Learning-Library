@@ -1,0 +1,1 @@
+This is a fork from [Transfer-Learning-Library](https://github.com/thuml/Transfer-Learning-Library) to serve the paper "Enhancing Encrypted Traffic Classification with Deep Adaptation Networks" submitted to the [48th IEEE Conference on Local Computer Networks (LCN)](https://www.ieeelcn.org/).
