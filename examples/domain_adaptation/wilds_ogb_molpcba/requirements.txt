@@ -1,5 +1,0 @@
-torch_geometric
-wilds
-tensorflow
-tensorboard
-ogb

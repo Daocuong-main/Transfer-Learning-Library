@@ -293,7 +293,7 @@ def main(args: argparse.Namespace):
     # Data loading code
         
     #Modified code
-    if args.data == 'GQUIC' and args.data == 'Capture' and args.data == 'Both':
+    if args.data == 'GQUIC' or args.data == 'Capture' or args.data == 'Both':
         if args.data == 'GQUIC':
             print('GQUIC data')
             args.class_names = ['File_transfer', 'Music', 'VoIP', 'Youtube']
@@ -416,6 +416,7 @@ def main(args: argparse.Namespace):
         train_target_iter = ForeverDataIterator(train_target_loader)
 
     # create model
+    print("num_classes: {}".format(num_classes))
     print("=> using model '{}'".format(args.arch))
     backbone = custom_utils.get_model(args.arch, pretrain=not args.scratch)
     pool_layer = nn.Identity() if args.no_pool else None
