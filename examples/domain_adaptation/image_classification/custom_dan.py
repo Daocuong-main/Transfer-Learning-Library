@@ -134,8 +134,8 @@ def smooth(data):
 def smooth_cf(data, w, random_frequencies):
     n, _ = data.shape
     _, d = random_frequencies.shape
-    mat = torch.matmul(data,random_frequencies)
-    arr = torch.cat((torch.sin(mat) * w, torch.cos(mat) * w), dim = 1)
+    mat = torch.matmul(data, random_frequencies)
+    arr = torch.cat((torch.sin(mat) * w, torch.cos(mat) * w), dim=1)
     n1, d1 = arr.shape
     assert n1 == n and d1 == 2 * d and w.shape == (n, 1)
     return arr
@@ -182,11 +182,11 @@ class MeanEmbeddingTest:
         else:
             return pinverse(obs, self.number_of_frequencies)
 
+
 class SmoothCFTest:
 
     def _gen_random(self, dimension):
         return torch.tensor(numpy.random.randn(dimension, self.num_random_features).astype(np.float32)).to(self.device)
-
 
     def __init__(self, data_x, data_y, scale, num_random_features, device, method):
         self.device = device
@@ -200,12 +200,13 @@ class SmoothCFTest:
         assert dimension_x == dimension_y
         self.random_frequencies = self._gen_random(dimension_x)
 
-
     def compute_pvalue(self):
-        difference = smooth_difference(self.random_frequencies, self.data_x, self.data_y)
+        difference = smooth_difference(
+            self.random_frequencies, self.data_x, self.data_y)
         if self.method == "unnorm":
             return unnorm(difference, self.num_random_features)
         return pinverse(difference, self.num_random_features)
+
 
 def split_data(df, frac=0.2):
     seletected = df['flow_id'].drop_duplicates().sample(frac=frac)
@@ -291,8 +292,8 @@ def main(args: argparse.Namespace):
     cudnn.benchmark = True
 
     # Data loading code
-        
-    #Modified code
+
+    # Modified code
     if args.data == 'GQUIC' or args.data == 'Capture' or args.data == 'Both':
         if args.data == 'GQUIC':
             print('GQUIC data')
@@ -344,8 +345,10 @@ def main(args: argparse.Namespace):
             source_labels = [1, 3, 5]
             target_labels = [2, 4]
 
-            train_source = Train_data.loc[Train_data['Label'].isin(source_labels)]
-            train_target = Train_data.loc[Train_data['Label'].isin(target_labels)]
+            train_source = Train_data.loc[Train_data['Label'].isin(
+                source_labels)]
+            train_target = Train_data.loc[Train_data['Label'].isin(
+                target_labels)]
             val_raw = Test_data.loc[Test_data['Label'].isin(source_labels)]
             test_raw = Test_data.loc[Test_data['Label'].isin(target_labels)]
 
@@ -379,9 +382,9 @@ def main(args: argparse.Namespace):
         del train_source, train_target, val_raw, test_raw
 
         train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
-                                        shuffle=True, num_workers=args.workers, drop_last=True)
+                                         shuffle=True, num_workers=args.workers, drop_last=True)
         train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
-                                        shuffle=True, num_workers=args.workers, drop_last=True)
+                                         shuffle=True, num_workers=args.workers, drop_last=True)
         val_loader = DataLoader(
             val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
         test_loader = DataLoader(
@@ -390,7 +393,7 @@ def main(args: argparse.Namespace):
         train_source_iter = ForeverDataIterator(train_source_loader)
         train_target_iter = ForeverDataIterator(train_target_loader)
 
-    #Original code
+    # Original code
 
     if args.data != 'GQUIC' and args.data != 'Capture' and args.data != 'Both':
 
@@ -404,13 +407,16 @@ def main(args: argparse.Namespace):
         print("val_transform: ", val_transform)
 
         train_source_dataset, train_target_dataset, val_dataset, test_dataset, num_classes, args.class_names = \
-            utils.get_dataset(args.data, args.root, args.source, args.target, train_transform, val_transform)
+            utils.get_dataset(args.data, args.root, args.source,
+                              args.target, train_transform, val_transform)
         train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
-                                        shuffle=True, num_workers=args.workers, drop_last=True)
+                                         shuffle=True, num_workers=args.workers, drop_last=True)
         train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
-                                        shuffle=True, num_workers=args.workers, drop_last=True)
-        val_loader = DataLoader(val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
-        test_loader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+                                         shuffle=True, num_workers=args.workers, drop_last=True)
+        val_loader = DataLoader(
+            val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+        test_loader = DataLoader(
+            test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
 
         train_source_iter = ForeverDataIterator(train_source_loader)
         train_target_iter = ForeverDataIterator(train_target_loader)
@@ -427,7 +433,7 @@ def main(args: argparse.Namespace):
     # print(summary(backbone, (3, 244, 244)))
     # print("Classifier")
     # print(summary(classifier, (3, 244, 244)))
-    
+
     # define optimizer and lr scheduler
     optimizer = SGD(classifier.get_parameters(), args.lr,
                     momentum=args.momentum, weight_decay=args.wd, nesterov=True)
@@ -615,11 +621,11 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
             transfer_loss = mkmmd_loss(f_s, f_t)
         elif args.loss_function == "SCF":
             scf_loss = SmoothCFTest(
-                f_s, f_t, scale=args.scale_parameter, num_random_features=args.random_frequencies, method=args.test_statistic ,device=device)
+                f_s, f_t, scale=args.scale_parameter, num_random_features=args.random_frequencies, method=args.test_statistic, device=device)
             transfer_loss = scf_loss.compute_pvalue()
         else:
             mkme_loss = MeanEmbeddingTest(
-                f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, method=args.test_statistic ,device=device)
+                f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, method=args.test_statistic, device=device)
             transfer_loss = mkme_loss.compute_pvalue()
             # print(f'transfer_loss: {transfer_loss}')
         # print(transfer_loss)
@@ -697,6 +703,9 @@ if __name__ == '__main__':
                         help='whether not use the linear version')
     parser.add_argument('--trade-off', default=1., type=float,
                         help='the trade-off hyper-parameter for transfer loss')
+    parser.add_argument('-byte', '--byte-size', default=256, type=int,
+                        metavar='BYTE SIZE',
+                        help='byte size (default: 256)')
     # training parameters
     parser.add_argument('-b', '--batch-size', default=32, type=int,
                         metavar='N',
