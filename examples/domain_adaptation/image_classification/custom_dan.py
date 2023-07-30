@@ -295,6 +295,7 @@ def main(args: argparse.Namespace):
 
     # Modified code
     if args.data == 'GQUIC' or args.data == 'Capture' or args.data == 'Both':
+        byte_size=args.byte_size
         if args.data == 'GQUIC':
             print('GQUIC data')
             args.class_names = ['File_transfer', 'Music', 'VoIP', 'Youtube']
@@ -362,18 +363,18 @@ def main(args: argparse.Namespace):
             num_classes = len(args.class_names)
             if args.scenario == "S2T":
                 train_source = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
                 train_target = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target.feather')
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
                 test_raw = val_raw = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw.feather')
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw_{}.feather'.format(byte_size))
             else:
                 train_target = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source.feather')
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
                 train_source = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target.feather')
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
                 test_raw = val_raw = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw.feather')
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw_{}.feather'.format(byte_size))
 
         train_source_dataset = data_processing(train_source)
         train_target_dataset = data_processing(train_target)
