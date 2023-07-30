@@ -3,6 +3,7 @@
 @contact: JiangJunguang1123@outlook.com
 """
 import argparse
+import csv
 import datetime
 import gc
 import os
@@ -12,7 +13,6 @@ import shutil
 import time
 import warnings
 
-import utils
 import custom_utils
 import cv2
 import matplotlib
@@ -24,6 +24,7 @@ import torch
 import torch.backends.cudnn as cudnn
 import torch.nn as nn
 import torch.nn.functional as F
+import utils
 from custom_utils import plot_graph
 from matplotlib import pyplot as plt
 from numpy import newaxis
@@ -43,6 +44,7 @@ from tllib.utils.data import ForeverDataIterator
 from tllib.utils.logger import CompleteLogger
 from tllib.utils.meter import AverageMeter, ProgressMeter
 from tllib.utils.metric import accuracy
+
 torch.set_printoptions(profile="full")
 gc.collect()
 torch.cuda.empty_cache()
@@ -295,7 +297,7 @@ def main(args: argparse.Namespace):
 
     # Modified code
     if args.data == 'GQUIC' or args.data == 'Capture' or args.data == 'Both':
-        byte_size=args.byte_size
+        byte_size = args.byte_size
         if args.data == 'GQUIC':
             print('GQUIC data')
             args.class_names = ['File_transfer', 'Music', 'VoIP', 'Youtube']
@@ -475,6 +477,7 @@ def main(args: argparse.Namespace):
     if args.phase == 'test':
         acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time, report_table = custom_utils.validate(
             test_loader, classifier, args, device)
+
         print("Test result below...")
         print("test_acc1 = {:3.5f}".format(acc1))
         print("F1 macro = {:3.5f}".format(scorema1))
@@ -487,13 +490,40 @@ def main(args: argparse.Namespace):
         print('min_time = {:3.5f}'.format(min_time))
         print('max_time = {:3.5f}'.format(max_time))
         print(report_table)
+
+        # Save results to CSV
+        csv_filename = osp.join(logger.visualize_directory, 'results.csv')
+        result_data = [
+            ['test_acc1', acc1],
+            ['F1 macro', scorema1],
+            ['F1 micro', scoremi1],
+            ['precision macro', precisionma1],
+            ['precision micro', precisionmi1],
+            ['recall macro', recallma1],
+            ['recall micro', recallmi1],
+            ['avg_time', avg_time],
+            ['min_time', min_time],
+            ['max_time', max_time],
+        ]
+
+        # Check if the file exists and write header row if necessary
+        if not osp.isfile(csv_filename):
+            with open(csv_filename, 'w', newline='') as csvfile:
+                csv_writer = csv.writer(csvfile)
+                csv_writer.writerow(['Variable Name', 'Value'])
+
+        # Write the data to the CSV file
+        with open(csv_filename, 'a', newline='') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerows(result_data)
+
+        # Save the confusion matrix plot
         fig, ax = plt.subplots(figsize=(10, 10))
         conf_filename = osp.join(logger.visualize_directory, 'conf.pdf')
         disp = ConfusionMatrixDisplay(
             confusion_matrix=conf_mat, display_labels=args.class_names)
         disp.plot(xticks_rotation='vertical', ax=ax, colorbar=False)
         plt.savefig(conf_filename, bbox_inches="tight")
-        return
 
     # start training
     train_acc = []
