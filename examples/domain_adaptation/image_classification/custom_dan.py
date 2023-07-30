@@ -582,6 +582,34 @@ def main(args: argparse.Namespace):
     print('min_time = {:3.5f}'.format(min_time))
     print('max_time = {:3.5f}'.format(max_time))
     print(report_table)
+
+    # Save results to CSV
+    csv_filename = osp.join(logger.visualize_directory, 'results.csv')
+    result_data = [
+        ['test_acc1', acc1],
+        ['F1 macro', scorema1],
+        ['F1 micro', scoremi1],
+        ['precision macro', precisionma1],
+        ['precision micro', precisionmi1],
+        ['recall macro', recallma1],
+        ['recall micro', recallmi1],
+        ['avg_time', avg_time],
+        ['min_time', min_time],
+        ['max_time', max_time],
+    ]
+
+    # Check if the file exists and write header row if necessary
+    if not osp.isfile(csv_filename):
+        with open(csv_filename, 'w', newline='') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerow(['Method', 'Test_function', 'Scenario', 'byte_size', 'test_acc', 'F1_marco', 'F1_micro',
+                                'precision_macro', 'precision_micro', 'recall_macro', 'recall_micro', 'avg_time', 'min_time', 'max_time'])
+
+    # Write the data to the CSV file
+    with open(csv_filename, 'a', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        csv_writer.writerows(result_data)
+
     # graph
     fig = plt.figure(figsize=(10, 6))
     plot_graph(list(range(0, args.epochs)),
