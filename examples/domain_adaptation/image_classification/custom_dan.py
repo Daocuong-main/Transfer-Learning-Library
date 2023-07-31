@@ -254,7 +254,7 @@ def data_processing(raw_data):
     # Reshape payloads
     true_data = raw_data.drop('flow_id', axis=1)
     datas = true_data.drop('Label', axis=1).to_numpy()/255
-    datas = datas.reshape(-1, 20, 256).astype('float32')
+    datas = datas.reshape(-1, 20, args.byte_size).astype('float32')
     # Resize each image in the dataset
     datas = np.array([resize_image(img, args.byte_size) for img in datas])
     rgb_datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
@@ -386,7 +386,6 @@ def main(args: argparse.Namespace):
         train_target_dataset = data_processing(train_target)
         val_dataset = data_processing(val_raw)
         test_dataset = data_processing(test_raw)
-        print(train_source.shape)
         del train_source, train_target, val_raw, test_raw
 
         train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,

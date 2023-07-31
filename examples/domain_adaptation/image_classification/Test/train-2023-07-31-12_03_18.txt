@@ -1,0 +1,35 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=256, data='Both', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='unnorm', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+<__main__.MyDataset object at 0x7f6345d42990>
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][0/1]	Time 1.55 (1.55)	Data 0.0 (0.0)	Loss 1.04 (1.04)	Trans Loss 1.0000 (1.0000)	Cls Acc 37.5 (37.5)
+Test: [  0/147]	Time  0.085 ( 0.085)	Loss 1.0106e+00 (1.0106e+00)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.018 ( 0.019)	Loss 1.1366e+00 (1.0629e+00)	Acc@1   0.00 ( 56.56)
+ * Acc@1 39.19898
+ * F1 macro = 0.35652
+ * F1 micro= 0.39199
+ * precision macro= 0.42426
+ * precision micro= 0.39199
+ * recall macro = 0.35147
+ * recall micro = 0.39199
+global correct: 39.2
+mean correct:34.0
+mean IoU: 13.9
++----------------+--------------------+--------------------+
+|     class      |        acc         |        iou         |
++----------------+--------------------+--------------------+
+|   Ecommerce    |  98.7818374633789  | 38.614715576171875 |
+|     Video      | 2.6881721019744873 | 2.6371307373046875 |
+| Google_Service | 0.5836575627326965 | 0.5813953280448914 |
++----------------+--------------------+--------------------+
+Traceback (most recent call last):
+  File "custom_dan.py", line 794, in <module>
+    main(args)
+  File "custom_dan.py", line 549, in main
+    logger.get_checkpoint_path('best'))
+  File "/home/bkcs/miniconda3/lib/python3.7/shutil.py", line 248, in copy
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "/home/bkcs/miniconda3/lib/python3.7/shutil.py", line 122, in copyfile
+    copyfileobj(fsrc, fdst)
+KeyboardInterrupt

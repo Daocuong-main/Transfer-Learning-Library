@@ -1,0 +1,10 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=32, data='Both', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='unnorm', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+Traceback (most recent call last):
+  File "custom_dan.py", line 794, in <module>
+    main(args)
+  File "custom_dan.py", line 385, in main
+    train_source_dataset = data_processing(train_source)
+  File "custom_dan.py", line 257, in data_processing
+    datas = datas.reshape(-1, 20, 256).astype('float32')
+ValueError: cannot reshape array of size 3948800 into shape (20,256)
