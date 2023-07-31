@@ -494,23 +494,16 @@ def main(args: argparse.Namespace):
         # Save results to CSV
         csv_filename = osp.join(logger.visualize_directory, 'results.csv')
         result_data = [
-            ['test_acc1', acc1],
-            ['F1 macro', scorema1],
-            ['F1 micro', scoremi1],
-            ['precision macro', precisionma1],
-            ['precision micro', precisionmi1],
-            ['recall macro', recallma1],
-            ['recall micro', recallmi1],
-            ['avg_time', avg_time],
-            ['min_time', min_time],
-            ['max_time', max_time],
+            [args.backbone, args.loss_function, args.test_statistic, args.scenario,
+                args.byte_size, args.trade_off, args.epochs, acc1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, avg_time, min_time, max_time],
         ]
 
         # Check if the file exists and write header row if necessary
         if not osp.isfile(csv_filename):
             with open(csv_filename, 'w', newline='') as csvfile:
                 csv_writer = csv.writer(csvfile)
-                csv_writer.writerow(['Variable Name', 'Value'])
+                csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco', 'F1_micro',
+                                    'precision_macro', 'precision_micro', 'recall_macro', 'recall_micro', 'avg_time', 'min_time', 'max_time'])
 
         # Write the data to the CSV file
         with open(csv_filename, 'a', newline='') as csvfile:
@@ -586,23 +579,15 @@ def main(args: argparse.Namespace):
     # Save results to CSV
     csv_filename = osp.join(logger.visualize_directory, 'results.csv')
     result_data = [
-        ['test_acc1', acc1],
-        ['F1 macro', scorema1],
-        ['F1 micro', scoremi1],
-        ['precision macro', precisionma1],
-        ['precision micro', precisionmi1],
-        ['recall macro', recallma1],
-        ['recall micro', recallmi1],
-        ['avg_time', avg_time],
-        ['min_time', min_time],
-        ['max_time', max_time],
+        [args.backbone, args.loss_function, args.test_statistic, args.scenario,
+            args.byte_size, args.trade_off, args.epochs, acc1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, avg_time, min_time, max_time],
     ]
 
     # Check if the file exists and write header row if necessary
     if not osp.isfile(csv_filename):
         with open(csv_filename, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(['Method', 'Test_function', 'Scenario', 'byte_size', 'test_acc', 'F1_marco', 'F1_micro',
+            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco', 'F1_micro',
                                 'precision_macro', 'precision_micro', 'recall_macro', 'recall_micro', 'avg_time', 'min_time', 'max_time'])
 
     # Write the data to the CSV file
