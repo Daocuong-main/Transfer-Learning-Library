@@ -6,3 +6,4 @@ examples/domain_adaptation/image_classification/custom_dan/analysis-2023-02-03-1
 /data/*/
 **/custom_dan*/
 examples/domain_adaptation/image_classification/data/
+examples/domain_adaptation/image_classification/__pycache__/
