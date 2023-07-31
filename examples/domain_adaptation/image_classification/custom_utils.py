@@ -176,7 +176,7 @@ def validate(val_loader, model, args, device) -> float:
             if i % args.print_freq == 0:
                 progress.display(i)
 
-        print(' * Acc@1 {top1.avg:.3f}'.format(top1=top1))
+        print(' * Acc@1 {top1.avg:.5f}'.format(top1=top1))
         print(" * F1 macro = {:3.5f}".format(scoremas.avg))
         print(" * F1 micro= {:3.5f}".format(scoremis.avg))
         print(" * precision macro= {:3.5f}".format(precisionmas.avg))

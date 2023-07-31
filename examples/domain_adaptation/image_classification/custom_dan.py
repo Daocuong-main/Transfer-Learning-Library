@@ -494,7 +494,7 @@ def main(args: argparse.Namespace):
         # Save results to CSV
         csv_filename = osp.join(logger.visualize_directory, 'results.csv')
         result_data = [
-            [args.backbone, args.loss_function, args.test_statistic, args.scenario,
+            [args.arch, args.loss_function, args.test_statistic, args.scenario,
                 args.byte_size, args.trade_off, args.epochs, acc1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, avg_time, min_time, max_time],
         ]
 
@@ -579,7 +579,7 @@ def main(args: argparse.Namespace):
     # Save results to CSV
     csv_filename = osp.join(logger.visualize_directory, 'results.csv')
     result_data = [
-        [args.backbone, args.loss_function, args.test_statistic, args.scenario,
+        [args.arch, args.loss_function, args.test_statistic, args.scenario,
             args.byte_size, args.trade_off, args.epochs, acc1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, avg_time, min_time, max_time],
     ]
 

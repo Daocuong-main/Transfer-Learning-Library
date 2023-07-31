@@ -1,0 +1,106 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=256, data='Both', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='unnorm', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][0/1]	Time 1.46 (1.46)	Data 0.0 (0.0)	Loss 1.14 (1.14)	Trans Loss 1.0000 (1.0000)	Cls Acc 25.0 (25.0)
+Test: [  0/147]	Time  0.071 ( 0.071)	Loss 1.0814e+00 (1.0814e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/147]	Time  0.017 ( 0.018)	Loss 9.9848e-01 (1.0273e+00)	Acc@1  81.25 ( 43.56)
+ * Acc@1 36.472
+ * F1 macro = 0.23329
+ * F1 micro= 0.36472
+ * precision macro= 0.38308
+ * precision micro= 0.36472
+ * recall macro = 0.18427
+ * recall micro = 0.36472
+global correct: 36.5
+mean correct:30.9
+mean IoU: 16.2
++----------------+--------------------+-------------------+
+|     class      |        acc         |        iou        |
++----------------+--------------------+-------------------+
+|   Ecommerce    | 24.473976135253906 | 16.20234489440918 |
+|     Video      | 68.27957153320312  | 32.39795684814453 |
+| Google_Service |        0.0         |        0.0        |
++----------------+--------------------+-------------------+
+Epoch: [1][0/1]	Time 0.06 (0.06)	Data 0.0 (0.0)	Loss 1.07 (1.07)	Trans Loss 1.0000 (1.0000)	Cls Acc 50.0 (50.0)
+Test: [  0/147]	Time  0.109 ( 0.109)	Loss 9.7106e-01 (9.7106e-01)	Acc@1  93.75 ( 93.75)
+Test: [100/147]	Time  0.018 ( 0.018)	Loss 1.0599e+00 (9.9710e-01)	Acc@1  18.75 ( 55.32)
+ * Acc@1 38.560
+ * F1 macro = 0.32257
+ * F1 micro= 0.38560
+ * precision macro= 0.40257
+ * precision micro= 0.38560
+ * recall macro = 0.31410
+ * recall micro = 0.38560
+global correct: 38.6
+mean correct:33.4
+mean IoU: 13.8
++----------------+-------------------+--------------------+
+|     class      |        acc        |        iou         |
++----------------+-------------------+--------------------+
+|   Ecommerce    | 96.01329040527344 | 37.56499099731445  |
+|     Video      | 4.086021423339844 | 3.9296793937683105 |
+| Google_Service |        0.0        |        0.0         |
++----------------+-------------------+--------------------+
+Epoch: [2][0/1]	Time 0.05 (0.05)	Data 0.0 (0.0)	Loss 1.03 (1.03)	Trans Loss 1.0000 (1.0000)	Cls Acc 50.0 (50.0)
+Test: [  0/147]	Time  0.170 ( 0.170)	Loss 9.1194e-01 (9.1194e-01)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.017 ( 0.019)	Loss 1.1044e+00 (9.9063e-01)	Acc@1  18.75 ( 56.81)
+ * Acc@1 39.582
+ * F1 macro = 0.38587
+ * F1 micro= 0.39582
+ * precision macro= 0.45711
+ * precision micro= 0.39582
+ * recall macro = 0.38056
+ * recall micro = 0.39582
+global correct: 39.6
+mean correct:34.3
+mean IoU: 14.1
++----------------+-------------------+--------------------+
+|     class      |        acc        |        iou         |
++----------------+-------------------+--------------------+
+|   Ecommerce    | 99.11406707763672 |   38.6943359375    |
+|     Video      | 3.655913829803467 | 3.6247334480285645 |
+| Google_Service |        0.0        |        0.0         |
++----------------+-------------------+--------------------+
+Elapsed time: 13.328646421432495
+best_acc1 = 39.58245
+Test: [  0/147]	Time  0.071 ( 0.071)	Loss 9.1194e-01 (9.1194e-01)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.018 ( 0.018)	Loss 1.1044e+00 (9.9063e-01)	Acc@1  18.75 ( 56.81)
+ * Acc@1 39.582
+ * F1 macro = 0.38587
+ * F1 micro= 0.39582
+ * precision macro= 0.45711
+ * precision micro= 0.39582
+ * recall macro = 0.38056
+ * recall micro = 0.39582
+global correct: 39.6
+mean correct:34.3
+mean IoU: 14.1
++----------------+-------------------+--------------------+
+|     class      |        acc        |        iou         |
++----------------+-------------------+--------------------+
+|   Ecommerce    | 99.11406707763672 |   38.6943359375    |
+|     Video      | 3.655913829803467 | 3.6247334480285645 |
+| Google_Service |        0.0        |        0.0         |
++----------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 39.58245
+F1 macro = 0.38587
+F1 micro= 0.39582
+precision macro= 0.45711
+precision micro= 0.39582
+recall macro = 0.38056
+recall micro = 0.39582
+avg_time = 2.84354
+min_time = 2.00000
+max_time = 6.00000
+                precision    recall  f1-score   support
+
+     Ecommerce    0.38829   0.99114   0.55798       903
+         Video    0.80952   0.03656   0.06996       930
+Google_Service    0.00000   0.00000   0.00000       514
+
+      accuracy                        0.39582      2347
+     macro avg    0.39927   0.34257   0.20931      2347
+  weighted avg    0.47017   0.39582   0.24240      2347
+
