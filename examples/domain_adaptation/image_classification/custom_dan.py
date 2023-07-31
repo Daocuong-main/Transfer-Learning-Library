@@ -232,7 +232,11 @@ def source_target_split(df, choice, frac=0.5):
     return source, target
 
 
-def resize_image(image, target_size=(512, 512)):
+def resize_image(image, byte_size ,target_size=(224, 224)):
+    if byte_size == 256:
+        target_size = (224,224)
+    else:
+        target_size = (byte_size, byte_size)
     return cv2.resize(image, target_size, interpolation=cv2.INTER_LINEAR)
 
 
@@ -252,7 +256,7 @@ def data_processing(raw_data):
     datas = true_data.drop('Label', axis=1).to_numpy()/255
     datas = datas.reshape(-1, 20, 256).astype('float32')
     # Resize each image in the dataset
-    datas = np.array([resize_image(img) for img in datas])
+    datas = np.array([resize_image(img, args.byte_size) for img in datas])
     rgb_datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
     rgb_datas = np.moveaxis(rgb_datas, 2, 1)
     final_dataset = MyDataset(rgb_datas, flow_label)
@@ -382,6 +386,7 @@ def main(args: argparse.Namespace):
         train_target_dataset = data_processing(train_target)
         val_dataset = data_processing(val_raw)
         test_dataset = data_processing(test_raw)
+        print(train_source.shape)
         del train_source, train_target, val_raw, test_raw
 
         train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
