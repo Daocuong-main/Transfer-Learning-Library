@@ -232,7 +232,7 @@ def source_target_split(df, choice, frac=0.5):
     return source, target
 
 
-def resize_image(image, target_size=(224, 224)):
+def resize_image(image, target_size=(512, 512)):
     return cv2.resize(image, target_size, interpolation=cv2.INTER_LINEAR)
 
 
