@@ -62,45 +62,45 @@
 # python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 500 -b 16 -i 500 -scenario T2S --trade-off 0 --log Test/T2S/zero_lambda/ --per-class-eval
 
 
-for ((iter=1; iter<=1; iter++))
-do
-   for i in 0.1 2
-   do
-       python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario S2T --trade-off $i --log Test/Change_lambda/S2T/MKMMD/$i/ --per-class-eval
-   done
-done
+# for ((iter=1; iter<=1; iter++))
+# do
+#    for i in 0.1 2
+#    do
+#        python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario S2T --trade-off $i --log Test/Change_lambda/S2T/MKMMD/$i/ --per-class-eval
+#    done
+# done
 
-for ((iter=1; iter<=5; iter++))
-do
-   for i in 1
-   do
-       python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario S2T --trade-off $i --log Test/Change_lambda/S2T/MKMMD/$i/ --per-class-eval
-   done
-done
+# for ((iter=1; iter<=5; iter++))
+# do
+#    for i in 1
+#    do
+#        python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario S2T --trade-off $i --log Test/Change_lambda/S2T/MKMMD/$i/ --per-class-eval
+#    done
+# done
 
-for ((iter=1; iter<=1; iter++))
-do
-    for i in 0.1 0.2
-    do
-        python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario T2S --trade-off $i --log Test/Change_lambda/T2S/MKMMD/$i/ --per-class-eval
-    done
-done
+# for ((iter=1; iter<=1; iter++))
+# do
+#     for i in 0.1 0.2
+#     do
+#         python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario T2S --trade-off $i --log Test/Change_lambda/T2S/MKMMD/$i/ --per-class-eval
+#     done
+# done
 
-for ((iter=1; iter<=2; iter++))
-do
-    for i in 2
-    do
-        python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario T2S --trade-off $i --log Test/Change_lambda/T2S/MKMMD/$i/ --per-class-eval
-    done
-done
+# for ((iter=1; iter<=2; iter++))
+# do
+#     for i in 2
+#     do
+#         python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario T2S --trade-off $i --log Test/Change_lambda/T2S/MKMMD/$i/ --per-class-eval
+#     done
+# done
 
-for ((iter=1; iter<=5; iter++))
-do
-    for i in 1
-    do
-        python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario T2S --trade-off $i --log Test/Change_lambda/T2S/MKMMD/$i/ --per-class-eval
-    done
-done
+# for ((iter=1; iter<=5; iter++))
+# do
+#     for i in 1
+#     do
+#         python custom_dan.py -d Both -a resnet50 -lf MKMMD --epochs 250 -b 16 -i 500 -j 16 -scenario T2S --trade-off $i --log Test/Change_lambda/T2S/MKMMD/$i/ --per-class-eval
+#     done
+# done
 
 # Thay doi lambda
 # for ((iter=1; iter<=3; iter++))
@@ -156,3 +156,11 @@ done
 
 # python custom_dan.py -d Both -a resnet50 -lf MKME -ts unnorm --epochs 250 -b 16 -i 500 -scenario T2S --trade-off 0.05 --log Test/Change_lambda/T2S/unnorm/ME/0.05/ --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 250 -b 16 -i 500 -scenario T2S --trade-off 0.2 --log Test/Change_lambda/T2S/pinverse/ME/0.2/ --per-class-eval
+
+
+
+for i in 32 64 128 256 512
+do
+    python custom_dan.py -d Both -a resnet50 -lf MKMMD --byte-size $i --epochs 250 -b 16 -i 500 -j 16 -scenario S2T --trade-off 0 --log Test/Change_byte/S2T/ --per-class-eval
+    python custom_dan.py -d Both -a resnet50 -lf MKMMD --byte-size $i --epochs 250 -b 16 -i 500 -j 16 -scenario T2S --trade-off 0 --log Test/Change_byte/T2S/ --per-class-eval
+done
