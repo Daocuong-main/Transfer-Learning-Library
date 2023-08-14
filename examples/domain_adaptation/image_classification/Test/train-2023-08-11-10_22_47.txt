@@ -1,0 +1,116 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=32, data='nondan', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+nondan
+num_classes: 5
+=> using model 'resnet50'
+Epoch: [0][0/1]	Time 1.08 (1.08)	Data 0.0 (0.0)	Loss 1.76 (1.76)	Trans Loss 0.0000 (0.0000)	Cls Acc 0.0 (0.0)
+Test: [  0/185]	Time  0.115 ( 0.115)	Loss 1.7906e+00 (1.7906e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.004 ( 0.006)	Loss 1.5113e+00 (1.5978e+00)	Acc@1  75.00 ( 26.36)
+ * Acc@1 22.32747
+ * F1 macro = 0.11586
+ * F1 micro= 0.22327
+ * precision macro= 0.14121
+ * precision micro= 0.22327
+ * recall macro = 0.13996
+ * recall micro = 0.22327
+global correct: 22.3
+mean correct:18.9
+mean IoU: 7.0
++----------+--------------------+--------------------+
+|  class   |        acc         |        iou         |
++----------+--------------------+--------------------+
+|   VoIP   | 2.1327013969421387 | 2.073732852935791  |
+| alibaba  |        0.0         |        0.0         |
+|  amazon  | 2.4096384048461914 | 1.9323670864105225 |
+|   ebay   | 82.54847717285156  | 27.902620315551758 |
+| facebook | 7.307692527770996  | 2.9366304874420166 |
++----------+--------------------+--------------------+
+Epoch: [1][0/1]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.70 (1.70)	Trans Loss 0.0000 (0.0000)	Cls Acc 25.0 (25.0)
+Test: [  0/185]	Time  0.103 ( 0.103)	Loss 1.8154e+00 (1.8154e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.005 ( 0.006)	Loss 1.5075e+00 (1.6119e+00)	Acc@1  62.50 ( 26.86)
+ * Acc@1 26.04871
+ * F1 macro = 0.13072
+ * F1 micro= 0.26049
+ * precision macro= 0.16053
+ * precision micro= 0.26049
+ * recall macro = 0.16513
+ * recall micro = 0.26049
+global correct: 26.0
+mean correct:21.2
+mean IoU: 8.7
++----------+--------------------+--------------------+
+|  class   |        acc         |        iou         |
++----------+--------------------+--------------------+
+|   VoIP   | 10.900473594665527 | 9.292929649353027  |
+| alibaba  |        0.0         |        0.0         |
+|  amazon  |        0.0         |        0.0         |
+|   ebay   | 90.85872650146484  | 32.18842315673828  |
+| facebook | 4.230769157409668  | 1.9855595827102661 |
++----------+--------------------+--------------------+
+Epoch: [2][0/1]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 1.52 (1.52)	Trans Loss 0.0000 (0.0000)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.098 ( 0.098)	Loss 1.8075e+00 (1.8075e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.004 ( 0.006)	Loss 1.5363e+00 (1.6224e+00)	Acc@1  62.50 ( 21.04)
+ * Acc@1 27.06360
+ * F1 macro = 0.13214
+ * F1 micro= 0.27064
+ * precision macro= 0.18542
+ * precision micro= 0.27064
+ * recall macro = 0.13965
+ * recall micro = 0.27064
+global correct: 27.1
+mean correct:21.3
+mean IoU: 10.4
++----------+--------------------+--------------------+
+|  class   |        acc         |        iou         |
++----------+--------------------+--------------------+
+|   VoIP   | 29.620853424072266 | 21.968366622924805 |
+| alibaba  |        0.0         |        0.0         |
+|  amazon  |        0.0         |        0.0         |
+|   ebay   | 74.23822784423828  | 28.87931251525879  |
+| facebook | 2.692307710647583  | 1.1290322542190552 |
++----------+--------------------+--------------------+
+Elapsed time: 7.745241165161133
+best_acc1 = 27.06360
+Test: [  0/185]	Time  0.062 ( 0.062)	Loss 1.8075e+00 (1.8075e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.005 ( 0.005)	Loss 1.5363e+00 (1.6224e+00)	Acc@1  62.50 ( 21.04)
+ * Acc@1 27.06360
+ * F1 macro = 0.13214
+ * F1 micro= 0.27064
+ * precision macro= 0.18542
+ * precision micro= 0.27064
+ * recall macro = 0.13965
+ * recall micro = 0.27064
+global correct: 27.1
+mean correct:21.3
+mean IoU: 10.4
++----------+--------------------+--------------------+
+|  class   |        acc         |        iou         |
++----------+--------------------+--------------------+
+|   VoIP   | 29.620853424072266 | 21.968366622924805 |
+| alibaba  |        0.0         |        0.0         |
+|  amazon  |        0.0         |        0.0         |
+|   ebay   | 74.23822784423828  | 28.87931251525879  |
+| facebook | 2.692307710647583  | 1.1290322542190552 |
++----------+--------------------+--------------------+
+Test result below...
+test_acc1 = 27.06360
+F1 macro = 0.13214
+F1 micro= 0.27064
+precision macro= 0.18542
+precision micro= 0.27064
+recall macro = 0.13965
+recall micro = 0.27064
+avg_time = 2.40000
+min_time = 2.00000
+max_time = 4.00000
+              precision    recall  f1-score   support
+
+        VoIP    0.45956   0.29621   0.36023       422
+     alibaba    0.00000   0.00000   0.00000       269
+      amazon    0.00000   0.00000   0.00000       166
+        ebay    0.32096   0.74238   0.44816       361
+    facebook    0.01907   0.02692   0.02233       260
+
+    accuracy                        0.27064      1478
+   macro avg    0.15992   0.21310   0.16614      1478
+weighted avg    0.21296   0.27064   0.21624      1478
+

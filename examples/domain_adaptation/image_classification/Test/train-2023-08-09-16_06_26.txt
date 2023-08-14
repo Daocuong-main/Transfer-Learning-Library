@@ -1,0 +1,112 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=32, data='Both', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+0.00032896950317441297
+<class 'numpy.float64'>
+Epoch: [0][0/1]	Time 1.22 (1.22)	Data 0.0 (0.0)	Loss 1.20 (1.20)	Trans Loss 0.0003 (0.0003)	Cls Acc 31.2 (31.2)
+Test: [  0/147]	Time  0.108 ( 0.108)	Loss 1.1345e+00 (1.1345e+00)	Acc@1   6.25 (  6.25)
+Test: [100/147]	Time  0.005 ( 0.006)	Loss 1.0323e+00 (1.1205e+00)	Acc@1  68.75 ( 28.16)
+ * Acc@1 31.18875
+ * F1 macro = 0.14788
+ * F1 micro= 0.31189
+ * precision macro= 0.24869
+ * precision micro= 0.31189
+ * recall macro = 0.11616
+ * recall micro = 0.31189
+global correct: 31.2
+mean correct:30.3
+mean IoU: 18.5
++----------------+--------------------+--------------------+
+|     class      |        acc         |        iou         |
++----------------+--------------------+--------------------+
+|   Ecommerce    | 1.3289036750793457 | 0.9607685804367065 |
+|     Video      | 62.36559295654297  | 44.82225799560547  |
+| Google_Service | 27.23735237121582  | 9.866103172302246  |
++----------------+--------------------+--------------------+
+1.0
+<class 'numpy.float64'>
+Epoch: [1][0/1]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 2.16 (2.16)	Trans Loss 1.0000 (1.0000)	Cls Acc 37.5 (37.5)
+Test: [  0/147]	Time  0.114 ( 0.114)	Loss 1.0778e+00 (1.0778e+00)	Acc@1  31.25 ( 31.25)
+Test: [100/147]	Time  0.005 ( 0.006)	Loss 1.0737e+00 (1.0921e+00)	Acc@1  18.75 ( 25.06)
+ * Acc@1 20.62207
+ * F1 macro = 0.12971
+ * F1 micro= 0.20622
+ * precision macro= 0.37234
+ * precision micro= 0.20622
+ * recall macro = 0.08307
+ * recall micro = 0.20622
+global correct: 20.6
+mean correct:18.8
+mean IoU: 10.9
++----------------+--------------------+--------------------+
+|     class      |        acc         |        iou         |
++----------------+--------------------+--------------------+
+|   Ecommerce    | 30.897008895874023 | 13.818721771240234 |
+|     Video      | 17.849462509155273 | 15.341959953308105 |
+| Google_Service |  7.58754825592041  | 3.5166819095611572 |
++----------------+--------------------+--------------------+
+0.0007925264526159076
+<class 'numpy.float64'>
+Epoch: [2][0/1]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.99 (0.99)	Trans Loss 0.0008 (0.0008)	Cls Acc 50.0 (50.0)
+Test: [  0/147]	Time  0.130 ( 0.130)	Loss 1.0071e+00 (1.0071e+00)	Acc@1  81.25 ( 81.25)
+Test: [100/147]	Time  0.005 ( 0.006)	Loss 1.3052e+00 (1.1008e+00)	Acc@1   0.00 ( 44.86)
+ * Acc@1 31.78526
+ * F1 macro = 0.17570
+ * F1 micro= 0.31785
+ * precision macro= 0.25216
+ * precision micro= 0.31785
+ * recall macro = 0.15758
+ * recall micro = 0.31785
+global correct: 31.8
+mean correct:28.1
+mean IoU: 11.6
++----------------+--------------------+--------------------+
+|     class      |        acc         |        iou         |
++----------------+--------------------+--------------------+
+|   Ecommerce    | 79.84496307373047  | 31.526016235351562 |
+|     Video      | 0.5376344323158264 | 0.5279831290245056 |
+| Google_Service | 3.891050338745117  | 2.8011205196380615 |
++----------------+--------------------+--------------------+
+Elapsed time: 7.337106704711914
+best_acc1 = 31.78526
+Test: [  0/147]	Time  0.088 ( 0.088)	Loss 1.0071e+00 (1.0071e+00)	Acc@1  81.25 ( 81.25)
+Test: [100/147]	Time  0.005 ( 0.006)	Loss 1.3052e+00 (1.1008e+00)	Acc@1   0.00 ( 44.86)
+ * Acc@1 31.78526
+ * F1 macro = 0.17570
+ * F1 micro= 0.31785
+ * precision macro= 0.25216
+ * precision micro= 0.31785
+ * recall macro = 0.15758
+ * recall micro = 0.31785
+global correct: 31.8
+mean correct:28.1
+mean IoU: 11.6
++----------------+--------------------+--------------------+
+|     class      |        acc         |        iou         |
++----------------+--------------------+--------------------+
+|   Ecommerce    | 79.84496307373047  | 31.526016235351562 |
+|     Video      | 0.5376344323158264 | 0.5279831290245056 |
+| Google_Service | 3.891050338745117  | 2.8011205196380615 |
++----------------+--------------------+--------------------+
+Test result below...
+test_acc1 = 31.78526
+F1 macro = 0.17570
+F1 micro= 0.31785
+precision macro= 0.25216
+precision micro= 0.31785
+recall macro = 0.15758
+recall micro = 0.31785
+avg_time = 2.39456
+min_time = 2.00000
+max_time = 4.00000
+                precision    recall  f1-score   support
+
+     Ecommerce    0.34252   0.79845   0.47939       903
+         Video    0.22727   0.00538   0.01050       930
+Google_Service    0.09091   0.03891   0.05450       514
+
+      accuracy                        0.31785      2347
+     macro avg    0.22023   0.28091   0.18146      2347
+  weighted avg    0.24175   0.31785   0.20054      2347
+

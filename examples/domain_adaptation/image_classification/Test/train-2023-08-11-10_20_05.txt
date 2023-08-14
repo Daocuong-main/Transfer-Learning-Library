@@ -1,0 +1,12 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=32, data='nondan', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+nondan
+Traceback (most recent call last):
+  File "custom_dan.py", line 816, in <module>
+    main(args)
+  File "custom_dan.py", line 383, in main
+    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_Dan/train_target_{}.feather'.format(byte_size))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/io/feather_format.py", line 127, in read_feather
+    path, "rb", storage_options=storage_options, is_text=False
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/io/common.py", line 711, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_Dan/train_target_32.feather'

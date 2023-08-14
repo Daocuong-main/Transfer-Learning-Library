@@ -1,0 +1,35 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=512, data='nondan', epochs=150, iters_per_epoch=300, label=3, log='Test/Change_byte_new/T2S/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='none', trade_off=0.0, wd=0.0005, workers=16)
+nondan
+num_classes: 5
+=> using model 'resnet50'
+Epoch: [0][  0/300]	Time 36.71 (36.71)	Data 0.0 (0.0)	Loss 1.62 (1.62)	Trans Loss 0.0000 (0.0000)	Cls Acc 25.0 (25.0)
+Traceback (most recent call last):
+  File "custom_dan.py", line 819, in <module>
+    main(args)
+  File "custom_dan.py", line 557, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 682, in train
+    y_t, f_t = model(x_t)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/modules/classifier.py", line 80, in forward
+    f = self.pool_layer(self.backbone(x))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/vision/models/resnet.py", line 32, in forward
+    x = self.layer1(x)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torchvision/models/resnet.py", line 154, in forward
+    out = self.conv3(out)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 460, in _conv_forward
+    self.padding, self.dilation, self.groups)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 88.00 MiB (GPU 0; 9.77 GiB total capacity; 8.09 GiB already allocated; 95.94 MiB free; 8.10 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

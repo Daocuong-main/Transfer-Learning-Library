@@ -1,0 +1,15 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=32, data='Both', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+custom_dan.py:668: DeprecationWarning: `np.float` is a deprecated alias for the builtin `float`. To silence this warning, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  transfer_loss = np.float(64).to(device)
+Traceback (most recent call last):
+  File "custom_dan.py", line 797, in <module>
+    main(args)
+  File "custom_dan.py", line 535, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 668, in train
+    transfer_loss = np.float(64).to(device)
+AttributeError: 'float' object has no attribute 'to'

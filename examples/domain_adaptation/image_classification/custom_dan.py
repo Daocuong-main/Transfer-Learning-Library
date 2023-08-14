@@ -232,9 +232,9 @@ def source_target_split(df, choice, frac=0.5):
     return source, target
 
 
-def resize_image(image, byte_size ,target_size=(224, 224)):
+def resize_image(image, byte_size, target_size=(224, 224)):
     if byte_size == 256:
-        target_size = (224,224)
+        target_size = (224, 224)
     else:
         target_size = (byte_size, byte_size)
     return cv2.resize(image, target_size, interpolation=cv2.INTER_LINEAR)
@@ -298,9 +298,9 @@ def main(args: argparse.Namespace):
     cudnn.benchmark = True
 
     # Data loading code
-
+    custom_data = ['GQUIC', 'Capture', 'Both', 'nondan']
     # Modified code
-    if args.data == 'GQUIC' or args.data == 'Capture' or args.data == 'Both':
+    if args.data in custom_data:
         byte_size = args.byte_size
         if args.data == 'GQUIC':
             print('GQUIC data')
@@ -363,6 +363,46 @@ def main(args: argparse.Namespace):
             train_target = remapping(train_target, label_mapping)
             val_raw = remapping(val_raw, label_mapping)
             test_raw = remapping(test_raw, label_mapping)
+        elif args.data == 'nondan':
+            print('nondan')
+            if args.scenario == "S2T":
+                args.class_names = ['GoogleHangout_Chat',
+                                    'Youtube', 'shopee', 'thegioididong', 'tiki']
+                num_classes = len(args.class_names)
+                train_source = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_source_{}.feather'.format(byte_size))
+                # train_target = pd.read_feather(
+                #     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_target_{}.feather'.format(byte_size))
+                val_raw = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/val_raw_{}.feather'.format(byte_size))
+            else:
+                args.class_names = ['VoIP', 'alibaba',
+                                    'amazon', 'ebay', 'facebook']
+                num_classes = len(args.class_names)
+                # train_target = pd.read_feather(
+                #     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_source_{}.feather'.format(byte_size))
+                train_source = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_target_{}.feather'.format(byte_size))
+                val_raw = pd.read_feather(
+                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/test_raw_{}.feather'.format(byte_size))
+            
+            train_source_dataset = data_processing(train_source)
+            # train_target_dataset = data_processing(train_target)
+            val_dataset = test_dataset = data_processing(val_raw)
+            del train_source, val_raw
+
+            train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
+                                            shuffle=True, num_workers=args.workers, drop_last=True)
+            # train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
+            #                                 shuffle=True, num_workers=args.workers, drop_last=True)
+            val_loader = DataLoader(
+                val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+            test_loader = DataLoader(
+                test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+
+            train_source_iter = ForeverDataIterator(train_source_loader)
+            train_target_iter = None
+            
         else:
             print('Concate data')
             args.class_names = ['Ecommerce', 'Video', 'Google_Service']
@@ -382,27 +422,27 @@ def main(args: argparse.Namespace):
                 test_raw = val_raw = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw_{}.feather'.format(byte_size))
 
-        train_source_dataset = data_processing(train_source)
-        train_target_dataset = data_processing(train_target)
-        val_dataset = data_processing(val_raw)
-        test_dataset = data_processing(test_raw)
-        del train_source, train_target, val_raw, test_raw
+            train_source_dataset = data_processing(train_source)
+            train_target_dataset = data_processing(train_target)
+            val_dataset = data_processing(val_raw)
+            test_dataset = data_processing(test_raw)
+            del train_source, train_target, val_raw, test_raw
 
-        train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
-                                         shuffle=True, num_workers=args.workers, drop_last=True)
-        train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
-                                         shuffle=True, num_workers=args.workers, drop_last=True)
-        val_loader = DataLoader(
-            val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
-        test_loader = DataLoader(
-            test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+            train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
+                                            shuffle=True, num_workers=args.workers, drop_last=True)
+            train_target_loader = DataLoader(train_target_dataset, batch_size=args.batch_size,
+                                            shuffle=True, num_workers=args.workers, drop_last=True)
+            val_loader = DataLoader(
+                val_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
+            test_loader = DataLoader(
+                test_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
 
-        train_source_iter = ForeverDataIterator(train_source_loader)
-        train_target_iter = ForeverDataIterator(train_target_loader)
+            train_source_iter = ForeverDataIterator(train_source_loader)
+            train_target_iter = ForeverDataIterator(train_target_loader)
 
     # Original code
 
-    if args.data != 'GQUIC' and args.data != 'Capture' and args.data != 'Both':
+    if args.data not in custom_data:
 
         train_transform = utils.get_train_transform(args.train_resizing, scale=args.scale, ratio=args.ratio,
                                                     random_horizontal_flip=not args.no_hflip,
@@ -499,15 +539,15 @@ def main(args: argparse.Namespace):
         csv_filename = osp.join(logger.visualize_directory, 'results.csv')
         result_data = [
             [args.arch, args.loss_function, args.test_statistic, args.scenario,
-                args.byte_size, args.trade_off, args.epochs, acc1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, avg_time, min_time, max_time],
+                args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, 'NaN'],
         ]
 
         # Check if the file exists and write header row if necessary
         if not osp.isfile(csv_filename):
             with open(csv_filename, 'w', newline='') as csvfile:
                 csv_writer = csv.writer(csvfile)
-                csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco', 'F1_micro',
-                                    'precision_macro', 'precision_micro', 'recall_macro', 'recall_micro', 'avg_time', 'min_time', 'max_time'])
+                csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
+                                    'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time'])
 
         # Write the data to the CSV file
         with open(csv_filename, 'a', newline='') as csvfile:
@@ -584,15 +624,15 @@ def main(args: argparse.Namespace):
     csv_filename = osp.join(logger.visualize_directory, 'results.csv')
     result_data = [
         [args.arch, args.loss_function, args.test_statistic, args.scenario,
-            args.byte_size, args.trade_off, args.epochs, acc1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, avg_time, min_time, max_time],
+            args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time],
     ]
 
     # Check if the file exists and write header row if necessary
     if not osp.isfile(csv_filename):
         with open(csv_filename, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco', 'F1_micro',
-                                'precision_macro', 'precision_micro', 'recall_macro', 'recall_micro', 'avg_time', 'min_time', 'max_time'])
+            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
+                                'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time'])
 
     # Write the data to the CSV file
     with open(csv_filename, 'a', newline='') as csvfile:
@@ -647,9 +687,11 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
     end = time.time()
     for i in range(args.iters_per_epoch):
         x_s, labels_s = next(train_source_iter)[:2]
-        x_t, = next(train_target_iter)[:1]
+        if args.trade_off != 0:
+            x_t, = next(train_target_iter)[:1]
         x_s = x_s.to(device)
-        x_t = x_t.to(device)
+        if args.trade_off != 0:
+            x_t = x_t.to(device)
         labels_s = labels_s.to(device)
 
         # measure data loading time
@@ -657,26 +699,31 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
 
         # compute output
         y_s, f_s = model(x_s)
-        y_t, f_t = model(x_t)
+        if args.trade_off != 0:
+            y_t, f_t = model(x_t)
 
         cls_loss = F.cross_entropy(y_s, labels_s)
         # print("f_s")
         # print(f_s)
         # print("f_t")
         # print(f_t)
-        if args.loss_function == 'MKMMD':
-
-            transfer_loss = mkmmd_loss(f_s, f_t)
-        elif args.loss_function == "SCF":
-            scf_loss = SmoothCFTest(
-                f_s, f_t, scale=args.scale_parameter, num_random_features=args.random_frequencies, method=args.test_statistic, device=device)
-            transfer_loss = scf_loss.compute_pvalue()
+        if args.trade_off == 0:
+            transfer_loss = np.float64(0)
         else:
-            mkme_loss = MeanEmbeddingTest(
-                f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, method=args.test_statistic, device=device)
-            transfer_loss = mkme_loss.compute_pvalue()
+            if args.loss_function == 'MKMMD':
+
+                transfer_loss = mkmmd_loss(f_s, f_t)
+            elif args.loss_function == "SCF":
+                scf_loss = SmoothCFTest(
+                    f_s, f_t, scale=args.scale_parameter, num_random_features=args.random_frequencies, method=args.test_statistic, device=device)
+                transfer_loss = scf_loss.compute_pvalue()
+            else:
+                mkme_loss = MeanEmbeddingTest(
+                    f_s, f_t, scale=args.scale_parameter, number_of_random_frequencies=args.random_frequencies, method=args.test_statistic, device=device)
+                transfer_loss = mkme_loss.compute_pvalue()
             # print(f'transfer_loss: {transfer_loss}')
         # print(transfer_loss)
+        # print(type(transfer_loss))
         loss = cls_loss + transfer_loss * args.trade_off
 
         cls_acc = accuracy(y_s, labels_s)[0]
@@ -709,8 +756,8 @@ if __name__ == '__main__':
     # parser.add_argument('-d', '--data', metavar='DATA', default='Office31', choices=utils.get_dataset_names(),
     #                     help='dataset: ' + ' | '.join(utils.get_dataset_names()) +
     #                          ' (default: Office31)')
-    parser.add_argument('-d', '--data', metavar='DATA', default='GQUIC',
-                        choices=['GQUIC', 'Capture', 'Both'], help='Choice data')
+    parser.add_argument('-d', '--data', metavar='DATA',
+                        default='GQUIC', help='Choice data')
     # parser.add_argument('-s', '--source', help='source domain(s)', nargs='+')
     # parser.add_argument('-t', '--target', help='target domain(s)', nargs='+')
     parser.add_argument('-l', '--label', type=int, default=3,
@@ -788,6 +835,6 @@ if __name__ == '__main__':
     parser.add_argument('-scenario', metavar='Scenario',
                         default='S2T', help='Scenario')
     parser.add_argument('-ts', '--test-statistic', metavar='Two-sample test statistic',
-                        help='Two-sample test statistic method', default='pinverse', type=str)
+                        help='Two-sample test statistic method', choices=['unnorm', 'pinverse', 'none'], default='none', type=str)
     args = parser.parse_args()
     main(args)
