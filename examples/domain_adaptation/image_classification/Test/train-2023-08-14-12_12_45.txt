@@ -1,0 +1,111 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=32, data='Both', epochs=3, iters_per_epoch=1, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='unnorm', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][0/1]	Time 1.14 (1.14)	Data 0.0 (0.0)	Loss 2.20 (2.20)	Trans Loss 1.0000 (1.0000)	Cls Acc 0.0 (0.0)
+Test: [  0/294]	Time  0.108 ( 0.108)	Loss 9.2194e-01 (9.2194e-01)	Acc@1 100.00 (100.00)
+Test: [100/294]	Time  0.005 ( 0.006)	Loss 9.6702e-01 (9.5488e-01)	Acc@1 100.00 ( 99.63)
+Test: [200/294]	Time  0.005 ( 0.005)	Loss 1.2955e+00 (1.1085e+00)	Acc@1   0.00 ( 55.85)
+ * Acc@1 38.26161
+ * F1 macro = 0.37547
+ * F1 micro= 0.38262
+ * precision macro= 0.37587
+ * precision micro= 0.38262
+ * recall macro = 0.37516
+ * recall micro = 0.38262
+global correct: 38.3
+mean correct:33.1
+mean IoU: 12.8
++------------------+---------------+-------------------+
+|      class       |      acc      |        iou        |
++------------------+---------------+-------------------+
+|    E-commerce    | 99.4462890625 | 38.29424285888672 |
+| Video on-demand  |      0.0      |        0.0        |
+| Interactive data |      0.0      |        0.0        |
++------------------+---------------+-------------------+
+Epoch: [1][0/1]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 2.06 (2.06)	Trans Loss 1.0000 (1.0000)	Cls Acc 12.5 (12.5)
+Test: [  0/294]	Time  0.106 ( 0.106)	Loss 8.9195e-01 (8.9195e-01)	Acc@1 100.00 (100.00)
+Test: [100/294]	Time  0.005 ( 0.006)	Loss 9.4323e-01 (9.2076e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/294]	Time  0.005 ( 0.006)	Loss 1.4227e+00 (1.1103e+00)	Acc@1   0.00 ( 55.91)
+ * Acc@1 38.47465
+ * F1 macro = 0.37760
+ * F1 micro= 0.38475
+ * precision macro= 0.38326
+ * precision micro= 0.38475
+ * recall macro = 0.37665
+ * recall micro = 0.38475
+global correct: 38.5
+mean correct:33.4
+mean IoU: 13.1
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    |  99.5570297241211  | 38.46812438964844  |
+| Video on-demand  |        0.0         |        0.0         |
+| Interactive data | 0.7782101035118103 | 0.7633587718009949 |
++------------------+--------------------+--------------------+
+Epoch: [2][0/1]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 1.95 (1.95)	Trans Loss 1.0000 (1.0000)	Cls Acc 37.5 (37.5)
+Test: [  0/294]	Time  0.135 ( 0.135)	Loss 8.8757e-01 (8.8757e-01)	Acc@1 100.00 (100.00)
+Test: [100/294]	Time  0.005 ( 0.006)	Loss 9.1566e-01 (8.9819e-01)	Acc@1 100.00 ( 98.89)
+Test: [200/294]	Time  0.005 ( 0.006)	Loss 1.8744e+00 (1.1589e+00)	Acc@1   0.00 ( 55.60)
+ * Acc@1 39.07115
+ * F1 macro = 0.37523
+ * F1 micro= 0.39071
+ * precision macro= 0.39803
+ * precision micro= 0.39071
+ * recall macro = 0.37106
+ * recall micro = 0.39071
+global correct: 39.1
+mean correct:34.5
+mean IoU: 14.4
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    |  99.0033187866211 | 38.971229553222656 |
+| Video on-demand  |        0.0        |        0.0         |
+| Interactive data | 4.474708080291748 |  4.15913200378418  |
++------------------+-------------------+--------------------+
+Elapsed time: 9.919661283493042
+best_acc1 = 39.07115
+Test: [  0/294]	Time  0.090 ( 0.090)	Loss 8.8757e-01 (8.8757e-01)	Acc@1 100.00 (100.00)
+Test: [100/294]	Time  0.005 ( 0.006)	Loss 9.1566e-01 (8.9819e-01)	Acc@1 100.00 ( 98.89)
+Test: [200/294]	Time  0.005 ( 0.005)	Loss 1.8744e+00 (1.1589e+00)	Acc@1   0.00 ( 55.60)
+ * Acc@1 39.07115
+ * F1 macro = 0.37523
+ * F1 micro= 0.39071
+ * precision macro= 0.39803
+ * precision micro= 0.39071
+ * recall macro = 0.37106
+ * recall micro = 0.39071
+global correct: 39.1
+mean correct:34.5
+mean IoU: 14.4
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    |  99.0033187866211 | 38.971229553222656 |
+| Video on-demand  |        0.0        |        0.0         |
+| Interactive data | 4.474708080291748 |  4.15913200378418  |
++------------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 39.07115
+F1 macro = 0.37523
+F1 micro= 0.39071
+precision macro= 0.39803
+precision micro= 0.39071
+recall macro = 0.37106
+recall micro = 0.39071
+avg_time = 2.30272
+min_time = 2.00000
+max_time = 4.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.39125   0.99003   0.56085       903
+ Video on-demand    0.00000   0.00000   0.00000       930
+Interactive data    0.37097   0.04475   0.07986       514
+
+        accuracy                        0.39071      2347
+       macro avg    0.25407   0.34493   0.21357      2347
+    weighted avg    0.23177   0.39071   0.23328      2347
+
+findfont: Font family ['Arial'] not found. Falling back to DejaVu Sans.

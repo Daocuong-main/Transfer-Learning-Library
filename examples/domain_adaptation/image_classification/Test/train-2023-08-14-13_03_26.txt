@@ -1,0 +1,74 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=32, data='Both', epochs=1, iters_per_epoch=1, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='unnorm', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][0/1]	Time 1.11 (1.11)	Data 0.0 (0.0)	Loss 2.25 (2.25)	Trans Loss 1.0000 (1.0000)	Cls Acc 12.5 (12.5)
+Test: [  0/294]	Time  0.136 ( 0.136)	Loss 1.0750e+00 (1.0750e+00)	Acc@1  62.50 ( 62.50)
+Test: [100/294]	Time  0.005 ( 0.006)	Loss 1.1478e+00 (1.1242e+00)	Acc@1  12.50 ( 13.12)
+Test: [200/294]	Time  0.005 ( 0.005)	Loss 9.8262e-01 (1.0783e+00)	Acc@1  62.50 ( 36.88)
+ * Acc@1 32.97827
+ * F1 macro = 0.19774
+ * F1 micro= 0.32978
+ * precision macro= 0.34768
+ * precision micro= 0.32978
+ * recall macro = 0.15623
+ * recall micro = 0.32978
+global correct: 33.0
+mean correct:29.2
+mean IoU: 15.8
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 13.399778366088867 | 9.009679794311523  |
+| Video on-demand  | 65.26881408691406  | 30.533201217651367 |
+| Interactive data | 8.949416160583496  | 7.809846878051758  |
++------------------+--------------------+--------------------+
+Elapsed time: 3.9109771251678467
+best_acc1 = 32.97827
+Test: [  0/294]	Time  0.077 ( 0.077)	Loss 1.0750e+00 (1.0750e+00)	Acc@1  62.50 ( 62.50)
+Test: [100/294]	Time  0.005 ( 0.005)	Loss 1.1478e+00 (1.1242e+00)	Acc@1  12.50 ( 13.12)
+Test: [200/294]	Time  0.005 ( 0.005)	Loss 9.8262e-01 (1.0783e+00)	Acc@1  62.50 ( 36.88)
+ * Acc@1 32.97827
+ * F1 macro = 0.19774
+ * F1 micro= 0.32978
+ * precision macro= 0.34768
+ * precision micro= 0.32978
+ * recall macro = 0.15623
+ * recall micro = 0.32978
+global correct: 33.0
+mean correct:29.2
+mean IoU: 15.8
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 13.399778366088867 | 9.009679794311523  |
+| Video on-demand  | 65.26881408691406  | 30.533201217651367 |
+| Interactive data | 8.949416160583496  | 7.809846878051758  |
++------------------+--------------------+--------------------+
+Test result below...
+test_acc1 = 32.97827
+F1 macro = 0.19774
+F1 micro= 0.32978
+precision macro= 0.34768
+precision micro= 0.32978
+recall macro = 0.15623
+recall micro = 0.32978
+avg_time = 2.35714
+min_time = 2.00000
+max_time = 3.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.21569   0.13400   0.16530       903
+ Video on-demand    0.36456   0.65269   0.46782       930
+Interactive data    0.38017   0.08949   0.14488       514
+
+        accuracy                        0.32978      2347
+       macro avg    0.32014   0.29206   0.25934      2347
+    weighted avg    0.31070   0.32978   0.28070      2347
+
+Traceback (most recent call last):
+  File "custom_dan.py", line 841, in <module>
+    main(args)
+  File "custom_dan.py", line 666, in main
+    disp.plot(xticks_rotation='vertical', ax=ax, colorbar=False, fontsize=30)
+TypeError: plot() got an unexpected keyword argument 'fontsize'

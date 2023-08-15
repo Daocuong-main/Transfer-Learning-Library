@@ -51,7 +51,8 @@ torch.cuda.empty_cache()
 warnings.filterwarnings("ignore", category=UserWarning)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-
+plt.rcParams['font.family'] = 'Arial'
+plt.rcParams['font.size'] = 14
 def tsne_visualize(source_feature: torch.Tensor, target_feature: torch.Tensor, filename: str, source_color='r', target_color='b'):
     """
     Visualize features from different domains using t-SNE.
@@ -405,7 +406,7 @@ def main(args: argparse.Namespace):
             
         else:
             print('Concate data')
-            args.class_names = ['Ecommerce', 'Video', 'Google_Service']
+            args.class_names = ['E-commerce', 'Video on-demand', 'Interactive data']
             num_classes = len(args.class_names)
             if args.scenario == "S2T":
                 train_source = pd.read_feather(
@@ -509,7 +510,7 @@ def main(args: argparse.Namespace):
         target_feature = collect_feature(
             train_target_loader, feature_extractor, device)
         # plot t-SNE
-        tSNE_filename = osp.join(logger.visualize_directory, 'TSNE.pdf')
+        tSNE_filename = osp.join(logger.visualize_directory, 'TSNE_{}_{}_{}.pdf'.format(args.loss_function, args.test_statistic, args.scenario))
         tsne_visualize(source_feature, target_feature, tSNE_filename)
         print("Saving t-SNE to", tSNE_filename)
         # calculate A-distance, which is a measure for distribution discrepancy
@@ -658,7 +659,7 @@ def main(args: argparse.Namespace):
     Loss_filename = osp.join(logger.visualize_directory, 'model_Loss.pdf')
     plt.savefig(Loss_filename, bbox_inches="tight")
 
-    fig, ax = plt.subplots(figsize=(10, 10))
+    fig, ax = plt.subplots(figsize=(8, 8))
     conf_filename = osp.join(logger.visualize_directory, 'conf.pdf')
     disp = ConfusionMatrixDisplay(
         confusion_matrix=conf_mat, display_labels=args.class_names)

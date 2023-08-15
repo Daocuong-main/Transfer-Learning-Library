@@ -1,0 +1,106 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=256, data='Both', epochs=1, iters_per_epoch=93, label=3, log='Test/Change_lambda/T2S/unnorm/SCF/0.2/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='test', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='unnorm', trade_off=0.2, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Test: [  0/147]	Time  1.155 ( 1.155)	Loss 6.9218e-05 (6.9218e-05)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.017 ( 0.029)	Loss 2.7026e+00 (6.0747e-01)	Acc@1  75.00 ( 82.30)
+ * Acc@1 79.88922
+ * F1 macro = 0.63706
+ * F1 micro= 0.79889
+ * precision macro= 0.69963
+ * precision micro= 0.79889
+ * recall macro = 0.60149
+ * recall micro = 0.79889
+global correct: 79.9
+mean correct:80.5
+mean IoU: 67.0
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    |  99.8892593383789 |  99.8892593383789  |
+| Video on-demand  | 58.92472839355469 | 53.725494384765625 |
+| Interactive data | 82.68482971191406 | 47.43303680419922  |
++------------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 79.88922
+F1 macro = 0.63706
+F1 micro= 0.79889
+precision macro= 0.69963
+precision micro= 0.79889
+recall macro = 0.60149
+recall micro = 0.79889
+avg_time = 11.64626
+min_time = 2.00000
+max_time = 1084.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    1.00000   0.99889   0.99945       903
+ Video on-demand    0.85893   0.58925   0.69898       930
+Interactive data    0.52664   0.82685   0.64345       514
+
+        accuracy                        0.79889      2347
+       macro avg    0.79519   0.80500   0.78063      2347
+    weighted avg    0.84044   0.79889   0.80242      2347
+
+Epoch: [0][ 0/93]	Time 0.38 (0.38)	Data 0.0 (0.0)	Loss 0.23 (0.23)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Test: [  0/147]	Time  0.115 ( 0.115)	Loss 1.5675e-05 (1.5675e-05)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.018 ( 0.019)	Loss 2.7397e+00 (6.6087e-01)	Acc@1  75.00 ( 81.13)
+ * Acc@1 79.59097
+ * F1 macro = 0.64226
+ * F1 micro= 0.79591
+ * precision macro= 0.70665
+ * precision micro= 0.79591
+ * recall macro = 0.60692
+ * recall micro = 0.79591
+global correct: 79.6
+mean correct:80.7
+mean IoU: 66.7
++------------------+--------------------+-------------------+
+|      class       |        acc         |        iou        |
++------------------+--------------------+-------------------+
+|    E-commerce    |       100.0        |       100.0       |
+| Video on-demand  | 56.559139251708984 | 52.33830642700195 |
+| Interactive data | 85.40856170654297  | 47.82135009765625 |
++------------------+--------------------+-------------------+
+Elapsed time: 10.202429056167603
+best_acc1 = 79.59097
+Test: [  0/147]	Time  0.108 ( 0.108)	Loss 1.5675e-05 (1.5675e-05)	Acc@1 100.00 (100.00)
+Test: [100/147]	Time  0.017 ( 0.018)	Loss 2.7397e+00 (6.6087e-01)	Acc@1  75.00 ( 81.13)
+ * Acc@1 79.59097
+ * F1 macro = 0.64226
+ * F1 micro= 0.79591
+ * precision macro= 0.70665
+ * precision micro= 0.79591
+ * recall macro = 0.60692
+ * recall micro = 0.79591
+global correct: 79.6
+mean correct:80.7
+mean IoU: 66.7
++------------------+--------------------+-------------------+
+|      class       |        acc         |        iou        |
++------------------+--------------------+-------------------+
+|    E-commerce    |       100.0        |       100.0       |
+| Video on-demand  | 56.559139251708984 | 52.33830642700195 |
+| Interactive data | 85.40856170654297  | 47.82135009765625 |
++------------------+--------------------+-------------------+
+Test result below...
+test_acc1 = 79.59097
+F1 macro = 0.64226
+F1 micro= 0.79591
+precision macro= 0.70665
+precision micro= 0.79591
+recall macro = 0.60692
+recall micro = 0.79591
+avg_time = 2.77551
+min_time = 2.00000
+max_time = 4.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    1.00000   1.00000   1.00000       903
+ Video on-demand    0.87521   0.56559   0.68713       930
+Interactive data    0.52076   0.85409   0.64702       514
+
+        accuracy                        0.79591      2347
+       macro avg    0.79866   0.80656   0.77805      2347
+    weighted avg    0.84560   0.79591   0.79872      2347
+
