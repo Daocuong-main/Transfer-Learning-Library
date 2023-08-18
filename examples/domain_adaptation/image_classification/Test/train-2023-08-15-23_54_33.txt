@@ -1,0 +1,66 @@
+Namespace(arch='tf_mobilenetv3_large_100', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'tf_mobilenetv3_large_100'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/tf_mobilenetv3_large_100-427764d5.pth" to /home/bkcs/.cache/torch/hub/checkpoints/tf_mobilenetv3_large_100-427764d5.pth
+Traceback (most recent call last):
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 1350, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 1036, in _send_output
+    self.send(msg)
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 976, in send
+    self.connect()
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 1443, in connect
+    super().connect()
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 948, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/home/bkcs/miniconda3/lib/python3.7/socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/home/bkcs/miniconda3/lib/python3.7/socket.py", line 752, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 484, in main
+    backbone = custom_utils.get_model(args.arch, pretrain=not args.scratch)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/custom_utils.py", line 50, in get_model
+    backbone = timm.create_model(model_name, pretrained=pretrain)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/factory.py", line 71, in create_model
+    model = create_fn(pretrained=pretrained, pretrained_cfg=pretrained_cfg, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/mobilenetv3.py", line 646, in tf_mobilenetv3_large_100
+    model = _gen_mobilenet_v3('tf_mobilenetv3_large_100', 1.0, pretrained=pretrained, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/mobilenetv3.py", line 428, in _gen_mobilenet_v3
+    model = _create_mnv3(variant, pretrained, **model_kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/mobilenetv3.py", line 291, in _create_mnv3
+    **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 557, in build_model_with_cfg
+    strict=pretrained_strict)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 249, in load_pretrained
+    pretrained_loc, map_location='cpu', progress=_DOWNLOAD_PROGRESS, check_hash=_CHECK_HASH)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/hub.py", line 731, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/hub.py", line 597, in download_url_to_file
+    u = urlopen(req)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 1393, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 1352, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -3] Temporary failure in name resolution>

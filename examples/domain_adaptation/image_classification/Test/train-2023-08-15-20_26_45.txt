@@ -1,0 +1,87 @@
+Namespace(arch='regnetv_064', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'regnetv_064'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-tpu-weights/regnetv_064_ra3-530616c2.pth" to /home/bkcs/.cache/torch/hub/checkpoints/regnetv_064_ra3-530616c2.pth
+Epoch: [0][0/2]	Time 1.72 (1.72)	Data 0.0 (0.0)	Loss 1.37 (1.37)	Trans Loss 0.2748 (0.2748)	Cls Acc 50.0 (50.0)
+Test: [  0/185]	Time  0.092 ( 0.092)	Loss 1.1628e+00 (1.1628e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.018 ( 0.019)	Loss 1.1613e+00 (1.1233e+00)	Acc@1   0.00 ( 30.45)
+ * Acc@1 34.64141
+ * F1 macro = 0.24959
+ * F1 micro= 0.34641
+ * precision macro= 0.27962
+ * precision micro= 0.34641
+ * recall macro = 0.24404
+ * recall micro = 0.34641
+global correct: 34.6
+mean correct:52.5
+mean IoU: 24.5
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    |        0.0        |        0.0         |
+| Video on-demand  |  94.6153793334961 | 21.674009323120117 |
+| Interactive data | 63.03317642211914 | 51.85185241699219  |
++------------------+-------------------+--------------------+
+Epoch: [1][0/2]	Time 0.12 (0.12)	Data 0.0 (0.0)	Loss 1.27 (1.27)	Trans Loss 0.1795 (0.1795)	Cls Acc 50.0 (50.0)
+Test: [  0/185]	Time  0.136 ( 0.136)	Loss 1.1487e+00 (1.1487e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.018 ( 0.019)	Loss 1.1541e+00 (1.1287e+00)	Acc@1   0.00 ( 30.57)
+ * Acc@1 16.71177
+ * F1 macro = 0.13778
+ * F1 micro= 0.16712
+ * precision macro= 0.13395
+ * precision micro= 0.16712
+ * recall macro = 0.15145
+ * recall micro = 0.16712
+global correct: 16.7
+mean correct:31.7
+mean IoU: 5.8
++------------------+------+--------------------+
+|      class       | acc  |        iou         |
++------------------+------+--------------------+
+|    E-commerce    | 0.0  |        0.0         |
+| Video on-demand  | 95.0 | 17.309040069580078 |
+| Interactive data | 0.0  |        0.0         |
++------------------+------+--------------------+
+Elapsed time: 11.413109064102173
+best_acc1 = 34.64141
+Test: [  0/185]	Time  0.086 ( 0.086)	Loss 1.1628e+00 (1.1628e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.018 ( 0.019)	Loss 1.1613e+00 (1.1233e+00)	Acc@1   0.00 ( 30.45)
+ * Acc@1 34.64141
+ * F1 macro = 0.24959
+ * F1 micro= 0.34641
+ * precision macro= 0.27962
+ * precision micro= 0.34641
+ * recall macro = 0.24404
+ * recall micro = 0.34641
+global correct: 34.6
+mean correct:52.5
+mean IoU: 24.5
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    |        0.0        |        0.0         |
+| Video on-demand  |  94.6153793334961 | 21.674009323120117 |
+| Interactive data | 63.03317642211914 | 51.85185241699219  |
++------------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 34.64141
+F1 macro = 0.24959
+F1 micro= 0.34641
+precision macro= 0.27962
+precision micro= 0.34641
+recall macro = 0.24404
+recall micro = 0.34641
+avg_time = 7.46486
+min_time = 6.00000
+max_time = 16.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.00000   0.00000   0.00000       796
+ Video on-demand    0.21945   0.94615   0.35626       260
+Interactive data    0.74510   0.63033   0.68293       422
+
+        accuracy                        0.34641      1478
+       macro avg    0.32151   0.52550   0.34640      1478
+    weighted avg    0.25134   0.34641   0.25766      1478
+

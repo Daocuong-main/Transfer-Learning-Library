@@ -1,0 +1,107 @@
+Namespace(arch='vgg11', batch_size=8, bottleneck_dim=256, byte_size=32, data='Both', epochs=3, iters_per_epoch=10, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'vgg11'
+Downloading: "https://download.pytorch.org/models/vgg11-bbd30ac9.pth" to /home/bkcs/.cache/torch/hub/checkpoints/vgg11-bbd30ac9.pth
+Epoch: [0][ 0/10]	Time 1.13 (1.13)	Data 0.0 (0.0)	Loss 1.69 (1.69)	Trans Loss 0.5585 (0.5585)	Cls Acc 50.0 (50.0)
+Test: [  0/185]	Time  0.060 ( 0.060)	Loss 1.5660e-03 (1.5660e-03)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.006 ( 0.006)	Loss 3.0446e-02 (4.3236e-01)	Acc@1 100.00 ( 85.27)
+ * Acc@1 64.74966
+ * F1 macro = 0.56666
+ * F1 micro= 0.64750
+ * precision macro= 0.61566
+ * precision micro= 0.64750
+ * recall macro = 0.55293
+ * recall micro = 0.64750
+global correct: 64.7
+mean correct:53.8
+mean IoU: 38.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 98.36683654785156 |  67.0951156616211 |
+| Video on-demand  | 56.92308044433594 | 41.92634582519531 |
+| Interactive data | 6.161137104034424 | 5.427974700927734 |
++------------------+-------------------+-------------------+
+Epoch: [1][ 0/10]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.60 (0.60)	Trans Loss 0.2611 (0.2611)	Cls Acc 87.5 (87.5)
+Test: [  0/185]	Time  0.109 ( 0.109)	Loss 1.5153e-02 (1.5153e-02)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.005 ( 0.006)	Loss 4.5882e-01 (1.9940e-01)	Acc@1  87.50 ( 94.80)
+ * Acc@1 67.25304
+ * F1 macro = 0.57568
+ * F1 micro= 0.67253
+ * precision macro= 0.58566
+ * precision micro= 0.67253
+ * recall macro = 0.57015
+ * recall micro = 0.67253
+global correct: 67.3
+mean correct:63.4
+mean IoU: 40.6
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 93.21607971191406 | 71.55255889892578  |
+| Video on-demand  | 96.92308044433594 | 50.099403381347656 |
+| Interactive data |        0.0        |        0.0         |
++------------------+-------------------+--------------------+
+Epoch: [2][ 0/10]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.98 (0.98)	Trans Loss 0.4128 (0.4128)	Cls Acc 87.5 (87.5)
+Test: [  0/185]	Time  0.062 ( 0.062)	Loss 1.1374e-04 (1.1374e-04)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.005 ( 0.006)	Loss 5.2249e-02 (2.8488e-01)	Acc@1 100.00 ( 93.94)
+ * Acc@1 67.72666
+ * F1 macro = 0.61775
+ * F1 micro= 0.67727
+ * precision macro= 0.62670
+ * precision micro= 0.67727
+ * recall macro = 0.61309
+ * recall micro = 0.67727
+global correct: 67.7
+mean correct:61.1
+mean IoU: 41.7
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 97.86432647705078 | 93.29341125488281  |
+| Video on-demand  | 85.38461303710938 | 31.805156707763672 |
+| Interactive data |        0.0        |        0.0         |
++------------------+-------------------+--------------------+
+Elapsed time: 24.945273399353027
+best_acc1 = 67.72666
+Test: [  0/185]	Time  0.101 ( 0.101)	Loss 1.1374e-04 (1.1374e-04)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.005 ( 0.006)	Loss 5.2249e-02 (2.8488e-01)	Acc@1 100.00 ( 93.94)
+ * Acc@1 67.72666
+ * F1 macro = 0.61775
+ * F1 micro= 0.67727
+ * precision macro= 0.62670
+ * precision micro= 0.67727
+ * recall macro = 0.61309
+ * recall micro = 0.67727
+global correct: 67.7
+mean correct:61.1
+mean IoU: 41.7
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 97.86432647705078 | 93.29341125488281  |
+| Video on-demand  | 85.38461303710938 | 31.805156707763672 |
+| Interactive data |        0.0        |        0.0         |
++------------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 67.72666
+F1 macro = 0.61775
+F1 micro= 0.67727
+precision macro= 0.62670
+precision micro= 0.67727
+recall macro = 0.61309
+recall micro = 0.67727
+avg_time = 0.71892
+min_time = 0.00000
+max_time = 4.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.95232   0.97864   0.96530       796
+ Video on-demand    0.33636   0.85385   0.48261       260
+Interactive data    0.00000   0.00000   0.00000       422
+
+        accuracy                        0.67727      1478
+       macro avg    0.42956   0.61083   0.48264      1478
+    weighted avg    0.57206   0.67727   0.60478      1478
+

@@ -1,0 +1,22 @@
+Namespace(arch='resnet18', batch_size=16, bottleneck_dim=256, byte_size=256, data='nondan', epochs=250, iters_per_epoch=500, label=3, log='Test/Change_backbone/T2S/', loss_function='None', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='T2S', scratch=False, seed=None, test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+nondan
+num_classes: 5
+=> using model 'resnet18'
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 487, in main
+    pool_layer=pool_layer, finetune=not args.scratch).to(device)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 989, in to
+    return self._apply(convert)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 641, in _apply
+    module._apply(fn)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 664, in _apply
+    param_applied = fn(param)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 987, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+RuntimeError: CUDA error: out of memory
+CUDA kernel errors might be asynchronously reported at some other API call,so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1.

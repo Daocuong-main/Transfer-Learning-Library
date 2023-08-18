@@ -1,0 +1,87 @@
+Namespace(arch='poolformer_s24', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'poolformer_s24'
+Downloading: "https://github.com/sail-sg/poolformer/releases/download/v1.0/poolformer_s24.pth.tar" to /home/bkcs/.cache/torch/hub/checkpoints/poolformer_s24.pth.tar
+Epoch: [0][0/2]	Time 1.24 (1.24)	Data 0.0 (0.0)	Loss 1.30 (1.30)	Trans Loss 0.2158 (0.2158)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.077 ( 0.077)	Loss 1.0035e+00 (1.0035e+00)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.013 ( 0.015)	Loss 1.0103e+00 (1.0513e+00)	Acc@1 100.00 ( 67.95)
+ * Acc@1 53.92422
+ * F1 macro = 0.52253
+ * F1 micro= 0.53924
+ * precision macro= 0.51832
+ * precision micro= 0.53924
+ * recall macro = 0.53895
+ * recall micro = 0.53924
+global correct: 53.9
+mean correct:33.5
+mean IoU: 18.1
++------------------+---------------------+---------------------+
+|      class       |         acc         |         iou         |
++------------------+---------------------+---------------------+
+|    E-commerce    |        100.0        |  53.89302444458008  |
+| Video on-demand  | 0.38461539149284363 | 0.38461539149284363 |
+| Interactive data |         0.0         |         0.0         |
++------------------+---------------------+---------------------+
+Epoch: [1][0/2]	Time 0.07 (0.07)	Data 0.0 (0.0)	Loss 1.62 (1.62)	Trans Loss 0.4853 (0.4853)	Cls Acc 12.5 (12.5)
+Test: [  0/185]	Time  0.077 ( 0.077)	Loss 9.3805e-01 (9.3805e-01)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.014 ( 0.014)	Loss 9.5998e-01 (1.0146e+00)	Acc@1 100.00 ( 67.95)
+ * Acc@1 53.92422
+ * F1 macro = 0.52238
+ * F1 micro= 0.53924
+ * precision macro= 0.51827
+ * precision micro= 0.53924
+ * recall macro = 0.53890
+ * recall micro = 0.53924
+global correct: 53.9
+mean correct:33.5
+mean IoU: 18.1
++------------------+---------------------+---------------------+
+|      class       |         acc         |         iou         |
++------------------+---------------------+---------------------+
+|    E-commerce    |        100.0        |  53.89302444458008  |
+| Video on-demand  | 0.38461539149284363 | 0.38461539149284363 |
+| Interactive data |         0.0         |         0.0         |
++------------------+---------------------+---------------------+
+Elapsed time: 8.290447235107422
+best_acc1 = 53.92422
+Test: [  0/185]	Time  0.113 ( 0.113)	Loss 1.0035e+00 (1.0035e+00)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.013 ( 0.015)	Loss 1.0103e+00 (1.0513e+00)	Acc@1 100.00 ( 67.95)
+ * Acc@1 53.92422
+ * F1 macro = 0.52253
+ * F1 micro= 0.53924
+ * precision macro= 0.51832
+ * precision micro= 0.53924
+ * recall macro = 0.53895
+ * recall micro = 0.53924
+global correct: 53.9
+mean correct:33.5
+mean IoU: 18.1
++------------------+---------------------+---------------------+
+|      class       |         acc         |         iou         |
++------------------+---------------------+---------------------+
+|    E-commerce    |        100.0        |  53.89302444458008  |
+| Video on-demand  | 0.38461539149284363 | 0.38461539149284363 |
+| Interactive data |         0.0         |         0.0         |
++------------------+---------------------+---------------------+
+Test result below...
+test_acc1 = 53.92422
+F1 macro = 0.52253
+F1 micro= 0.53924
+precision macro= 0.51832
+precision micro= 0.53924
+recall macro = 0.53895
+recall micro = 0.53924
+avg_time = 3.84324
+min_time = 3.00000
+max_time = 10.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.53893   1.00000   0.70040       796
+ Video on-demand    1.00000   0.00385   0.00766       260
+Interactive data    0.00000   0.00000   0.00000       422
+
+        accuracy                        0.53924      1478
+       macro avg    0.51298   0.33462   0.23602      1478
+    weighted avg    0.46616   0.53924   0.37856      1478
+

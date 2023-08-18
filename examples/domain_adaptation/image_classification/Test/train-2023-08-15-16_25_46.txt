@@ -1,0 +1,87 @@
+Namespace(arch='convnext_tiny', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'convnext_tiny'
+Downloading: "https://dl.fbaipublicfiles.com/convnext/convnext_tiny_1k_224_ema.pth" to /home/bkcs/.cache/torch/hub/checkpoints/convnext_tiny_1k_224_ema.pth
+Epoch: [0][0/2]	Time 1.09 (1.09)	Data 0.0 (0.0)	Loss 1.69 (1.69)	Trans Loss 0.5871 (0.5871)	Cls Acc 50.0 (50.0)
+Test: [  0/185]	Time  0.070 ( 0.070)	Loss 1.1631e+00 (1.1631e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.012 ( 0.013)	Loss 1.1562e+00 (1.1236e+00)	Acc@1   0.00 ( 28.22)
+ * Acc@1 16.03518
+ * F1 macro = 0.10717
+ * F1 micro= 0.16035
+ * precision macro= 0.12390
+ * precision micro= 0.16035
+ * recall macro = 0.11169
+ * recall micro = 0.16035
+global correct: 16.0
+mean correct:29.9
+mean IoU: 6.1
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    |        0.0         |        0.0         |
+| Video on-demand  | 87.69230651855469  | 16.826568603515625 |
+| Interactive data | 2.1327013969421387 | 1.5845069885253906 |
++------------------+--------------------+--------------------+
+Epoch: [1][0/2]	Time 0.11 (0.11)	Data 0.0 (0.0)	Loss 1.61 (1.61)	Trans Loss 0.5052 (0.5052)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.069 ( 0.069)	Loss 1.1741e+00 (1.1741e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.012 ( 0.013)	Loss 1.1682e+00 (1.1286e+00)	Acc@1   0.00 ( 29.58)
+ * Acc@1 16.57645
+ * F1 macro = 0.12621
+ * F1 micro= 0.16576
+ * precision macro= 0.13682
+ * precision micro= 0.16576
+ * recall macro = 0.13544
+ * recall micro = 0.16576
+global correct: 16.6
+mean correct:31.1
+mean IoU: 6.0
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    |        0.0         |        0.0         |
+| Video on-demand  |  91.9230728149414  | 16.64345359802246  |
+| Interactive data | 1.4218008518218994 | 1.2526096105575562 |
++------------------+--------------------+--------------------+
+Elapsed time: 8.999826908111572
+best_acc1 = 16.57645
+Test: [  0/185]	Time  0.123 ( 0.123)	Loss 1.1741e+00 (1.1741e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.013 ( 0.014)	Loss 1.1682e+00 (1.1286e+00)	Acc@1   0.00 ( 29.58)
+ * Acc@1 16.57645
+ * F1 macro = 0.12621
+ * F1 micro= 0.16576
+ * precision macro= 0.13682
+ * precision micro= 0.16576
+ * recall macro = 0.13544
+ * recall micro = 0.16576
+global correct: 16.6
+mean correct:31.1
+mean IoU: 6.0
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    |        0.0         |        0.0         |
+| Video on-demand  |  91.9230728149414  | 16.64345359802246  |
+| Interactive data | 1.4218008518218994 | 1.2526096105575562 |
++------------------+--------------------+--------------------+
+Test result below...
+test_acc1 = 16.57645
+F1 macro = 0.12621
+F1 micro= 0.16576
+precision macro= 0.13682
+precision micro= 0.16576
+recall macro = 0.13544
+recall micro = 0.16576
+avg_time = 2.47027
+min_time = 2.00000
+max_time = 17.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.00000   0.00000   0.00000       796
+ Video on-demand    0.16890   0.91923   0.28537       260
+Interactive data    0.09524   0.01422   0.02474       422
+
+        accuracy                        0.16576      1478
+       macro avg    0.08805   0.31115   0.10337      1478
+    weighted avg    0.05691   0.16576   0.05727      1478
+

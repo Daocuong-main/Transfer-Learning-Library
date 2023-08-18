@@ -1,0 +1,87 @@
+Namespace(arch='tinynet_c', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'tinynet_c'
+Downloading: "https://github.com/huawei-noah/CV-Backbones/releases/download/v1.2.0/tinynet_c.pth" to /home/bkcs/.cache/torch/hub/checkpoints/tinynet_c.pth
+Epoch: [0][0/2]	Time 1.04 (1.04)	Data 0.0 (0.0)	Loss 1.27 (1.27)	Trans Loss 0.1330 (0.1330)	Cls Acc 25.0 (25.0)
+Test: [  0/185]	Time  0.104 ( 0.104)	Loss 1.2376e+00 (1.2376e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.006 ( 0.007)	Loss 1.2052e+00 (1.1886e+00)	Acc@1   0.00 (  0.00)
+ * Acc@1 28.55210
+ * F1 macro = 0.28552
+ * F1 micro= 0.28552
+ * precision macro= 0.28552
+ * precision micro= 0.28552
+ * recall macro = 0.28552
+ * recall micro = 0.28552
+global correct: 28.6
+mean correct:33.3
+mean IoU: 9.5
++------------------+-------+-------------------+
+|      class       |  acc  |        iou        |
++------------------+-------+-------------------+
+|    E-commerce    |  0.0  |        0.0        |
+| Video on-demand  |  0.0  |        0.0        |
+| Interactive data | 100.0 | 28.55209732055664 |
++------------------+-------+-------------------+
+Epoch: [1][0/2]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 1.36 (1.36)	Trans Loss 0.2453 (0.2453)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.072 ( 0.072)	Loss 1.2312e+00 (1.2312e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.006 ( 0.007)	Loss 1.1989e+00 (1.1778e+00)	Acc@1   0.00 (  0.12)
+ * Acc@1 28.61976
+ * F1 macro = 0.28612
+ * F1 micro= 0.28620
+ * precision macro= 0.28823
+ * precision micro= 0.28620
+ * recall macro = 0.28586
+ * recall micro = 0.28620
+global correct: 28.6
+mean correct:33.5
+mean IoU: 9.7
++------------------+---------------------+--------------------+
+|      class       |         acc         |        iou         |
++------------------+---------------------+--------------------+
+|    E-commerce    |         0.0         |        0.0         |
+| Video on-demand  | 0.38461539149284363 | 0.3802281320095062 |
+| Interactive data |        100.0        | 28.629579544067383 |
++------------------+---------------------+--------------------+
+Elapsed time: 3.8763458728790283
+best_acc1 = 28.61976
+Test: [  0/185]	Time  0.079 ( 0.079)	Loss 1.2312e+00 (1.2312e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.006 ( 0.007)	Loss 1.1989e+00 (1.1778e+00)	Acc@1   0.00 (  0.12)
+ * Acc@1 28.61976
+ * F1 macro = 0.28612
+ * F1 micro= 0.28620
+ * precision macro= 0.28823
+ * precision micro= 0.28620
+ * recall macro = 0.28586
+ * recall micro = 0.28620
+global correct: 28.6
+mean correct:33.5
+mean IoU: 9.7
++------------------+---------------------+--------------------+
+|      class       |         acc         |        iou         |
++------------------+---------------------+--------------------+
+|    E-commerce    |         0.0         |        0.0         |
+| Video on-demand  | 0.38461539149284363 | 0.3802281320095062 |
+| Interactive data |        100.0        | 28.629579544067383 |
++------------------+---------------------+--------------------+
+Test result below...
+test_acc1 = 28.61976
+F1 macro = 0.28612
+F1 micro= 0.28620
+precision macro= 0.28823
+precision micro= 0.28620
+recall macro = 0.28586
+recall micro = 0.28620
+avg_time = 2.90270
+min_time = 2.00000
+max_time = 8.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.00000   0.00000   0.00000       796
+ Video on-demand    0.25000   0.00385   0.00758       260
+Interactive data    0.28630   1.00000   0.44515       422
+
+        accuracy                        0.28620      1478
+       macro avg    0.17877   0.33462   0.15091      1478
+    weighted avg    0.12572   0.28620   0.12843      1478
+

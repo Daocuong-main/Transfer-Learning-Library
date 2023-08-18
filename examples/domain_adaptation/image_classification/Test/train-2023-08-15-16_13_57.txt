@@ -1,0 +1,87 @@
+Namespace(arch='convnext_large', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'convnext_large'
+Downloading: "https://dl.fbaipublicfiles.com/convnext/convnext_large_1k_224_ema.pth" to /home/bkcs/.cache/torch/hub/checkpoints/convnext_large_1k_224_ema.pth
+Epoch: [0][0/2]	Time 1.61 (1.61)	Data 0.0 (0.0)	Loss 1.63 (1.63)	Trans Loss 0.5261 (0.5261)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.135 ( 0.135)	Loss 1.0667e+00 (1.0667e+00)	Acc@1  75.00 ( 75.00)
+Test: [100/185]	Time  0.052 ( 0.053)	Loss 1.0692e+00 (1.0969e+00)	Acc@1  75.00 ( 49.26)
+ * Acc@1 61.90798
+ * F1 macro = 0.40142
+ * F1 micro= 0.61908
+ * precision macro= 0.45930
+ * precision micro= 0.61908
+ * recall macro = 0.37227
+ * recall micro = 0.61908
+global correct: 61.9
+mean correct:49.6
+mean IoU: 33.4
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 76.75879669189453 | 55.444644927978516 |
+| Video on-demand  |        0.0        |        0.0         |
+| Interactive data | 72.03791809082031 | 44.77172088623047  |
++------------------+-------------------+--------------------+
+Epoch: [1][0/2]	Time 0.52 (0.52)	Data 0.0 (0.0)	Loss 1.57 (1.57)	Trans Loss 0.4464 (0.4464)	Cls Acc 25.0 (25.0)
+Test: [  0/185]	Time  0.104 ( 0.104)	Loss 1.0678e+00 (1.0678e+00)	Acc@1  75.00 ( 75.00)
+Test: [100/185]	Time  0.052 ( 0.053)	Loss 1.0699e+00 (1.0982e+00)	Acc@1  62.50 ( 45.30)
+ * Acc@1 60.28417
+ * F1 macro = 0.37473
+ * F1 micro= 0.60284
+ * precision macro= 0.43886
+ * precision micro= 0.60284
+ * recall macro = 0.33983
+ * recall micro = 0.60284
+global correct: 60.3
+mean correct:49.3
+mean IoU: 32.3
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 71.23115539550781 | 54.000003814697266 |
+| Video on-demand  |        0.0        |        0.0         |
+| Interactive data | 76.77725219726562 | 42.91390609741211  |
++------------------+-------------------+--------------------+
+Elapsed time: 37.38841366767883
+best_acc1 = 61.90798
+Test: [  0/185]	Time  0.110 ( 0.110)	Loss 1.0667e+00 (1.0667e+00)	Acc@1  75.00 ( 75.00)
+Test: [100/185]	Time  0.052 ( 0.053)	Loss 1.0692e+00 (1.0969e+00)	Acc@1  75.00 ( 49.26)
+ * Acc@1 61.90798
+ * F1 macro = 0.40142
+ * F1 micro= 0.61908
+ * precision macro= 0.45930
+ * precision micro= 0.61908
+ * recall macro = 0.37227
+ * recall micro = 0.61908
+global correct: 61.9
+mean correct:49.6
+mean IoU: 33.4
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 76.75879669189453 | 55.444644927978516 |
+| Video on-demand  |        0.0        |        0.0         |
+| Interactive data | 72.03791809082031 | 44.77172088623047  |
++------------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 61.90798
+F1 macro = 0.40142
+F1 micro= 0.61908
+precision macro= 0.45930
+precision micro= 0.61908
+recall macro = 0.37227
+recall micro = 0.61908
+avg_time = 4.05946
+min_time = 3.00000
+max_time = 8.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.66630   0.76759   0.71337       796
+ Video on-demand    0.00000   0.00000   0.00000       260
+Interactive data    0.54189   0.72038   0.61851       422
+
+        accuracy                        0.61908      1478
+       macro avg    0.40273   0.49599   0.44396      1478
+    weighted avg    0.51357   0.61908   0.56079      1478
+

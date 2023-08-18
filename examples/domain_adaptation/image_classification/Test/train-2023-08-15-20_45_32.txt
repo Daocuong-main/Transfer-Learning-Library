@@ -1,0 +1,87 @@
+Namespace(arch='regnetz_d8_evos', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'regnetz_d8_evos'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-tpu-weights/regnetz_d8_evos_ch-2bc12646.pth" to /home/bkcs/.cache/torch/hub/checkpoints/regnetz_d8_evos_ch-2bc12646.pth
+Epoch: [0][0/2]	Time 1.61 (1.61)	Data 0.0 (0.0)	Loss 1.29 (1.29)	Trans Loss 0.1880 (0.1880)	Cls Acc 25.0 (25.0)
+Test: [  0/185]	Time  0.162 ( 0.162)	Loss 1.0290e+00 (1.0290e+00)	Acc@1  75.00 ( 75.00)
+Test: [100/185]	Time  0.031 ( 0.032)	Loss 1.0103e+00 (1.0287e+00)	Acc@1  87.50 ( 66.09)
+ * Acc@1 51.96211
+ * F1 macro = 0.41662
+ * F1 micro= 0.51962
+ * precision macro= 0.46163
+ * precision micro= 0.51962
+ * recall macro = 0.41559
+ * recall micro = 0.51962
+global correct: 52.0
+mean correct:34.7
+mean IoU: 20.1
++------------------+-------------------+------------------+
+|      class       |        acc        |       iou        |
++------------------+-------------------+------------------+
+|    E-commerce    | 92.83919525146484 | 51.0711784362793 |
+| Video on-demand  | 11.15384578704834 | 9.11949634552002 |
+| Interactive data |        0.0        |       0.0        |
++------------------+-------------------+------------------+
+Epoch: [1][0/2]	Time 0.23 (0.23)	Data 0.0 (0.0)	Loss 1.42 (1.42)	Trans Loss 0.4138 (0.4138)	Cls Acc 62.5 (62.5)
+Test: [  0/185]	Time  0.093 ( 0.093)	Loss 8.9205e-01 (8.9205e-01)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.031 ( 0.033)	Loss 8.8497e-01 (9.4486e-01)	Acc@1 100.00 ( 67.82)
+ * Acc@1 53.85656
+ * F1 macro = 0.52178
+ * F1 micro= 0.53857
+ * precision macro= 0.51556
+ * precision micro= 0.53857
+ * recall macro = 0.53857
+ * recall micro = 0.53857
+global correct: 53.9
+mean correct:33.3
+mean IoU: 18.0
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    | 100.0 | 53.856563568115234 |
+| Video on-demand  |  0.0  |        0.0         |
+| Interactive data |  0.0  |        0.0         |
++------------------+-------+--------------------+
+Elapsed time: 16.600544214248657
+best_acc1 = 53.85656
+Test: [  0/185]	Time  0.098 ( 0.098)	Loss 8.9205e-01 (8.9205e-01)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.031 ( 0.032)	Loss 8.8497e-01 (9.4486e-01)	Acc@1 100.00 ( 67.82)
+ * Acc@1 53.85656
+ * F1 macro = 0.52178
+ * F1 micro= 0.53857
+ * precision macro= 0.51556
+ * precision micro= 0.53857
+ * recall macro = 0.53857
+ * recall micro = 0.53857
+global correct: 53.9
+mean correct:33.3
+mean IoU: 18.0
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    | 100.0 | 53.856563568115234 |
+| Video on-demand  |  0.0  |        0.0         |
+| Interactive data |  0.0  |        0.0         |
++------------------+-------+--------------------+
+Test result below...
+test_acc1 = 53.85656
+F1 macro = 0.52178
+F1 micro= 0.53857
+precision macro= 0.51556
+precision micro= 0.53857
+recall macro = 0.53857
+recall micro = 0.53857
+avg_time = 11.60000
+min_time = 9.00000
+max_time = 20.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.53857   1.00000   0.70009       796
+ Video on-demand    0.00000   0.00000   0.00000       260
+Interactive data    0.00000   0.00000   0.00000       422
+
+        accuracy                        0.53857      1478
+       macro avg    0.17952   0.33333   0.23336      1478
+    weighted avg    0.29005   0.53857   0.37704      1478
+

@@ -188,6 +188,19 @@
 # python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 16 -i 500 -scenario S2T --trade-off 5 --log Test/Change_lambda/S2T/pinverse/ME/5/ --per-class-eval --phase analysis
 
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 1 -b 16 -i 93 -scenario S2T --trade-off 2 --log Test/Change_lambda/S2T/unnorm/SCF/2/ --per-class-eval --phase test
-python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 16 -i 500 -scenario S2T --trade-off 5 --log Test/Change_lambda/S2T/MKMMD/5/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 16 -i 500 -scenario S2T --trade-off 5 --log Test/Change_lambda/S2T/MKMMD/5/ --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 1 -b 16 -i 93 -scenario T2S --trade-off 0.2 --log Test/Change_lambda/T2S/unnorm/SCF/0.2/ --per-class-eval --phase test
 # python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 1 -b 16 -i 93 -scenario T2S --trade-off 0.5 --log Test/Change_lambda/T2S/MKMMD/0.5/ --per-class-eval --phase test
+
+
+python custom_dan.py -d nondan -a resnet50 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario S2T --byte-size 256 --trade-off 0 --log Test/Change_backbone/S2T/ --per-class-eval
+python custom_dan.py -d nondan -a vgg11 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario S2T --byte-size 256 --trade-off 0 --log Test/Change_backbone/S2T/ --per-class-eval
+python custom_dan.py -d nondan -a resnet18 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario S2T --byte-size 256 --trade-off 0 --log Test/Change_backbone/S2T/ --per-class-eval
+python custom_dan.py -d nondan -a darknet53 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario S2T --byte-size 256 --trade-off 0 --log Test/Change_backbone/S2T/ --per-class-eval
+python custom_dan.py -d nondan -a mobilevitv2_050 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario S2T --byte-size 256 --trade-off 0 --log Test/Change_backbone/S2T/ --per-class-eval
+
+python custom_dan.py -d nondan -a resnet50 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario T2S --byte-size 256 --trade-off 0 --log Test/Change_backbone/T2S/ --per-class-eval
+python custom_dan.py -d nondan -a vgg11 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario T2S --byte-size 256 --trade-off 0 --log Test/Change_backbone/T2S/ --per-class-eval
+python custom_dan.py -d nondan -a resnet18 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario T2S --byte-size 256 --trade-off 0 --log Test/Change_backbone/T2S/ --per-class-eval
+python custom_dan.py -d nondan -a darknet53 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario T2S --byte-size 256 --trade-off 0 --log Test/Change_backbone/T2S/ --per-class-eval
+python custom_dan.py -d nondan -a mobilevitv2_050 -lf None -ts none --epochs 250 -b 4 -i 500 -scenario T2S --byte-size 256 --trade-off 0 --log Test/Change_backbone/T2S/ --per-class-eval

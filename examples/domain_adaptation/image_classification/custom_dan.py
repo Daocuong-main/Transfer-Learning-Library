@@ -245,7 +245,7 @@ def most_frequent(List):
     return max(set(List), key=List.count)
 
 
-def data_processing(raw_data):
+def data_processing(raw_data, backbone):
     # Get flow label
     result = raw_data.groupby('flow_id')['Label'].apply(list).to_dict()
     flow_label = []
@@ -258,9 +258,18 @@ def data_processing(raw_data):
     datas = datas.reshape(-1, 20, args.byte_size).astype('float32')
     # Resize each image in the dataset
     datas = np.array([resize_image(img, args.byte_size) for img in datas])
-    rgb_datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
-    rgb_datas = np.moveaxis(rgb_datas, 2, 1)
-    final_dataset = MyDataset(rgb_datas, flow_label)
+    # print("before:")
+    # print(datas.shape)
+    if 'lenet' in backbone:
+        datas = np.repeat(datas[:, :, np.newaxis, ], 1, axis=2)
+    else:
+        datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
+    # print('middle')
+    # print(datas.shape)
+    datas = np.moveaxis(datas, 2, 1)
+    # print("after")
+    # print(datas.shape)
+    final_dataset = MyDataset(datas, flow_label)
     return final_dataset
 
 
@@ -387,9 +396,9 @@ def main(args: argparse.Namespace):
                 val_raw = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/test_raw_{}.feather'.format(byte_size))
             
-            train_source_dataset = data_processing(train_source)
-            # train_target_dataset = data_processing(train_target)
-            val_dataset = test_dataset = data_processing(val_raw)
+            train_source_dataset = data_processing(train_source, args.arch)
+            # train_target_dataset = data_processing(train_target, args.arch)
+            val_dataset = test_dataset = data_processing(val_raw, args.arch)
             del train_source, val_raw
 
             train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
@@ -423,10 +432,10 @@ def main(args: argparse.Namespace):
                 test_raw = val_raw = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw_{}.feather'.format(byte_size))
 
-            train_source_dataset = data_processing(train_source)
-            train_target_dataset = data_processing(train_target)
-            val_dataset = data_processing(val_raw)
-            test_dataset = data_processing(test_raw)
+            train_source_dataset = data_processing(train_source, args.arch)
+            train_target_dataset = data_processing(train_target, args.arch)
+            val_dataset = data_processing(val_raw, args.arch)
+            test_dataset = data_processing(test_raw, args.arch)
             del train_source, train_target, val_raw, test_raw
 
             train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,

@@ -1,0 +1,87 @@
+Namespace(arch='ghostnet_100', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'ghostnet_100'
+Downloading: "https://github.com/huawei-noah/CV-backbones/releases/download/ghostnet_pth/ghostnet_1x.pth" to /home/bkcs/.cache/torch/hub/checkpoints/ghostnet_1x.pth
+Epoch: [0][0/2]	Time 1.08 (1.08)	Data 0.0 (0.0)	Loss 1.43 (1.43)	Trans Loss 0.3158 (0.3158)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.130 ( 0.130)	Loss 1.1169e+00 (1.1169e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.007 ( 0.008)	Loss 1.1103e+00 (1.0726e+00)	Acc@1   0.00 ( 32.18)
+ * Acc@1 17.59134
+ * F1 macro = 0.15929
+ * F1 micro= 0.17591
+ * precision macro= 0.15291
+ * precision micro= 0.17591
+ * recall macro = 0.17591
+ * recall micro = 0.17591
+global correct: 17.6
+mean correct:33.3
+mean IoU: 5.9
++------------------+-------+-------------------+
+|      class       |  acc  |        iou        |
++------------------+-------+-------------------+
+|    E-commerce    |  0.0  |        0.0        |
+| Video on-demand  | 100.0 | 17.60325050354004 |
+| Interactive data |  0.0  |        0.0        |
++------------------+-------+-------------------+
+Epoch: [1][0/2]	Time 0.05 (0.05)	Data 0.0 (0.0)	Loss 1.39 (1.39)	Trans Loss 0.2323 (0.2323)	Cls Acc 25.0 (25.0)
+Test: [  0/185]	Time  0.131 ( 0.131)	Loss 9.2091e-01 (9.2091e-01)	Acc@1  75.00 ( 75.00)
+Test: [100/185]	Time  0.007 ( 0.008)	Loss 9.3924e-01 (9.5398e-01)	Acc@1  75.00 ( 51.98)
+ * Acc@1 40.32476
+ * F1 macro = 0.26441
+ * F1 micro= 0.40325
+ * precision macro= 0.34892
+ * precision micro= 0.40325
+ * recall macro = 0.23424
+ * recall micro = 0.40325
+global correct: 40.3
+mean correct:30.9
+mean IoU: 16.8
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    |  66.2060317993164  | 37.94096374511719  |
+| Video on-demand  | 26.538461685180664 | 12.568305015563965 |
+| Interactive data |        0.0         |        0.0         |
++------------------+--------------------+--------------------+
+Elapsed time: 4.604373931884766
+best_acc1 = 40.32476
+Test: [  0/185]	Time  0.082 ( 0.082)	Loss 9.2091e-01 (9.2091e-01)	Acc@1  75.00 ( 75.00)
+Test: [100/185]	Time  0.007 ( 0.008)	Loss 9.3924e-01 (9.5398e-01)	Acc@1  75.00 ( 51.98)
+ * Acc@1 40.32476
+ * F1 macro = 0.26441
+ * F1 micro= 0.40325
+ * precision macro= 0.34892
+ * precision micro= 0.40325
+ * recall macro = 0.23424
+ * recall micro = 0.40325
+global correct: 40.3
+mean correct:30.9
+mean IoU: 16.8
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    |  66.2060317993164  | 37.94096374511719  |
+| Video on-demand  | 26.538461685180664 | 12.568305015563965 |
+| Interactive data |        0.0         |        0.0         |
++------------------+--------------------+--------------------+
+Test result below...
+test_acc1 = 40.32476
+F1 macro = 0.26441
+F1 micro= 0.40325
+precision macro= 0.34892
+precision micro= 0.40325
+recall macro = 0.23424
+recall micro = 0.40325
+avg_time = 3.64865
+min_time = 3.00000
+max_time = 13.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.47054   0.66206   0.55010       796
+ Video on-demand    0.19274   0.26538   0.22330       260
+Interactive data    0.00000   0.00000   0.00000       422
+
+        accuracy                        0.40325      1478
+       macro avg    0.22109   0.30915   0.25780      1478
+    weighted avg    0.28732   0.40325   0.33555      1478
+

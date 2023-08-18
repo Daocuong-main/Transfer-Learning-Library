@@ -1,0 +1,87 @@
+Namespace(arch='nfnet_l0', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'nfnet_l0'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/nfnet_l0_ra2-45c6688d.pth" to /home/bkcs/.cache/torch/hub/checkpoints/nfnet_l0_ra2-45c6688d.pth
+Epoch: [0][0/2]	Time 1.71 (1.71)	Data 0.0 (0.0)	Loss 1.55 (1.55)	Trans Loss 0.3954 (0.3954)	Cls Acc 12.5 (12.5)
+Test: [  0/185]	Time  0.082 ( 0.082)	Loss 1.1321e+00 (1.1321e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.015 ( 0.016)	Loss 1.1440e+00 (1.1437e+00)	Acc@1   0.00 (  0.00)
+ * Acc@1 28.55210
+ * F1 macro = 0.28552
+ * F1 micro= 0.28552
+ * precision macro= 0.28552
+ * precision micro= 0.28552
+ * recall macro = 0.28552
+ * recall micro = 0.28552
+global correct: 28.6
+mean correct:33.3
+mean IoU: 9.5
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    |  0.0  |        0.0         |
+| Video on-demand  |  0.0  |        0.0         |
+| Interactive data | 100.0 | 28.571430206298828 |
++------------------+-------+--------------------+
+Epoch: [1][0/2]	Time 0.08 (0.08)	Data 0.0 (0.0)	Loss 1.24 (1.24)	Trans Loss 0.1039 (0.1039)	Cls Acc 12.5 (12.5)
+Test: [  0/185]	Time  0.086 ( 0.086)	Loss 1.1353e+00 (1.1353e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.016 ( 0.017)	Loss 1.1398e+00 (1.1095e+00)	Acc@1   0.00 ( 31.56)
+ * Acc@1 19.75643
+ * F1 macro = 0.16813
+ * F1 micro= 0.19756
+ * precision macro= 0.21821
+ * precision micro= 0.19756
+ * recall macro = 0.17298
+ * recall micro = 0.19756
+global correct: 19.8
+mean correct:35.6
+mean IoU: 8.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    |        0.0        |        0.0        |
+| Video on-demand  | 98.07691955566406 | 18.14946746826172 |
+| Interactive data | 8.767772674560547 | 7.991360664367676 |
++------------------+-------------------+-------------------+
+Elapsed time: 10.70187497138977
+best_acc1 = 28.55210
+Test: [  0/185]	Time  0.083 ( 0.083)	Loss 1.1321e+00 (1.1321e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.015 ( 0.017)	Loss 1.1440e+00 (1.1437e+00)	Acc@1   0.00 (  0.00)
+ * Acc@1 28.55210
+ * F1 macro = 0.28552
+ * F1 micro= 0.28552
+ * precision macro= 0.28552
+ * precision micro= 0.28552
+ * recall macro = 0.28552
+ * recall micro = 0.28552
+global correct: 28.6
+mean correct:33.3
+mean IoU: 9.5
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    |  0.0  |        0.0         |
+| Video on-demand  |  0.0  |        0.0         |
+| Interactive data | 100.0 | 28.571430206298828 |
++------------------+-------+--------------------+
+Test result below...
+test_acc1 = 28.55210
+F1 macro = 0.28552
+F1 micro= 0.28552
+precision macro= 0.28552
+precision micro= 0.28552
+recall macro = 0.28552
+recall micro = 0.28552
+avg_time = 5.42162
+min_time = 5.00000
+max_time = 12.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.00000   0.00000   0.00000       796
+ Video on-demand    0.00000   0.00000   0.00000       260
+Interactive data    0.28571   1.00000   0.44444       422
+
+        accuracy                        0.28552      1478
+       macro avg    0.09524   0.33333   0.14815      1478
+    weighted avg    0.08158   0.28552   0.12690      1478
+

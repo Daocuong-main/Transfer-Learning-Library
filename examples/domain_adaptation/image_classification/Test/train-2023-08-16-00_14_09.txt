@@ -1,0 +1,60 @@
+Namespace(arch='vgg16_bn', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'vgg16_bn'
+Downloading: "https://download.pytorch.org/models/vgg16_bn-6c64b313.pth" to /home/bkcs/.cache/torch/hub/checkpoints/vgg16_bn-6c64b313.pth
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 585, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 747, in train
+    loss.backward()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/_tensor.py", line 489, in backward
+    self, gradient, retain_graph, create_graph, inputs=inputs
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/autograd/__init__.py", line 199, in backward
+    allow_unreachable=True, accumulate_grad=True)  # Calls into the C++ engine to run the backward pass
+RuntimeError: cuDNN error: CUDNN_STATUS_INTERNAL_ERROR
+You can try to repro this exception using the following code snippet. If that doesn't trigger the error, please include your original repro script when reporting this issue.
+
+import torch
+torch.backends.cuda.matmul.allow_tf32 = False
+torch.backends.cudnn.benchmark = True
+torch.backends.cudnn.deterministic = False
+torch.backends.cudnn.allow_tf32 = True
+data = torch.randn([8, 4096, 1, 1], dtype=torch.float, device='cuda', requires_grad=True)
+net = torch.nn.Conv2d(4096, 4096, kernel_size=[1, 1], padding=[0, 0], stride=[1, 1], dilation=[1, 1], groups=1)
+net = net.cuda().float()
+out = net(data)
+out.backward(torch.randn_like(out))
+torch.cuda.synchronize()
+
+ConvolutionParams 
+    memory_format = Contiguous
+    data_type = CUDNN_DATA_FLOAT
+    padding = [0, 0, 0]
+    stride = [1, 1, 0]
+    dilation = [1, 1, 0]
+    groups = 1
+    deterministic = false
+    allow_tf32 = true
+input: TensorDescriptor 0x5560aee07330
+    type = CUDNN_DATA_FLOAT
+    nbDims = 4
+    dimA = 8, 4096, 1, 1, 
+    strideA = 4096, 1, 1, 1, 
+output: TensorDescriptor 0x7f063c00c5e0
+    type = CUDNN_DATA_FLOAT
+    nbDims = 4
+    dimA = 8, 4096, 1, 1, 
+    strideA = 4096, 1, 1, 1, 
+weight: FilterDescriptor 0x7f063c05bba0
+    type = CUDNN_DATA_FLOAT
+    tensor_format = CUDNN_TENSOR_NCHW
+    nbDims = 4
+    dimA = 4096, 4096, 1, 1, 
+Pointer addresses: 
+    input: 0x7f080d524000
+    output: 0x7f080d5cc200
+    weight: 0x7f07d19e0000
+

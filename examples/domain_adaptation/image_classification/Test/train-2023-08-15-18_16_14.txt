@@ -1,0 +1,87 @@
+Namespace(arch='fbnetv3_d', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'fbnetv3_d'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-weights/fbnetv3_d_224-c98bce42.pth" to /home/bkcs/.cache/torch/hub/checkpoints/fbnetv3_d_224-c98bce42.pth
+Epoch: [0][0/2]	Time 1.18 (1.18)	Data 0.0 (0.0)	Loss 1.08 (1.08)	Trans Loss 0.0609 (0.0609)	Cls Acc 62.5 (62.5)
+Test: [  0/185]	Time  0.079 ( 0.079)	Loss 1.1505e+00 (1.1505e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.008 ( 0.010)	Loss 1.1355e+00 (1.1379e+00)	Acc@1  12.50 (  7.92)
+ * Acc@1 31.12314
+ * F1 macro = 0.22176
+ * F1 micro= 0.31123
+ * precision macro= 0.34596
+ * precision micro= 0.31123
+ * recall macro = 0.19369
+ * recall micro = 0.31123
+global correct: 31.1
+mean correct:33.0
+mean IoU: 12.6
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 11.432160377502441 | 10.033076286315918 |
+| Video on-demand  |        0.0         |        0.0         |
+| Interactive data | 87.44075775146484  | 27.76523780822754  |
++------------------+--------------------+--------------------+
+Epoch: [1][0/2]	Time 0.06 (0.06)	Data 0.0 (0.0)	Loss 1.27 (1.27)	Trans Loss 0.2006 (0.2006)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.071 ( 0.071)	Loss 1.1290e+00 (1.1290e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/185]	Time  0.008 ( 0.010)	Loss 1.1136e+00 (1.1087e+00)	Acc@1  25.00 ( 28.59)
+ * Acc@1 48.30853
+ * F1 macro = 0.31128
+ * F1 micro= 0.48309
+ * precision macro= 0.42643
+ * precision micro= 0.48309
+ * recall macro = 0.26636
+ * recall micro = 0.48309
+global correct: 48.3
+mean correct:42.8
+mean IoU: 24.1
++------------------+---------------------+---------------------+
+|      class       |         acc         |         iou         |
++------------------+---------------------+---------------------+
+|    E-commerce    |  46.10552978515625  |  37.296749114990234 |
+| Video on-demand  | 0.38461539149284363 | 0.38167938590049744 |
+| Interactive data |  81.99052429199219  |  34.738956451416016 |
++------------------+---------------------+---------------------+
+Elapsed time: 5.733775615692139
+best_acc1 = 48.30853
+Test: [  0/185]	Time  0.123 ( 0.123)	Loss 1.1290e+00 (1.1290e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/185]	Time  0.009 ( 0.010)	Loss 1.1136e+00 (1.1087e+00)	Acc@1  25.00 ( 28.59)
+ * Acc@1 48.30853
+ * F1 macro = 0.31128
+ * F1 micro= 0.48309
+ * precision macro= 0.42643
+ * precision micro= 0.48309
+ * recall macro = 0.26636
+ * recall micro = 0.48309
+global correct: 48.3
+mean correct:42.8
+mean IoU: 24.1
++------------------+---------------------+---------------------+
+|      class       |         acc         |         iou         |
++------------------+---------------------+---------------------+
+|    E-commerce    |  46.10552978515625  |  37.296749114990234 |
+| Video on-demand  | 0.38461539149284363 | 0.38167938590049744 |
+| Interactive data |  81.99052429199219  |  34.738956451416016 |
++------------------+---------------------+---------------------+
+Test result below...
+test_acc1 = 48.30853
+F1 macro = 0.31128
+F1 micro= 0.48309
+precision macro= 0.42643
+precision micro= 0.48309
+recall macro = 0.26636
+recall micro = 0.48309
+avg_time = 4.90270
+min_time = 4.00000
+max_time = 10.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.66126   0.46106   0.54330       796
+ Video on-demand    0.33333   0.00385   0.00760       260
+Interactive data    0.37609   0.81991   0.51565       422
+
+        accuracy                        0.48309      1478
+       macro avg    0.45689   0.42827   0.35552      1478
+    weighted avg    0.52215   0.48309   0.44117      1478
+

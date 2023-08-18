@@ -1,0 +1,35 @@
+Namespace(arch='xcit_large_24_p8_224_dist', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'xcit_large_24_p8_224_dist'
+Downloading: "https://dl.fbaipublicfiles.com/xcit/xcit_large_24_p8_224_dist.pth" to /home/bkcs/.cache/torch/hub/checkpoints/xcit_large_24_p8_224_dist.pth
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 585, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 711, in train
+    y_s, f_s = model(x_s)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/modules/classifier.py", line 80, in forward
+    f = self.pool_layer(self.backbone(x))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/xcit.py", line 468, in forward
+    x = self.forward_features(x)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/xcit.py", line 449, in forward_features
+    x = blk(x, Hp, Wp)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/xcit.py", line 320, in forward
+    x = x + self.drop_path(self.gamma2 * self.mlp(self.norm2(x)))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/layers/mlp.py", line 28, in forward
+    x = self.act(x)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/activation.py", line 684, in forward
+    return F.gelu(input, approximate=self.approximate)
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 74.00 MiB (GPU 0; 9.77 GiB total capacity; 7.84 GiB already allocated; 44.12 MiB free; 8.24 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

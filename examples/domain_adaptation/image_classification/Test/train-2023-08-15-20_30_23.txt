@@ -1,0 +1,87 @@
+Namespace(arch='regnetx_080', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'regnetx_080'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-regnet/regnetx_080-7c7fcab1.pth" to /home/bkcs/.cache/torch/hub/checkpoints/regnetx_080-7c7fcab1.pth
+Epoch: [0][0/2]	Time 1.27 (1.27)	Data 0.0 (0.0)	Loss 1.43 (1.43)	Trans Loss 0.1812 (0.1812)	Cls Acc 12.5 (12.5)
+Test: [  0/185]	Time  0.143 ( 0.143)	Loss 1.1352e+00 (1.1352e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/185]	Time  0.015 ( 0.017)	Loss 1.1108e+00 (1.0910e+00)	Acc@1  12.50 ( 28.47)
+ * Acc@1 20.16238
+ * F1 macro = 0.13354
+ * F1 micro= 0.20162
+ * precision macro= 0.24839
+ * precision micro= 0.20162
+ * recall macro = 0.12249
+ * recall micro = 0.20162
+global correct: 20.2
+mean correct:31.1
+mean IoU: 10.9
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 6.532663345336914 | 5.038759708404541 |
+| Video on-demand  | 74.23076629638672 | 19.33867835998535 |
+| Interactive data | 12.55924129486084 |  8.43949031829834 |
++------------------+-------------------+-------------------+
+Epoch: [1][0/2]	Time 0.09 (0.09)	Data 0.0 (0.0)	Loss 1.33 (1.33)	Trans Loss 0.1802 (0.1802)	Cls Acc 12.5 (12.5)
+Test: [  0/185]	Time  0.076 ( 0.076)	Loss 1.1313e+00 (1.1313e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.015 ( 0.016)	Loss 1.1175e+00 (1.0492e+00)	Acc@1   0.00 ( 32.18)
+ * Acc@1 17.59134
+ * F1 macro = 0.15929
+ * F1 micro= 0.17591
+ * precision macro= 0.15291
+ * precision micro= 0.17591
+ * recall macro = 0.17591
+ * recall micro = 0.17591
+global correct: 17.6
+mean correct:33.3
+mean IoU: 5.9
++------------------+-------+-------------------+
+|      class       |  acc  |        iou        |
++------------------+-------+-------------------+
+|    E-commerce    |  0.0  |        0.0        |
+| Video on-demand  | 100.0 | 17.60325050354004 |
+| Interactive data |  0.0  |        0.0        |
++------------------+-------+-------------------+
+Elapsed time: 10.519076347351074
+best_acc1 = 20.16238
+Test: [  0/185]	Time  0.079 ( 0.079)	Loss 1.1352e+00 (1.1352e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/185]	Time  0.016 ( 0.016)	Loss 1.1108e+00 (1.0910e+00)	Acc@1  12.50 ( 28.47)
+ * Acc@1 20.16238
+ * F1 macro = 0.13354
+ * F1 micro= 0.20162
+ * precision macro= 0.24839
+ * precision micro= 0.20162
+ * recall macro = 0.12249
+ * recall micro = 0.20162
+global correct: 20.2
+mean correct:31.1
+mean IoU: 10.9
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 6.532663345336914 | 5.038759708404541 |
+| Video on-demand  | 74.23076629638672 | 19.33867835998535 |
+| Interactive data | 12.55924129486084 |  8.43949031829834 |
++------------------+-------------------+-------------------+
+Test result below...
+test_acc1 = 20.16238
+F1 macro = 0.13354
+F1 micro= 0.20162
+precision macro= 0.24839
+precision micro= 0.20162
+recall macro = 0.12249
+recall micro = 0.20162
+avg_time = 4.84324
+min_time = 4.00000
+max_time = 10.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.18056   0.06533   0.09594       796
+ Video on-demand    0.20730   0.74231   0.32410       260
+Interactive data    0.20463   0.12559   0.15565       422
+
+        accuracy                        0.20162      1478
+       macro avg    0.19750   0.31108   0.19190      1478
+    weighted avg    0.19214   0.20162   0.15313      1478
+

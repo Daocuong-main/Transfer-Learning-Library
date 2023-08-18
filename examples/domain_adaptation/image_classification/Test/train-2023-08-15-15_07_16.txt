@@ -1,0 +1,26 @@
+Namespace(arch='lenet', batch_size=8, bottleneck_dim=256, byte_size=32, data='Both', epochs=3, iters_per_epoch=10, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'lenet'
+Traceback (most recent call last):
+  File "custom_dan.py", line 841, in <module>
+    main(args)
+  File "custom_dan.py", line 576, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 702, in train
+    y_s, f_s = model(x_s)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/modules/classifier.py", line 80, in forward
+    f = self.pool_layer(self.backbone(x))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 463, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/conv.py", line 460, in _conv_forward
+    self.padding, self.dilation, self.groups)
+RuntimeError: Given groups=1, weight of size [20, 1, 5, 5], expected input[8, 3, 32, 32] to have 1 channels, but got 3 channels instead
