@@ -1,0 +1,87 @@
+Namespace(arch='resnet14t', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet14t'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-rsb-weights/resnet14t_176_c3-c4ed2c37.pth" to /home/bkcs/.cache/torch/hub/checkpoints/resnet14t_176_c3-c4ed2c37.pth
+Epoch: [0][0/2]	Time 1.28 (1.28)	Data 0.0 (0.0)	Loss 1.33 (1.33)	Trans Loss 0.2555 (0.2555)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.074 ( 0.074)	Loss 1.2218e+00 (1.2218e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.007 ( 0.008)	Loss 1.1966e+00 (1.1842e+00)	Acc@1   0.00 (  0.00)
+ * Acc@1 28.55210
+ * F1 macro = 0.28552
+ * F1 micro= 0.28552
+ * precision macro= 0.28552
+ * precision micro= 0.28552
+ * recall macro = 0.28552
+ * recall micro = 0.28552
+global correct: 28.6
+mean correct:33.3
+mean IoU: 9.5
++------------------+-------+-------------------+
+|      class       |  acc  |        iou        |
++------------------+-------+-------------------+
+|    E-commerce    |  0.0  |        0.0        |
+| Video on-demand  |  0.0  |        0.0        |
+| Interactive data | 100.0 | 28.55209732055664 |
++------------------+-------+-------------------+
+Epoch: [1][0/2]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 1.45 (1.45)	Trans Loss 0.3516 (0.3516)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.066 ( 0.066)	Loss 1.2084e+00 (1.2084e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.006 ( 0.007)	Loss 1.1652e+00 (1.1480e+00)	Acc@1   0.00 (  5.57)
+ * Acc@1 32.54398
+ * F1 macro = 0.31079
+ * F1 micro= 0.32544
+ * precision macro= 0.39468
+ * precision micro= 0.32544
+ * recall macro = 0.29738
+ * recall micro = 0.32544
+global correct: 32.5
+mean correct:35.9
+mean IoU: 12.7
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 7.537688255310059  | 7.500000476837158  |
+| Video on-demand  | 0.7692307829856873 | 0.7352941036224365 |
+| Interactive data | 99.28910064697266  | 29.86457633972168  |
++------------------+--------------------+--------------------+
+Elapsed time: 4.80793309211731
+best_acc1 = 32.54398
+Test: [  0/185]	Time  0.113 ( 0.113)	Loss 1.2084e+00 (1.2084e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.006 ( 0.007)	Loss 1.1652e+00 (1.1480e+00)	Acc@1   0.00 (  5.57)
+ * Acc@1 32.54398
+ * F1 macro = 0.31079
+ * F1 micro= 0.32544
+ * precision macro= 0.39468
+ * precision micro= 0.32544
+ * recall macro = 0.29738
+ * recall micro = 0.32544
+global correct: 32.5
+mean correct:35.9
+mean IoU: 12.7
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 7.537688255310059  | 7.500000476837158  |
+| Video on-demand  | 0.7692307829856873 | 0.7352941036224365 |
+| Interactive data | 99.28910064697266  | 29.86457633972168  |
++------------------+--------------------+--------------------+
+Test result below...
+test_acc1 = 32.54398
+F1 macro = 0.31079
+F1 micro= 0.32544
+precision macro= 0.39468
+precision micro= 0.32544
+recall macro = 0.29738
+recall micro = 0.32544
+avg_time = 1.35135
+min_time = 1.00000
+max_time = 4.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.93750   0.07538   0.13953       796
+ Video on-demand    0.14286   0.00769   0.01460       260
+Interactive data    0.29929   0.99289   0.45993       422
+
+        accuracy                        0.32544      1478
+       macro avg    0.45988   0.35865   0.20469      1478
+    weighted avg    0.61549   0.32544   0.20904      1478
+

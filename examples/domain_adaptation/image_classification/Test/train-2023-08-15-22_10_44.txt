@@ -1,0 +1,87 @@
+Namespace(arch='semobilevit_s', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'semobilevit_s'
+No pretrained weights exist or were found for this model. Using random initialization.
+Epoch: [0][0/2]	Time 1.18 (1.18)	Data 0.0 (0.0)	Loss 1.16 (1.16)	Trans Loss 0.0524 (0.0524)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.129 ( 0.129)	Loss 1.0704e+00 (1.0704e+00)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.011 ( 0.012)	Loss 1.0726e+00 (1.0901e+00)	Acc@1 100.00 ( 67.33)
+ * Acc@1 61.43437
+ * F1 macro = 0.55589
+ * F1 micro= 0.61434
+ * precision macro= 0.62865
+ * precision micro= 0.61434
+ * recall macro = 0.55108
+ * recall micro = 0.61434
+global correct: 61.4
+mean correct:42.6
+mean IoU: 28.8
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 98.61808776855469 | 58.01921463012695  |
+| Video on-demand  |        0.0        |        0.0         |
+| Interactive data | 29.14691925048828 | 28.275861740112305 |
++------------------+-------------------+--------------------+
+Epoch: [1][0/2]	Time 0.06 (0.06)	Data 0.0 (0.0)	Loss 1.49 (1.49)	Trans Loss 0.3873 (0.3873)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.140 ( 0.140)	Loss 1.1040e+00 (1.1040e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.011 ( 0.013)	Loss 1.1021e+00 (1.0725e+00)	Acc@1   0.00 ( 32.18)
+ * Acc@1 17.59134
+ * F1 macro = 0.15929
+ * F1 micro= 0.17591
+ * precision macro= 0.15291
+ * precision micro= 0.17591
+ * recall macro = 0.17591
+ * recall micro = 0.17591
+global correct: 17.6
+mean correct:33.3
+mean IoU: 5.9
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    |  0.0  |        0.0         |
+| Video on-demand  | 100.0 | 17.591339111328125 |
+| Interactive data |  0.0  |        0.0         |
++------------------+-------+--------------------+
+Elapsed time: 6.430900573730469
+best_acc1 = 61.43437
+Test: [  0/185]	Time  0.091 ( 0.091)	Loss 1.0704e+00 (1.0704e+00)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.011 ( 0.013)	Loss 1.0726e+00 (1.0901e+00)	Acc@1 100.00 ( 67.33)
+ * Acc@1 61.43437
+ * F1 macro = 0.55589
+ * F1 micro= 0.61434
+ * precision macro= 0.62865
+ * precision micro= 0.61434
+ * recall macro = 0.55108
+ * recall micro = 0.61434
+global correct: 61.4
+mean correct:42.6
+mean IoU: 28.8
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 98.61808776855469 | 58.01921463012695  |
+| Video on-demand  |        0.0        |        0.0         |
+| Interactive data | 29.14691925048828 | 28.275861740112305 |
++------------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 61.43437
+F1 macro = 0.55589
+F1 micro= 0.61434
+precision macro= 0.62865
+precision micro= 0.61434
+recall macro = 0.55108
+recall micro = 0.61434
+avg_time = 4.41081
+min_time = 4.00000
+max_time = 11.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.58495   0.98618   0.73433       796
+ Video on-demand    0.00000   0.00000   0.00000       260
+Interactive data    0.90441   0.29147   0.44086       422
+
+        accuracy                        0.61434      1478
+       macro avg    0.49645   0.42588   0.39173      1478
+    weighted avg    0.57326   0.61434   0.52136      1478
+

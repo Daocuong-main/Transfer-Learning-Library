@@ -65,6 +65,7 @@ def tsne_visualize(source_feature: torch.Tensor, target_feature: torch.Tensor, f
         target_color (str): the color of the target features. Default: 'b'
 
     """
+    print(type(source_feature))
     source_feature = source_feature.numpy()
     target_feature = target_feature.numpy()
     features = np.concatenate([source_feature, target_feature], axis=0)
@@ -245,7 +246,7 @@ def most_frequent(List):
     return max(set(List), key=List.count)
 
 
-def data_processing(raw_data):
+def data_processing(raw_data, backbone):
     # Get flow label
     result = raw_data.groupby('flow_id')['Label'].apply(list).to_dict()
     flow_label = []
@@ -258,9 +259,18 @@ def data_processing(raw_data):
     datas = datas.reshape(-1, 20, args.byte_size).astype('float32')
     # Resize each image in the dataset
     datas = np.array([resize_image(img, args.byte_size) for img in datas])
-    rgb_datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
-    rgb_datas = np.moveaxis(rgb_datas, 2, 1)
-    final_dataset = MyDataset(rgb_datas, flow_label)
+    # print("before:")
+    # print(datas.shape)
+    if 'lenet' in backbone:
+        datas = np.repeat(datas[:, :, np.newaxis, ], 1, axis=2)
+    else:
+        datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
+    # print('middle')
+    # print(datas.shape)
+    datas = np.moveaxis(datas, 2, 1)
+    # print("after")
+    # print(datas.shape)
+    final_dataset = MyDataset(datas, flow_label)
     return final_dataset
 
 
@@ -387,9 +397,9 @@ def main(args: argparse.Namespace):
                 val_raw = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/test_raw_{}.feather'.format(byte_size))
             
-            train_source_dataset = data_processing(train_source)
-            # train_target_dataset = data_processing(train_target)
-            val_dataset = test_dataset = data_processing(val_raw)
+            train_source_dataset = data_processing(train_source, args.arch)
+            # train_target_dataset = data_processing(train_target, args.arch)
+            val_dataset = test_dataset = data_processing(val_raw, args.arch)
             del train_source, val_raw
 
             train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
@@ -411,10 +421,12 @@ def main(args: argparse.Namespace):
             if args.scenario == "S2T":
                 train_source = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
-                train_target = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
-                test_raw = val_raw = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw_{}.feather'.format(byte_size))
+                if args.subset == "none":
+                    train_target = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
+                    test_raw = val_raw = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw_{}.feather'.format(byte_size))
+                else:
+                    train_target = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}_{}.feather'.format(args.subset,byte_size))
+                    test_raw = val_raw = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_target_{}_{}.feather'.format(args.subset,byte_size))
             else:
                 train_target = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
@@ -423,10 +435,10 @@ def main(args: argparse.Namespace):
                 test_raw = val_raw = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw_{}.feather'.format(byte_size))
 
-            train_source_dataset = data_processing(train_source)
-            train_target_dataset = data_processing(train_target)
-            val_dataset = data_processing(val_raw)
-            test_dataset = data_processing(test_raw)
+            train_source_dataset = data_processing(train_source, args.arch)
+            train_target_dataset = data_processing(train_target, args.arch)
+            val_dataset = data_processing(val_raw, args.arch)
+            test_dataset = data_processing(test_raw, args.arch)
             del train_source, train_target, val_raw, test_raw
 
             train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
@@ -503,14 +515,22 @@ def main(args: argparse.Namespace):
     # analysis the model
     if args.phase == 'analysis':
         # extract features from both domains
+
         feature_extractor = nn.Sequential(
-            classifier.backbone, classifier.pool_layer, classifier.bottleneck).to(device)
-        source_feature = collect_feature(
-            train_source_loader, feature_extractor, device)
-        target_feature = collect_feature(
-            train_target_loader, feature_extractor, device)
-        # plot t-SNE
-        tSNE_filename = osp.join(logger.visualize_directory, 'TSNE_{}_{}_{}.pdf'.format(args.loss_function, args.test_statistic, args.scenario))
+            classifier.backbone, classifier.pool_layer).to(device)
+       # plot t-SNE before
+        source_feature = collect_feature(train_source_loader, feature_extractor, device)
+        target_feature = collect_feature(train_target_loader, feature_extractor, device)
+        tSNE_filename = osp.join(logger.visualize_directory, 'Before_TSNE_{}_{}_{}.pdf'.format(args.loss_function, args.test_statistic, args.scenario))
+        tsne_visualize(source_feature, target_feature, tSNE_filename)
+        print("Saving t-SNE to", tSNE_filename)
+        
+        feature_extractor = nn.Sequential(
+            classifier.backbone, classifier.pool_layer, classifier.bottleneck).to(device)        
+        # plot t-SNE after
+        source_feature = collect_feature(train_source_loader, feature_extractor, device)
+        target_feature = collect_feature(train_target_loader, feature_extractor, device)
+        tSNE_filename = osp.join(logger.visualize_directory, 'After_TSNE_{}_{}_{}.pdf'.format(args.loss_function, args.test_statistic, args.scenario))
         tsne_visualize(source_feature, target_feature, tSNE_filename)
         print("Saving t-SNE to", tSNE_filename)
         # calculate A-distance, which is a measure for distribution discrepancy
@@ -539,15 +559,15 @@ def main(args: argparse.Namespace):
         # Save results to CSV
         csv_filename = osp.join(logger.visualize_directory, 'results.csv')
         result_data = [
-            [args.arch, args.loss_function, args.test_statistic, args.scenario,
-                args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, 'NaN'],
+            [args.arch, args.loss_function, args.test_statistic, args.scenario, args.subset,
+                args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time],
         ]
 
         # Check if the file exists and write header row if necessary
         if not osp.isfile(csv_filename):
             with open(csv_filename, 'w', newline='') as csvfile:
                 csv_writer = csv.writer(csvfile)
-                csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
+                csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'subset', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
                                     'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time'])
 
         # Write the data to the CSV file
@@ -624,7 +644,7 @@ def main(args: argparse.Namespace):
     # Save results to CSV
     csv_filename = osp.join(logger.visualize_directory, 'results.csv')
     result_data = [
-        [args.arch, args.loss_function, args.test_statistic, args.scenario,
+        [args.arch, args.loss_function, args.test_statistic, args.scenario, args.subset,
             args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time],
     ]
 
@@ -632,7 +652,7 @@ def main(args: argparse.Namespace):
     if not osp.isfile(csv_filename):
         with open(csv_filename, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
+            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'subset', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
                                 'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time'])
 
     # Write the data to the CSV file
@@ -759,6 +779,8 @@ if __name__ == '__main__':
     #                          ' (default: Office31)')
     parser.add_argument('-d', '--data', metavar='DATA',
                         default='GQUIC', help='Choice data')
+    parser.add_argument('-ss', '--subset', metavar='SUBSET',
+                        help='Choice subset of target data')
     # parser.add_argument('-s', '--source', help='source domain(s)', nargs='+')
     # parser.add_argument('-t', '--target', help='target domain(s)', nargs='+')
     parser.add_argument('-l', '--label', type=int, default=3,

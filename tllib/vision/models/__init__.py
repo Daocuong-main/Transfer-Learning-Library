@@ -1,4 +1,4 @@
 from .resnet import *
 from .digits import *
 
-__all__ = ['resnet', 'digits','vgg']
+__all__ = ['resnet', 'digits']

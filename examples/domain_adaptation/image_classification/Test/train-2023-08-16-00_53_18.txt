@@ -1,0 +1,36 @@
+Namespace(arch='vit_large_patch16_224_in21k', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'vit_large_patch16_224_in21k'
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 484, in main
+    backbone = custom_utils.get_model(args.arch, pretrain=not args.scratch)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/custom_utils.py", line 50, in get_model
+    backbone = timm.create_model(model_name, pretrained=pretrain)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/factory.py", line 71, in create_model
+    model = create_fn(pretrained=pretrained, pretrained_cfg=pretrained_cfg, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/vision_transformer.py", line 1060, in vit_large_patch16_224_in21k
+    model = _create_vision_transformer('vit_large_patch16_224_in21k', pretrained=pretrained, **model_kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/vision_transformer.py", line 791, in _create_vision_transformer
+    **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 549, in build_model_with_cfg
+    load_custom_pretrained(model, pretrained_cfg=pretrained_cfg)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 187, in load_custom_pretrained
+    pretrained_loc = download_cached_file(pretrained_loc, check_hash=_CHECK_HASH, progress=_DOWNLOAD_PROGRESS)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/hub.py", line 58, in download_cached_file
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/hub.py", line 619, in download_url_to_file
+    buffer = u.read(8192)
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 465, in read
+    n = self.readinto(b)
+  File "/home/bkcs/miniconda3/lib/python3.7/http/client.py", line 509, in readinto
+    n = self.fp.readinto(b)
+  File "/home/bkcs/miniconda3/lib/python3.7/socket.py", line 589, in readinto
+    return self._sock.recv_into(b)
+  File "/home/bkcs/miniconda3/lib/python3.7/ssl.py", line 1071, in recv_into
+    return self.read(nbytes, buffer)
+  File "/home/bkcs/miniconda3/lib/python3.7/ssl.py", line 929, in read
+    return self._sslobj.read(len, buffer)
+ssl.SSLError: [SSL: KRB5_S_TKT_NYV] unexpected eof while reading (_ssl.c:2570)

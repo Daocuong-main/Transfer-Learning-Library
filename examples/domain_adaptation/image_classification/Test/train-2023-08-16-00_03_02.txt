@@ -1,0 +1,87 @@
+Namespace(arch='tv_resnet152', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'tv_resnet152'
+Downloading: "https://download.pytorch.org/models/resnet152-b121ed2d.pth" to /home/bkcs/.cache/torch/hub/checkpoints/resnet152-b121ed2d.pth
+Epoch: [0][0/2]	Time 1.50 (1.50)	Data 0.0 (0.0)	Loss 1.57 (1.57)	Trans Loss 0.4062 (0.4062)	Cls Acc 25.0 (25.0)
+Test: [  0/185]	Time  0.135 ( 0.135)	Loss 1.1117e+00 (1.1117e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.020 ( 0.021)	Loss 1.0972e+00 (1.0543e+00)	Acc@1   0.00 ( 33.54)
+ * Acc@1 19.01218
+ * F1 macro = 0.16353
+ * F1 micro= 0.19012
+ * precision macro= 0.21630
+ * precision micro= 0.19012
+ * recall macro = 0.16820
+ * recall micro = 0.19012
+global correct: 19.0
+mean correct:33.3
+mean IoU: 7.1
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 4.0201005935668945 | 3.9072041511535645 |
+| Video on-demand  | 95.76923370361328  | 17.364015579223633 |
+| Interactive data |        0.0         |        0.0         |
++------------------+--------------------+--------------------+
+Epoch: [1][0/2]	Time 0.14 (0.14)	Data 0.0 (0.0)	Loss 1.25 (1.25)	Trans Loss 0.1344 (0.1344)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.090 ( 0.090)	Loss 1.1736e+00 (1.1736e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.020 ( 0.021)	Loss 1.1588e+00 (1.0623e+00)	Acc@1   0.00 ( 32.18)
+ * Acc@1 17.59134
+ * F1 macro = 0.15929
+ * F1 micro= 0.17591
+ * precision macro= 0.15291
+ * precision micro= 0.17591
+ * recall macro = 0.17591
+ * recall micro = 0.17591
+global correct: 17.6
+mean correct:33.3
+mean IoU: 5.9
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    |  0.0  |        0.0         |
+| Video on-demand  | 100.0 | 17.591339111328125 |
+| Interactive data |  0.0  |        0.0         |
++------------------+-------+--------------------+
+Elapsed time: 14.4170823097229
+best_acc1 = 19.01218
+Test: [  0/185]	Time  0.092 ( 0.092)	Loss 1.1117e+00 (1.1117e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.020 ( 0.022)	Loss 1.0972e+00 (1.0543e+00)	Acc@1   0.00 ( 33.54)
+ * Acc@1 19.01218
+ * F1 macro = 0.16353
+ * F1 micro= 0.19012
+ * precision macro= 0.21630
+ * precision micro= 0.19012
+ * recall macro = 0.16820
+ * recall micro = 0.19012
+global correct: 19.0
+mean correct:33.3
+mean IoU: 7.1
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 4.0201005935668945 | 3.9072041511535645 |
+| Video on-demand  | 95.76923370361328  | 17.364015579223633 |
+| Interactive data |        0.0         |        0.0         |
++------------------+--------------------+--------------------+
+Test result below...
+test_acc1 = 19.01218
+F1 macro = 0.16353
+F1 micro= 0.19012
+precision macro= 0.21630
+precision micro= 0.19012
+recall macro = 0.16820
+recall micro = 0.19012
+avg_time = 7.28108
+min_time = 7.00000
+max_time = 14.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.58182   0.04020   0.07521       796
+ Video on-demand    0.17498   0.95769   0.29590       260
+Interactive data    0.00000   0.00000   0.00000       422
+
+        accuracy                        0.19012      1478
+       macro avg    0.25227   0.33263   0.12370      1478
+    weighted avg    0.34413   0.19012   0.09256      1478
+

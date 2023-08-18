@@ -1,0 +1,10 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=256, data='Both', epochs=250, iters_per_epoch=500, label=3, log='Test/Change_lambda/S2T/unnorm/SCF/2/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='analysis', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='unnorm', trade_off=2.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Traceback (most recent call last):
+  File "custom_dan.py", line 857, in <module>
+    main(args)
+  File "custom_dan.py", line 517, in main
+    source_feature = collect_feature(train_source_loader, feature_extractor, device, state='before')
+TypeError: collect_feature() got an unexpected keyword argument 'state'

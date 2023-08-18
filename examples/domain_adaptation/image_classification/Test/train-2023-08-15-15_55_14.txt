@@ -1,0 +1,39 @@
+Namespace(arch='beitv2_large_patch16_224', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'beitv2_large_patch16_224'
+Downloading: "https://conversationhub.blob.core.windows.net/beit-share-public/beitv2/beitv2_large_patch16_224_pt1k_ft21kto1k.pth" to /home/bkcs/.cache/torch/hub/checkpoints/beitv2_large_patch16_224_pt1k_ft21kto1k.pth
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 484, in main
+    backbone = custom_utils.get_model(args.arch, pretrain=not args.scratch)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/custom_utils.py", line 50, in get_model
+    backbone = timm.create_model(model_name, pretrained=pretrain)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/factory.py", line 71, in create_model
+    model = create_fn(pretrained=pretrained, pretrained_cfg=pretrained_cfg, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/beit.py", line 492, in beitv2_large_patch16_224
+    model = _create_beit('beitv2_large_patch16_224', pretrained=pretrained, **model_kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/beit.py", line 402, in _create_beit
+    **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 557, in build_model_with_cfg
+    strict=pretrained_strict)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 249, in load_pretrained
+    pretrained_loc, map_location='cpu', progress=_DOWNLOAD_PROGRESS, check_hash=_CHECK_HASH)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/hub.py", line 731, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/hub.py", line 597, in download_url_to_file
+    u = urlopen(req)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 531, in open
+    response = meth(req, response)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 641, in http_response
+    'http', request, response, code, msg, hdrs)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 569, in error
+    return self._call_chain(*args)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/home/bkcs/miniconda3/lib/python3.7/urllib/request.py", line 649, in http_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 409: Public access is not permitted on this storage account.

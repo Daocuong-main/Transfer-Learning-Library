@@ -1,0 +1,38 @@
+Namespace(arch='pnasnet5large', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'pnasnet5large'
+Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-cadene/pnasnet5large-bf079911.pth" to /home/bkcs/.cache/torch/hub/checkpoints/pnasnet5large-bf079911.pth
+Epoch: [0][0/2]	Time 1.60 (1.60)	Data 0.0 (0.0)	Loss 1.41 (1.41)	Trans Loss 0.3386 (0.3386)	Cls Acc 37.5 (37.5)
+Test: [  0/185]	Time  0.161 ( 0.161)	Loss 1.0820e+00 (1.0820e+00)	Acc@1  25.00 ( 25.00)
+Test: [100/185]	Time  0.039 ( 0.040)	Loss 1.0622e+00 (1.1039e+00)	Acc@1  12.50 ( 17.95)
+ * Acc@1 31.66441
+ * F1 macro = 0.21427
+ * F1 micro= 0.31664
+ * precision macro= 0.39587
+ * precision micro= 0.31664
+ * recall macro = 0.15838
+ * recall micro = 0.31664
+global correct: 31.7
+mean correct:29.4
+mean IoU: 14.7
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 26.633167266845703 |  19.6478214263916  |
+| Video on-demand  | 2.692307710647583  | 2.681992292404175  |
+| Interactive data | 59.00474166870117  | 21.689895629882812 |
++------------------+--------------------+--------------------+
+Epoch: [1][0/2]	Time 0.29 (0.29)	Data 0.0 (0.0)	Loss 1.26 (1.26)	Trans Loss 0.1772 (0.1772)	Cls Acc 37.5 (37.5)
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 585, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 747, in train
+    loss.backward()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/_tensor.py", line 489, in backward
+    self, gradient, retain_graph, create_graph, inputs=inputs
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/autograd/__init__.py", line 199, in backward
+    allow_unreachable=True, accumulate_grad=True)  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.00 MiB (GPU 0; 9.77 GiB total capacity; 7.39 GiB already allocated; 16.12 MiB free; 8.15 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

@@ -1,0 +1,18 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=256, data='Both', epochs=250, iters_per_epoch=500, label=3, log='Test/', loss_function='MKME', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='1', test_statistic='pinverse', trade_off=0.5, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 2.43 (2.43)	Data 0.0 (0.0)	Loss 1.49 (1.49)	Trans Loss 0.7728 (0.7728)	Cls Acc 25.0 (25.0)
+Epoch: [0][100/500]	Time 0.06 (0.09)	Data 0.0 (0.0)	Loss 0.64 (1.04)	Trans Loss 0.5882 (0.5912)	Cls Acc 81.2 (65.2)
+Traceback (most recent call last):
+  File "custom_dan.py", line 863, in <module>
+    main(args)
+  File "custom_dan.py", line 596, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 744, in train
+    transfer_loss = mkme_loss.compute_pvalue()
+  File "custom_dan.py", line 183, in compute_pvalue
+    obs = self.vector_of_differences(dimension)
+  File "custom_dan.py", line 176, in vector_of_differences
+    self.number_of_frequencies, dim)).to(device)
+KeyboardInterrupt

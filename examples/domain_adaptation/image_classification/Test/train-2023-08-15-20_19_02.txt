@@ -1,0 +1,87 @@
+Namespace(arch='poolformer_m48', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'poolformer_m48'
+Downloading: "https://github.com/sail-sg/poolformer/releases/download/v1.0/poolformer_m48.pth.tar" to /home/bkcs/.cache/torch/hub/checkpoints/poolformer_m48.pth.tar
+Epoch: [0][0/2]	Time 1.34 (1.34)	Data 0.0 (0.0)	Loss 1.70 (1.70)	Trans Loss 0.5656 (0.5656)	Cls Acc 12.5 (12.5)
+Test: [  0/185]	Time  0.151 ( 0.151)	Loss 1.1724e+00 (1.1724e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.035 ( 0.036)	Loss 1.1813e+00 (1.1229e+00)	Acc@1   0.00 ( 31.93)
+ * Acc@1 17.45602
+ * F1 macro = 0.15542
+ * F1 micro= 0.17456
+ * precision macro= 0.14938
+ * precision micro= 0.17456
+ * recall macro = 0.17171
+ * recall micro = 0.17456
+global correct: 17.5
+mean correct:33.1
+mean IoU: 5.9
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    |        0.0        |        0.0         |
+| Video on-demand  | 99.23076629638672 | 17.586912155151367 |
+| Interactive data |        0.0        |        0.0         |
++------------------+-------------------+--------------------+
+Epoch: [1][0/2]	Time 0.19 (0.19)	Data 0.0 (0.0)	Loss 1.57 (1.57)	Trans Loss 0.5101 (0.5101)	Cls Acc 50.0 (50.0)
+Test: [  0/185]	Time  0.094 ( 0.094)	Loss 1.1718e+00 (1.1718e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.035 ( 0.035)	Loss 1.1650e+00 (1.0861e+00)	Acc@1   0.00 ( 32.18)
+ * Acc@1 17.59134
+ * F1 macro = 0.15929
+ * F1 micro= 0.17591
+ * precision macro= 0.15291
+ * precision micro= 0.17591
+ * recall macro = 0.17591
+ * recall micro = 0.17591
+global correct: 17.6
+mean correct:33.3
+mean IoU: 5.9
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    |  0.0  |        0.0         |
+| Video on-demand  | 100.0 | 17.591339111328125 |
+| Interactive data |  0.0  |        0.0         |
++------------------+-------+--------------------+
+Elapsed time: 22.24244523048401
+best_acc1 = 17.59134
+Test: [  0/185]	Time  0.150 ( 0.150)	Loss 1.1718e+00 (1.1718e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.035 ( 0.037)	Loss 1.1650e+00 (1.0861e+00)	Acc@1   0.00 ( 32.18)
+ * Acc@1 17.59134
+ * F1 macro = 0.15929
+ * F1 micro= 0.17591
+ * precision macro= 0.15291
+ * precision micro= 0.17591
+ * recall macro = 0.17591
+ * recall micro = 0.17591
+global correct: 17.6
+mean correct:33.3
+mean IoU: 5.9
++------------------+-------+--------------------+
+|      class       |  acc  |        iou         |
++------------------+-------+--------------------+
+|    E-commerce    |  0.0  |        0.0         |
+| Video on-demand  | 100.0 | 17.591339111328125 |
+| Interactive data |  0.0  |        0.0         |
++------------------+-------+--------------------+
+Test result below...
+test_acc1 = 17.59134
+F1 macro = 0.15929
+F1 micro= 0.17591
+precision macro= 0.15291
+precision micro= 0.17591
+recall macro = 0.17591
+recall micro = 0.17591
+avg_time = 6.87568
+min_time = 6.00000
+max_time = 14.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.00000   0.00000   0.00000       796
+ Video on-demand    0.17591   1.00000   0.29919       260
+Interactive data    0.00000   0.00000   0.00000       422
+
+        accuracy                        0.17591      1478
+       macro avg    0.05864   0.33333   0.09973      1478
+    weighted avg    0.03095   0.17591   0.05263      1478
+

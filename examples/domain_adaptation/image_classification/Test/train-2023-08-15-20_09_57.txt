@@ -1,0 +1,87 @@
+Namespace(arch='nf_seresnet26', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'nf_seresnet26'
+No pretrained weights exist or were found for this model. Using random initialization.
+Epoch: [0][0/2]	Time 1.35 (1.35)	Data 0.0 (0.0)	Loss 1.15 (1.15)	Trans Loss 0.0409 (0.0409)	Cls Acc 50.0 (50.0)
+Test: [  0/185]	Time  0.089 ( 0.089)	Loss 1.0706e+00 (1.0706e+00)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.010 ( 0.011)	Loss 1.0684e+00 (1.0720e+00)	Acc@1 100.00 ( 67.20)
+ * Acc@1 53.51827
+ * F1 macro = 0.50734
+ * F1 micro= 0.53518
+ * precision macro= 0.50203
+ * precision micro= 0.53518
+ * recall macro = 0.52334
+ * recall micro = 0.53518
+global correct: 53.5
+mean correct:33.1
+mean IoU: 17.8
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.37185668945312 | 53.51826477050781 |
+| Video on-demand  |        0.0        |        0.0        |
+| Interactive data |        0.0        |        0.0        |
++------------------+-------------------+-------------------+
+Epoch: [1][0/2]	Time 0.05 (0.05)	Data 0.0 (0.0)	Loss 1.48 (1.48)	Trans Loss 0.3953 (0.3953)	Cls Acc 62.5 (62.5)
+Test: [  0/185]	Time  0.074 ( 0.074)	Loss 1.0849e+00 (1.0849e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.011 ( 0.012)	Loss 1.0825e+00 (1.0768e+00)	Acc@1  12.50 ( 42.82)
+ * Acc@1 30.51421
+ * F1 macro = 0.22387
+ * F1 micro= 0.30514
+ * precision macro= 0.34894
+ * precision micro= 0.30514
+ * recall macro = 0.19079
+ * recall micro = 0.30514
+global correct: 30.5
+mean correct:33.8
+mean IoU: 14.4
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 34.92462158203125 | 21.80392074584961  |
+| Video on-demand  | 66.53845977783203 | 21.410890579223633 |
+| Interactive data |        0.0        |        0.0         |
++------------------+-------------------+--------------------+
+Elapsed time: 7.0231122970581055
+best_acc1 = 53.51827
+Test: [  0/185]	Time  0.075 ( 0.075)	Loss 1.0706e+00 (1.0706e+00)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.010 ( 0.011)	Loss 1.0684e+00 (1.0720e+00)	Acc@1 100.00 ( 67.20)
+ * Acc@1 53.51827
+ * F1 macro = 0.50734
+ * F1 micro= 0.53518
+ * precision macro= 0.50203
+ * precision micro= 0.53518
+ * recall macro = 0.52334
+ * recall micro = 0.53518
+global correct: 53.5
+mean correct:33.1
+mean IoU: 17.8
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.37185668945312 | 53.51826477050781 |
+| Video on-demand  |        0.0        |        0.0        |
+| Interactive data |        0.0        |        0.0        |
++------------------+-------------------+-------------------+
+Test result below...
+test_acc1 = 53.51827
+F1 macro = 0.50734
+F1 micro= 0.53518
+precision macro= 0.50203
+precision micro= 0.53518
+recall macro = 0.52334
+recall micro = 0.53518
+avg_time = 3.24865
+min_time = 3.00000
+max_time = 7.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.53700   0.99372   0.69722       796
+ Video on-demand    0.00000   0.00000   0.00000       260
+Interactive data    0.00000   0.00000   0.00000       422
+
+        accuracy                        0.53518      1478
+       macro avg    0.17900   0.33124   0.23241      1478
+    weighted avg    0.28921   0.53518   0.37550      1478
+

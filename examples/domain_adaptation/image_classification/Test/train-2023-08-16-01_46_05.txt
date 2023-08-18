@@ -1,0 +1,29 @@
+Namespace(arch='xcit_medium_24_p8_384_dist', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'xcit_medium_24_p8_384_dist'
+Downloading: "https://dl.fbaipublicfiles.com/xcit/xcit_medium_24_p8_384_dist.pth" to /home/bkcs/.cache/torch/hub/checkpoints/xcit_medium_24_p8_384_dist.pth
+Traceback (most recent call last):
+  File "custom_dan.py", line 850, in <module>
+    main(args)
+  File "custom_dan.py", line 484, in main
+    backbone = custom_utils.get_model(args.arch, pretrain=not args.scratch)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/custom_utils.py", line 50, in get_model
+    backbone = timm.create_model(model_name, pretrained=pretrain)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/factory.py", line 71, in create_model
+    model = create_fn(pretrained=pretrained, pretrained_cfg=pretrained_cfg, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/xcit.py", line 817, in xcit_medium_24_p8_384_dist
+    model = _create_xcit('xcit_medium_24_p8_384_dist', pretrained=pretrained, **model_kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/xcit.py", line 504, in _create_xcit
+    XCiT, variant, pretrained, pretrained_filter_fn=checkpoint_filter_fn, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 557, in build_model_with_cfg
+    strict=pretrained_strict)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/timm/models/helpers.py", line 249, in load_pretrained
+    pretrained_loc, map_location='cpu', progress=_DOWNLOAD_PROGRESS, check_hash=_CHECK_HASH)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/hub.py", line 731, in load_state_dict_from_url
+    download_url_to_file(url, cached_file, hash_prefix, progress=progress)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/hub.py", line 622, in download_url_to_file
+    f.write(buffer)
+  File "/home/bkcs/miniconda3/lib/python3.7/tempfile.py", line 481, in func_wrapper
+    return func(*args, **kwargs)
+OSError: [Errno 28] No space left on device
