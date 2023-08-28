@@ -189,6 +189,7 @@
 
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 1 -b 16 -i 93 -scenario S2T --trade-off 2 --log Test/Change_lambda/S2T/unnorm/SCF/2/ --per-class-eval --phase test
 # python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 16 -i 500 -scenario S2T --trade-off 5 --log Test/Change_lambda/S2T/MKMMD/5/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 16 -i 500 -scenario S2T --trade-off 5 --log Test/Change_lambda/S2T/MKMMD/5/ --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 1 -b 16 -i 93 -scenario T2S --trade-off 0.2 --log Test/Change_lambda/T2S/unnorm/SCF/0.2/ --per-class-eval --phase test
 # python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 1 -b 16 -i 93 -scenario T2S --trade-off 0.5 --log Test/Change_lambda/T2S/MKMMD/0.5/ --per-class-eval --phase test
 

@@ -5,6 +5,10 @@
 # python custom_dan.py -d Both -a lenet -lf MKMMD -ts none --byte-size 32 --epochs 3 -b 8 -i 10 -scenario S2T --trade-off 1 --log Test/ --per-class-eval
 # python custom_dan.py -d Both -a vgg11 -lf MKMMD -ts none --byte-size 32 --epochs 3 -b 8 -i 10 -scenario S2T --trade-off 1 --log Test/ --per-class-eval
 
+# python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --byte-size 32 --epochs 3 -b 8 -i 10 -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a lenet -lf MKMMD -ts none --byte-size 32 --epochs 3 -b 8 -i 10 -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a vgg11 -lf MKMMD -ts none --byte-size 32 --epochs 3 -b 8 -i 10 -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+
 
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm -ts none --byte-size 256 --epochs 3 -b 16 -i 1 -scenario T2S --trade-off 0 --log Test/ --per-class-eval
 
