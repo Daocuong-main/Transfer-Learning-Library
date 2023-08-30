@@ -499,7 +499,7 @@ def main(args: argparse.Namespace):
                     momentum=args.momentum, weight_decay=args.wd, nesterov=True)
     lr_scheduler = LambdaLR(optimizer, lambda x: args.lr *
                             (1. + args.lr_gamma * float(x)) ** (-args.lr_decay))
-
+    classifier = nn.DataParallel(classifier)
     # define loss function
     mkmmd_loss = MultipleKernelMaximumMeanDiscrepancy(
         kernels=[GaussianKernel(alpha=2 ** k) for k in range(-3, 2)],
