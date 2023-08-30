@@ -25,3 +25,5 @@ wilds==2.0.0
 torchsummary
 pyarrow
 autopep8
+--index-url https://test.pypi.org/simple/
+tllib==0.4 

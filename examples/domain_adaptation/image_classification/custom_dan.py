@@ -499,7 +499,8 @@ def main(args: argparse.Namespace):
                     momentum=args.momentum, weight_decay=args.wd, nesterov=True)
     lr_scheduler = LambdaLR(optimizer, lambda x: args.lr *
                             (1. + args.lr_gamma * float(x)) ** (-args.lr_decay))
-    classifier = nn.DataParallel(classifier)
+    classifier = ImageClassifier(backbone, num_classes, bottleneck_dim=args.bottleneck_dim,
+                                 pool_layer=pool_layer, finetune=not args.scratch).to(device)
     # define loss function
     mkmmd_loss = MultipleKernelMaximumMeanDiscrepancy(
         kernels=[GaussianKernel(alpha=2 ** k) for k in range(-3, 2)],
@@ -652,7 +653,7 @@ def main(args: argparse.Namespace):
     if not osp.isfile(csv_filename):
         with open(csv_filename, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
-            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'subset', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
+            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'target', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
                                 'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time'])
 
     # Write the data to the CSV file

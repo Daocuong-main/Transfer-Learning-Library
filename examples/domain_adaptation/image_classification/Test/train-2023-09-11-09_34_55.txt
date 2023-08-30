@@ -1,0 +1,40 @@
+Namespace(arch='resnet50', batch_size=16, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Test/', loss_function='MKME', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='pinverse', trade_off=0.5, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][0/2]	Time 1.65 (1.65)	Data 0.0 (0.0)	Loss 1.60 (1.60)	Trans Loss 0.9982 (0.9982)	Cls Acc 37.5 (37.5)
+Test: [ 0/93]	Time  0.122 ( 0.122)	Loss 1.1901e+00 (1.1901e+00)	Acc@1   0.00 (  0.00)
+Traceback (most recent call last):
+  File "custom_dan.py", line 864, in <module>
+    main(args)
+  File "custom_dan.py", line 602, in main
+    val_loader, classifier, args, device)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/custom_utils.py", line 132, in validate
+    for i, data in enumerate(val_loader):
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 628, in __next__
+    data = self._next_data()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 1316, in _next_data
+    idx, data = self._get_data()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 1282, in _get_data
+    success, data = self._try_get_data()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/utils/data/dataloader.py", line 1120, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/queues.py", line 113, in get
+    return _ForkingPickler.loads(res)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/multiprocessing/reductions.py", line 305, in rebuild_storage_fd
+    fd = df.detach()
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/resource_sharer.py", line 87, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/connection.py", line 498, in Client
+    answer_challenge(c, authkey)
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/connection.py", line 742, in answer_challenge
+    message = connection.recv_bytes(256)         # reject large message
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/connection.py", line 216, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/connection.py", line 407, in _recv_bytes
+    buf = self._recv(4)
+  File "/home/bkcs/miniconda3/lib/python3.7/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
