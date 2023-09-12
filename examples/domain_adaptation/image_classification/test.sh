@@ -37,7 +37,7 @@
 
 
 # python custom_dan.py -d Both -a resnet50 -lf None -ts none --epochs 2 -b 16 -i 2 -scenario S2T --trade-off 0 --log Test/ --per-class-eval
-python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 2 -b 16 -i 2 -scenario S2T -ss 1 --trade-off 0.5 --log Test/ --per-class-eval
-python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 2 -b 16 -i 2 -scenario S2T -ss 2 --trade-off 0.5 --log Test/ --per-class-eval
-python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 2 -b 16 -i 2 -scenario S2T -ss 3 --trade-off 0.5 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 2 -b 16 -i 2 -scenario S2T -ss 1 --trade-off 0.5 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 2 -b 16 -i 2 -scenario S2T -ss 2 --trade-off 0.5 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 2 -b 16 -i 2 -scenario S2T -ss 3 --trade-off 0.5 --log Test/ --per-class-eval
 python custom_dan.py -d Both -a resnet50 -lf MKME -ts pinverse --epochs 2 -b 16 -i 2 -scenario S2T -ss none --trade-off 0.5 --log Test/ --per-class-eval

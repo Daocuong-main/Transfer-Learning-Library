@@ -1,0 +1,4 @@
+iter: 1, i: 512, lambda: 0
+iter: 1, i: 512, lambda: 0
+iter: 1, i: 512, lambda: 0.05
+iter: 1, i: 512, lambda: 0.5

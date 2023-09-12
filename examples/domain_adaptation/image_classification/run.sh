@@ -246,24 +246,21 @@ output_file="variable_values.txt"
 
 for ((iter=1; iter<=5; iter++))
 do
-    for i in 256 512
+    for i in 512
     do
-        for b in 1 2 3
+        for lambda in 0 0.05 0.5 1 2
         do
-            for lambda in 0 0.1 1 5
-            do
-                # Write the current variable values to the output file
-                echo "iter: $iter, i: $i, b: $b, lambda: $lambda" >> "$output_file"
-                
-                # Rest of your code here
-                python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 250 -b 32 -i 500 --byte-size $i -ss $b -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-unnorm/Test_$b/Lambda_$lambda/ --per-class-eval
-                python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 250 -b 32 -i 500 --byte-size $i -ss $b -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-pinverse/Test_$b/Lambda_$lambda/ --per-class-eval
-                python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 32 -i 500 --byte-size $i -ss $b -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/MKMMD/Test_$b/Lambda_$lambda/ --per-class-eval
-                
-                python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 250 -b 32 -i 500 --byte-size $i -ss $b -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-unnorm/Test_$b/Lambda_$lambda/ --per-class-eval --phase analysis
-                python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 250 -b 32 -i 500 --byte-size $i -ss $b -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-pinverse/Test_$b/Lambda_$lambda/ --per-class-eval --phase analysis
-                python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 32 -i 500 --byte-size $i -ss $b -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/MKMMD/Test_$b/Lambda_$lambda/ --per-class-eval --phase analysis
-            done
+            # Write the current variable values to the output file
+            echo "iter: $iter, i: $i, lambda: $lambda" >> "$output_file"
+            
+            # Rest of your code here
+            python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 250 -b 8 -i 500 --byte-size $i -ss none -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-unnorm/Test_none/Lambda_$lambda/ --per-class-eval
+            python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 250 -b 8 -i 500 --byte-size $i -ss none -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-pinverse/Test_none/Lambda_$lambda/ --per-class-eval
+            python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 8 -i 500 --byte-size $i -ss none -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/MKMMD/Test_none/Lambda_$lambda/ --per-class-eval
+            
+            python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 250 -b 8 -i 500 --byte-size $i -ss none -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-unnorm/Test_none/Lambda_$lambda/ --per-class-eval --phase analysis
+            python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 250 -b 8 -i 500 --byte-size $i -ss none -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/SCF-pinverse/Test_none/Lambda_$lambda/ --per-class-eval --phase analysis
+            python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 250 -b 8 -i 500 --byte-size $i -ss none -scenario S2T --trade-off $lambda --log Result/DAN/Byte_$i/MKMMD/Test_none/Lambda_$lambda/ --per-class-eval --phase analysis
         done
     done
 done
