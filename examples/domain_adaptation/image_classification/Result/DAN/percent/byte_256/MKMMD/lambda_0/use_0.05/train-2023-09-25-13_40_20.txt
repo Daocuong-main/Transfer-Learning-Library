@@ -1,0 +1,20 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_256/MKMMD/lambda_0/use_0.05/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.05, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 1.28 (1.28)	Data 0.0 (0.0)	Loss 1.13 (1.13)	Trans Loss 0.0000 (0.0000)	Cls Acc 37.5 (37.5)
+Epoch: [0][100/500]	Time 0.03 (0.04)	Data 0.0 (0.0)	Loss 0.87 (1.05)	Trans Loss 0.0000 (0.0000)	Cls Acc 62.5 (44.2)
+Epoch: [0][200/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.87 (0.98)	Trans Loss 0.0000 (0.0000)	Cls Acc 62.5 (54.9)
+Epoch: [0][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.71 (0.92)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (62.0)
+Traceback (most recent call last):
+  File "custom_dan.py", line 915, in <module>
+    main(args)
+  File "custom_dan.py", line 645, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 807, in train
+    loss.backward()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/_tensor.py", line 489, in backward
+    self, gradient, retain_graph, create_graph, inputs=inputs
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/autograd/__init__.py", line 199, in backward
+    allow_unreachable=True, accumulate_grad=True)  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

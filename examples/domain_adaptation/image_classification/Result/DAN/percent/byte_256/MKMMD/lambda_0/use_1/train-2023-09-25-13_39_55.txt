@@ -1,0 +1,29 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_256/MKMMD/lambda_0/use_1/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=1, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 1.37 (1.37)	Data 0.0 (0.0)	Loss 1.04 (1.04)	Trans Loss 0.0000 (0.0000)	Cls Acc 62.5 (62.5)
+Epoch: [0][100/500]	Time 0.03 (0.04)	Data 0.0 (0.0)	Loss 0.95 (1.01)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (60.6)
+Epoch: [0][200/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 1.09 (0.98)	Trans Loss 0.0000 (0.0000)	Cls Acc 62.5 (62.7)
+Epoch: [0][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.98 (0.94)	Trans Loss 0.0000 (0.0000)	Cls Acc 62.5 (67.2)
+Epoch: [0][400/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.53 (0.89)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (71.1)
+Traceback (most recent call last):
+  File "custom_dan.py", line 915, in <module>
+    main(args)
+  File "custom_dan.py", line 645, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 771, in train
+    y_s, f_s = model(x_s)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/modules/classifier.py", line 80, in forward
+    f = self.pool_layer(self.backbone(x))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/tllib/vision/models/resnet.py", line 28, in forward
+    x = self.bn1(x)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/nn/modules/batchnorm.py", line 151, in forward
+    self.num_batches_tracked.add_(1)  # type: ignore[has-type]
+KeyboardInterrupt

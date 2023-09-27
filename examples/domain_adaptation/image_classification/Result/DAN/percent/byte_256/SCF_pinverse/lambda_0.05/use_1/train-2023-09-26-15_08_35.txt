@@ -1,0 +1,1349 @@
+Namespace(arch='resnet50', batch_size=4, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_256/SCF_pinverse/lambda_0.05/use_1/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=1.0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='pinverse', trade_off=0.05, wd=0.0005, workers=2)
+Concate data
+(184180, 258) (122200, 258)
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 1.40 (1.40)	Data 0.0 (0.0)	Loss 1.14 (1.14)	Trans Loss 0.0000 (0.0000)	Cls Acc 25.0 (25.0)
+Epoch: [0][100/500]	Time 0.02 (0.04)	Data 0.0 (0.0)	Loss 1.02 (1.12)	Trans Loss 0.0000 (0.4158)	Cls Acc 100.0 (36.4)
+Epoch: [0][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 1.15 (1.10)	Trans Loss 1.0000 (0.4179)	Cls Acc 50.0 (39.4)
+Epoch: [0][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.96 (1.08)	Trans Loss 0.0000 (0.4454)	Cls Acc 75.0 (46.5)
+Epoch: [0][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.81 (1.04)	Trans Loss 1.0000 (0.4691)	Cls Acc 100.0 (52.3)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 4.5044e-01 (4.5044e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 7.7216e-01 (6.4628e-01)	Acc@1 100.00 ( 98.27)
+Test: [200/370]	Time  0.006 ( 0.007)	Loss 4.7055e-01 (5.7286e-01)	Acc@1 100.00 ( 98.88)
+Test: [300/370]	Time  0.006 ( 0.007)	Loss 1.1452e+00 (6.2549e-01)	Acc@1   0.00 ( 86.88)
+ * Acc@1 71.31258
+ * F1 macro = 0.70007
+ * F1 micro= 0.71313
+ * precision macro= 0.70862
+ * precision micro= 0.71313
+ * recall macro = 0.69677
+ * recall micro = 0.71313
+global correct: 71.3
+mean correct:66.6
+mean IoU: 44.6
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 98.99497985839844  | 86.30887603759766  |
+| Video on-demand  | 98.46154022216797  | 45.14990997314453  |
+| Interactive data | 2.3696682453155518 | 2.3696682453155518 |
++------------------+--------------------+--------------------+
+Epoch: [1][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.61 (0.61)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [1][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.56 (0.81)	Trans Loss 0.0000 (0.4619)	Cls Acc 100.0 (69.6)
+Epoch: [1][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.70 (0.78)	Trans Loss 0.4336 (0.4331)	Cls Acc 75.0 (70.5)
+Epoch: [1][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.73 (0.76)	Trans Loss 0.0283 (0.4292)	Cls Acc 50.0 (72.1)
+Epoch: [1][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.05 (0.75)	Trans Loss 0.0000 (0.4118)	Cls Acc 50.0 (71.6)
+Test: [  0/370]	Time  0.096 ( 0.096)	Loss 1.3851e-01 (1.3851e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 6.5293e-01 (4.2528e-01)	Acc@1 100.00 ( 99.26)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.8063e-01 (3.1431e-01)	Acc@1 100.00 ( 99.38)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.0605e+00 (3.8132e-01)	Acc@1   0.00 ( 87.54)
+ * Acc@1 72.46279
+ * F1 macro = 0.71311
+ * F1 micro= 0.72463
+ * precision macro= 0.72756
+ * precision micro= 0.72463
+ * recall macro = 0.70828
+ * recall micro = 0.72463
+global correct: 72.5
+mean correct:68.1
+mean IoU: 47.0
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    |   99.12060546875  | 93.81687927246094  |
+| Video on-demand  | 99.61538696289062 | 41.639869689941406 |
+| Interactive data | 5.450236797332764 | 5.450236797332764  |
++------------------+-------------------+--------------------+
+Epoch: [2][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.52 (0.52)	Trans Loss 0.7116 (0.7116)	Cls Acc 100.0 (100.0)
+Epoch: [2][100/500]	Time 0.03 (0.02)	Data 0.0 (0.0)	Loss 0.50 (0.67)	Trans Loss 1.0000 (0.4319)	Cls Acc 100.0 (73.5)
+Epoch: [2][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.03 (0.67)	Trans Loss 0.0002 (0.4088)	Cls Acc 75.0 (73.1)
+Epoch: [2][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.95 (0.66)	Trans Loss 1.0000 (0.4234)	Cls Acc 50.0 (73.9)
+Epoch: [2][400/500]	Time 0.03 (0.02)	Data 0.0 (0.0)	Loss 0.51 (0.65)	Trans Loss 1.0000 (0.4194)	Cls Acc 100.0 (74.4)
+Test: [  0/370]	Time  0.101 ( 0.101)	Loss 1.0441e-01 (1.0441e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 5.8915e-01 (3.1720e-01)	Acc@1  75.00 ( 99.01)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.3251e-01 (2.3777e-01)	Acc@1 100.00 ( 99.13)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.0500e+00 (3.1901e-01)	Acc@1   0.00 ( 88.04)
+ * Acc@1 73.34235
+ * F1 macro = 0.71703
+ * F1 micro= 0.73342
+ * precision macro= 0.74244
+ * precision micro= 0.73342
+ * recall macro = 0.70895
+ * recall micro = 0.73342
+global correct: 73.3
+mean correct:69.1
+mean IoU: 48.9
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 98.86934661865234 | 97.16049194335938  |
+| Video on-demand  | 99.23076629638672 | 40.438873291015625 |
+| Interactive data | 9.241705894470215 | 9.198113441467285  |
++------------------+-------------------+--------------------+
+Epoch: [3][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.40 (0.40)	Trans Loss 0.4960 (0.4960)	Cls Acc 75.0 (75.0)
+Epoch: [3][100/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.84 (0.61)	Trans Loss 0.0087 (0.4365)	Cls Acc 75.0 (78.0)
+Epoch: [3][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.38 (0.60)	Trans Loss 0.2614 (0.4184)	Cls Acc 100.0 (79.7)
+Epoch: [3][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.69 (0.59)	Trans Loss 0.0000 (0.4098)	Cls Acc 100.0 (80.5)
+Epoch: [3][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.63 (0.59)	Trans Loss 0.9456 (0.4064)	Cls Acc 50.0 (80.4)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 9.7390e-02 (9.7390e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 4.2239e-01 (2.0266e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.2638e-01 (1.6817e-01)	Acc@1 100.00 ( 99.38)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.1533e+00 (2.8503e-01)	Acc@1   0.00 ( 88.37)
+ * Acc@1 74.08660
+ * F1 macro = 0.72435
+ * F1 micro= 0.74087
+ * precision macro= 0.75237
+ * precision micro= 0.74087
+ * recall macro = 0.71549
+ * recall micro = 0.74087
+global correct: 74.1
+mean correct:70.1
+mean IoU: 50.2
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 98.86934661865234  | 98.86934661865234  |
+| Video on-demand  |       100.0        | 40.43545913696289  |
+| Interactive data | 11.374406814575195 | 11.374406814575195 |
++------------------+--------------------+--------------------+
+Epoch: [4][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.27 (0.27)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (100.0)
+Epoch: [4][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.36 (0.53)	Trans Loss 0.1390 (0.4545)	Cls Acc 75.0 (83.2)
+Epoch: [4][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.28 (0.52)	Trans Loss 0.0000 (0.4585)	Cls Acc 100.0 (83.8)
+Epoch: [4][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.19 (0.52)	Trans Loss 0.0000 (0.4643)	Cls Acc 100.0 (85.3)
+Epoch: [4][400/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.45 (0.51)	Trans Loss 0.9164 (0.4578)	Cls Acc 100.0 (85.8)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 1.2341e-01 (1.2341e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 2.7675e-01 (1.8136e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.4278e-01 (1.7018e-01)	Acc@1 100.00 ( 99.50)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 4.5873e-01 (2.3107e-01)	Acc@1  75.00 ( 95.51)
+ * Acc@1 91.20433
+ * F1 macro = 0.84757
+ * F1 micro= 0.91204
+ * precision macro= 0.87483
+ * precision micro= 0.91204
+ * recall macro = 0.83221
+ * recall micro = 0.91204
+global correct: 91.2
+mean correct:90.0
+mean IoU: 78.9
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 98.99497985839844 | 98.99497985839844 |
+| Video on-demand  |       100.0       | 66.66667175292969 |
+| Interactive data | 71.09004974365234 | 71.09004974365234 |
++------------------+-------------------+-------------------+
+Epoch: [5][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.75 (0.75)	Trans Loss 0.0000 (0.0000)	Cls Acc 50.0 (50.0)
+Epoch: [5][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.37 (0.45)	Trans Loss 1.0000 (0.4805)	Cls Acc 100.0 (87.9)
+Epoch: [5][200/500]	Time 0.03 (0.02)	Data 0.0 (0.0)	Loss 0.41 (0.47)	Trans Loss 0.0453 (0.4644)	Cls Acc 75.0 (87.2)
+Epoch: [5][300/500]	Time 0.03 (0.02)	Data 0.0 (0.0)	Loss 0.71 (0.46)	Trans Loss 1.0000 (0.4610)	Cls Acc 75.0 (88.3)
+Epoch: [5][400/500]	Time 0.03 (0.02)	Data 0.0 (0.0)	Loss 0.25 (0.46)	Trans Loss 0.0000 (0.4741)	Cls Acc 100.0 (88.2)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 4.9501e-02 (4.9501e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 2.4430e-01 (1.5987e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.1981e-02 (1.1951e-01)	Acc@1 100.00 ( 99.63)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 8.8295e-01 (2.1444e-01)	Acc@1  25.00 ( 92.19)
+ * Acc@1 82.00271
+ * F1 macro = 0.78192
+ * F1 micro= 0.82003
+ * precision macro= 0.83243
+ * precision micro= 0.82003
+ * recall macro = 0.76308
+ * recall micro = 0.82003
+global correct: 82.0
+mean correct:79.1
+mean IoU: 62.2
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.24906158447266 |
+| Video on-demand  | 99.61538696289062 | 49.52198791503906 |
+| Interactive data | 37.91469192504883 | 37.91469192504883 |
++------------------+-------------------+-------------------+
+Epoch: [6][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.40 (0.40)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [6][100/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.24 (0.47)	Trans Loss 0.0398 (0.3943)	Cls Acc 100.0 (88.1)
+Epoch: [6][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.23 (0.43)	Trans Loss 0.2148 (0.4340)	Cls Acc 100.0 (89.9)
+Epoch: [6][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.52 (nan)	Trans Loss 0.0002 (  nan)	Cls Acc 75.0 (90.5)
+Epoch: [6][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.29 (nan)	Trans Loss 0.1215 (  nan)	Cls Acc 100.0 (90.1)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 5.7231e-02 (5.7231e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 2.7525e-01 (1.5561e-01)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.5690e-02 (1.2165e-01)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 8.4307e-01 (2.0047e-01)	Acc@1  25.00 ( 93.85)
+ * Acc@1 85.85927
+ * F1 macro = 0.81153
+ * F1 micro= 0.85859
+ * precision macro= 0.85792
+ * precision micro= 0.85859
+ * recall macro = 0.79263
+ * recall micro = 0.85859
+global correct: 85.9
+mean correct:83.6
+mean IoU: 68.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 55.43709945678711 |
+| Interactive data | 51.18483352661133 | 51.18483352661133 |
++------------------+-------------------+-------------------+
+Epoch: [7][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.33 (0.33)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [7][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (89.6)
+Epoch: [7][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.56 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 75.0 (90.7)
+Epoch: [7][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.26 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (91.9)
+Epoch: [7][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.48 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (91.8)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 1.1180e-01 (1.1180e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.4909e-01 (1.4225e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.3610e-01 (1.5229e-01)	Acc@1 100.00 ( 99.50)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.0847e+00 (2.5632e-01)	Acc@1  25.00 ( 91.36)
+ * Acc@1 81.39378
+ * F1 macro = 0.77308
+ * F1 micro= 0.81394
+ * precision macro= 0.82882
+ * precision micro= 0.81394
+ * recall macro = 0.75338
+ * recall micro = 0.81394
+global correct: 81.4
+mean correct:78.6
+mean IoU: 61.4
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 98.99497985839844 | 98.99497985839844 |
+| Video on-demand  |       100.0       |  48.5981330871582 |
+| Interactive data |  36.7298583984375 |  36.7298583984375 |
++------------------+-------------------+-------------------+
+Epoch: [8][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.91 (0.91)	Trans Loss 0.8297 (0.8297)	Cls Acc 75.0 (75.0)
+Epoch: [8][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.21 (0.38)	Trans Loss 1.0000 (0.5142)	Cls Acc 100.0 (93.8)
+Epoch: [8][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.94 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 75.0 (92.5)
+Epoch: [8][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.18 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (93.1)
+Epoch: [8][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.16 (nan)	Trans Loss 0.2071 (  nan)	Cls Acc 75.0 (92.5)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 1.0737e-01 (1.0737e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.4955e-01 (1.3967e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.1909e-01 (1.4482e-01)	Acc@1 100.00 ( 99.63)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.0779e+00 (2.4845e-01)	Acc@1  25.00 ( 91.69)
+ * Acc@1 82.27334
+ * F1 macro = 0.78117
+ * F1 micro= 0.82273
+ * precision macro= 0.83559
+ * precision micro= 0.82273
+ * recall macro = 0.76184
+ * recall micro = 0.82273
+global correct: 82.3
+mean correct:79.5
+mean IoU: 62.8
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.24623107910156 | 99.24623107910156 |
+| Video on-demand  |       100.0       | 49.80842590332031 |
+| Interactive data | 39.33649444580078 | 39.33649444580078 |
++------------------+-------------------+-------------------+
+Epoch: [9][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.49 (0.49)	Trans Loss 0.0321 (0.0321)	Cls Acc 75.0 (75.0)
+Epoch: [9][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.16 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (94.1)
+Epoch: [9][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.10 (nan)	Trans Loss 0.1043 (  nan)	Cls Acc 100.0 (93.8)
+Epoch: [9][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.21 (nan)	Trans Loss 0.1527 (  nan)	Cls Acc 100.0 (93.4)
+Epoch: [9][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.53 (nan)	Trans Loss 0.8203 (  nan)	Cls Acc 100.0 (93.6)
+Test: [  0/370]	Time  0.092 ( 0.092)	Loss 6.8846e-02 (6.8846e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.5518e-01 (1.1583e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 7.7454e-02 (1.0847e-01)	Acc@1 100.00 ( 99.50)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 7.5651e-01 (1.7697e-01)	Acc@1  25.00 ( 93.27)
+ * Acc@1 86.12991
+ * F1 macro = 0.80793
+ * F1 micro= 0.86130
+ * precision macro= 0.85453
+ * precision micro= 0.86130
+ * recall macro = 0.78924
+ * recall micro = 0.86130
+global correct: 86.1
+mean correct:84.1
+mean IoU: 69.4
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 98.99497985839844  | 98.99497985839844  |
+| Video on-demand  |       100.0        | 55.913978576660156 |
+| Interactive data | 53.317535400390625 | 53.317535400390625 |
++------------------+--------------------+--------------------+
+Epoch: [10][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.18 (0.18)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [10][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.17 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (93.8)
+Epoch: [10][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.27 (nan)	Trans Loss 0.3326 (  nan)	Cls Acc 100.0 (94.5)
+Epoch: [10][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.18 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (94.5)
+Epoch: [10][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (94.4)
+Test: [  0/370]	Time  0.091 ( 0.091)	Loss 1.0207e-01 (1.0207e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.1149e-01 (1.1052e-01)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.1792e-01 (1.2200e-01)	Acc@1 100.00 ( 99.38)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 7.1886e-01 (1.9987e-01)	Acc@1  25.00 ( 92.94)
+ * Acc@1 85.85927
+ * F1 macro = 0.80571
+ * F1 micro= 0.85859
+ * precision macro= 0.85318
+ * precision micro= 0.85859
+ * recall macro = 0.78654
+ * recall micro = 0.85859
+global correct: 85.9
+mean correct:83.8
+mean IoU: 69.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 98.86934661865234 | 98.86934661865234 |
+| Video on-demand  |       100.0       | 55.43709945678711 |
+| Interactive data | 52.60663604736328 | 52.60663604736328 |
++------------------+-------------------+-------------------+
+Epoch: [11][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.16 (0.16)	Trans Loss 0.0225 (0.0225)	Cls Acc 100.0 (100.0)
+Epoch: [11][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.29 (nan)	Trans Loss 0.0024 (  nan)	Cls Acc 100.0 (96.8)
+Epoch: [11][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.24 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.3)
+Epoch: [11][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.92 (nan)	Trans Loss 0.0704 (  nan)	Cls Acc 75.0 (95.1)
+Epoch: [11][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.31 (nan)	Trans Loss 0.5023 (  nan)	Cls Acc 100.0 (94.8)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 4.0669e-02 (4.0669e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.5108e-01 (1.0798e-01)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.2101e-02 (8.5214e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 4.9808e-01 (1.4208e-01)	Acc@1 100.00 ( 98.34)
+ * Acc@1 96.82003
+ * F1 macro = 0.93881
+ * F1 micro= 0.96820
+ * precision macro= 0.94858
+ * precision micro= 0.96820
+ * recall macro = 0.93268
+ * recall micro = 0.96820
+global correct: 96.8
+mean correct:96.4
+mean IoU: 91.3
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       |  84.6905517578125 |
+| Interactive data |  89.5734634399414 |  89.5734634399414 |
++------------------+-------------------+-------------------+
+Epoch: [12][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.61 (0.61)	Trans Loss 1.0000 (1.0000)	Cls Acc 75.0 (75.0)
+Epoch: [12][100/500]	Time 0.03 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (96.3)
+Epoch: [12][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.24 (nan)	Trans Loss 0.7220 (  nan)	Cls Acc 100.0 (95.9)
+Epoch: [12][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.12 (nan)	Trans Loss 0.9128 (  nan)	Cls Acc 100.0 (95.8)
+Epoch: [12][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.31 (nan)	Trans Loss 0.3441 (  nan)	Cls Acc 100.0 (95.8)
+Test: [  0/370]	Time  0.100 ( 0.100)	Loss 4.9127e-02 (4.9127e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.0322e-01 (9.0090e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.6257e-02 (7.9871e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.9117e-01 (1.0760e-01)	Acc@1 100.00 ( 99.00)
+ * Acc@1 98.71448
+ * F1 macro = 0.97191
+ * F1 micro= 0.98714
+ * precision macro= 0.97564
+ * precision micro= 0.98714
+ * recall macro = 0.96922
+ * recall micro = 0.98714
+global correct: 98.7
+mean correct:98.6
+mean IoU: 96.4
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.49748229980469 | 99.49748229980469 |
+| Video on-demand  |       100.0       |  93.1899642944336 |
+| Interactive data | 96.44549560546875 | 96.44549560546875 |
++------------------+-------------------+-------------------+
+Epoch: [13][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.17 (0.17)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [13][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.13 (nan)	Trans Loss 0.2265 (  nan)	Cls Acc 75.0 (94.8)
+Epoch: [13][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.10 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (94.8)
+Epoch: [13][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.29 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (94.9)
+Epoch: [13][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (94.8)
+Test: [  0/370]	Time  0.091 ( 0.091)	Loss 4.6371e-02 (4.6371e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 9.4075e-02 (8.7911e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.3192e-02 (7.6153e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.5201e-01 (9.4924e-02)	Acc@1 100.00 ( 99.25)
+ * Acc@1 98.98512
+ * F1 macro = 0.97809
+ * F1 micro= 0.98985
+ * precision macro= 0.98106
+ * precision micro= 0.98985
+ * recall macro = 0.97598
+ * recall micro = 0.98985
+global correct: 99.0
+mean correct:98.9
+mean IoU: 97.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 94.54545593261719 |
+| Interactive data | 97.15640258789062 | 97.15640258789062 |
++------------------+-------------------+-------------------+
+Epoch: [14][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.15 (0.15)	Trans Loss 0.4669 (0.4669)	Cls Acc 100.0 (100.0)
+Epoch: [14][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.19 (nan)	Trans Loss 0.4555 (  nan)	Cls Acc 100.0 (95.3)
+Epoch: [14][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 0.1056 (  nan)	Cls Acc 100.0 (95.8)
+Epoch: [14][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 0.9932 (  nan)	Cls Acc 100.0 (96.3)
+Epoch: [14][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.17 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.0)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 5.2474e-02 (5.2474e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.7998e-01 (1.1326e-01)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.4925e-02 (9.3664e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 8.9926e-02 (9.6035e-02)	Acc@1 100.00 ( 99.67)
+ * Acc@1 99.45873
+ * F1 macro = 0.98763
+ * F1 micro= 0.99459
+ * precision macro= 0.98917
+ * precision micro= 0.99459
+ * recall macro = 0.98647
+ * recall micro = 0.99459
+global correct: 99.5
+mean correct:99.5
+mean IoU: 98.5
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 97.37828063964844 |
+| Interactive data | 98.81517028808594 | 98.58155822753906 |
++------------------+-------------------+-------------------+
+Epoch: [15][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.12 (0.12)	Trans Loss 0.1026 (0.1026)	Cls Acc 100.0 (100.0)
+Epoch: [15][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (94.6)
+Epoch: [15][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.22 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (95.9)
+Epoch: [15][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.21 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.2)
+Epoch: [15][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.10 (nan)	Trans Loss 0.4169 (  nan)	Cls Acc 100.0 (95.9)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 4.6546e-02 (4.6546e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.3290e-01 (9.0039e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.008)	Loss 5.1495e-02 (7.5993e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.6022e-01 (9.1180e-02)	Acc@1 100.00 ( 99.42)
+ * Acc@1 99.12043
+ * F1 macro = 0.98118
+ * F1 micro= 0.99120
+ * precision macro= 0.98376
+ * precision micro= 0.99120
+ * recall macro = 0.97936
+ * recall micro = 0.99120
+global correct: 99.1
+mean correct:99.1
+mean IoU: 97.5
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 95.23809814453125 |
+| Interactive data | 97.63033294677734 | 97.63033294677734 |
++------------------+-------------------+-------------------+
+Epoch: [16][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.20 (0.20)	Trans Loss 0.0021 (0.0021)	Cls Acc 100.0 (100.0)
+Epoch: [16][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.09 (nan)	Trans Loss 0.0008 (  nan)	Cls Acc 100.0 (96.5)
+Epoch: [16][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.6)
+Epoch: [16][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.41 (nan)	Trans Loss 0.1266 (  nan)	Cls Acc 100.0 (96.6)
+Epoch: [16][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.4)
+Test: [  0/370]	Time  0.092 ( 0.092)	Loss 5.6753e-02 (5.6753e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.1487e-01 (8.7269e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.006 ( 0.007)	Loss 6.0984e-02 (8.1529e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 9.5363e-02 (8.9936e-02)	Acc@1 100.00 ( 99.50)
+ * Acc@1 99.18809
+ * F1 macro = 0.98273
+ * F1 micro= 0.99188
+ * precision macro= 0.98512
+ * precision micro= 0.99188
+ * recall macro = 0.98106
+ * recall micro = 0.99188
+global correct: 99.2
+mean correct:99.2
+mean IoU: 97.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       |  95.5882339477539 |
+| Interactive data | 97.86729431152344 | 97.86729431152344 |
++------------------+-------------------+-------------------+
+Epoch: [17][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.19 (0.19)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [17][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.22 (nan)	Trans Loss 0.8652 (  nan)	Cls Acc 100.0 (96.5)
+Epoch: [17][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.21 (nan)	Trans Loss 0.8453 (  nan)	Cls Acc 100.0 (95.6)
+Epoch: [17][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.29 (nan)	Trans Loss 0.1170 (  nan)	Cls Acc 100.0 (95.7)
+Epoch: [17][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.27 (nan)	Trans Loss 0.2578 (  nan)	Cls Acc 100.0 (96.1)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 3.9859e-02 (3.9859e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.2264e-01 (8.3376e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.3524e-02 (6.7728e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.1929e-01 (8.4211e-02)	Acc@1 100.00 ( 99.34)
+ * Acc@1 98.91746
+ * F1 macro = 0.97654
+ * F1 micro= 0.98917
+ * precision macro= 0.97970
+ * precision micro= 0.98917
+ * recall macro = 0.97429
+ * recall micro = 0.98917
+global correct: 98.9
+mean correct:98.8
+mean IoU: 96.9
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 94.20289611816406 |
+| Interactive data | 96.91942596435547 | 96.91942596435547 |
++------------------+-------------------+-------------------+
+Epoch: [18][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.08 (0.08)	Trans Loss 0.0351 (0.0351)	Cls Acc 100.0 (100.0)
+Epoch: [18][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.09 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (95.0)
+Epoch: [18][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.10 (nan)	Trans Loss 0.7736 (  nan)	Cls Acc 100.0 (95.5)
+Epoch: [18][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (95.8)
+Epoch: [18][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.09 (nan)	Trans Loss 0.0027 (  nan)	Cls Acc 100.0 (95.8)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 4.3880e-02 (4.3880e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.7560e-01 (9.1302e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.1262e-02 (7.4820e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 9.8866e-02 (8.1857e-02)	Acc@1 100.00 ( 99.42)
+ * Acc@1 99.05277
+ * F1 macro = 0.97964
+ * F1 micro= 0.99053
+ * precision macro= 0.98241
+ * precision micro= 0.99053
+ * recall macro = 0.97767
+ * recall micro = 0.99053
+global correct: 99.1
+mean correct:99.0
+mean IoU: 97.3
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 94.89051055908203 |
+| Interactive data | 97.39336395263672 | 97.39336395263672 |
++------------------+-------------------+-------------------+
+Epoch: [19][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [19][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (98.8)
+Epoch: [19][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.10 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (97.6)
+Epoch: [19][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 0.0016 (  nan)	Cls Acc 100.0 (97.1)
+Epoch: [19][400/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.78 (nan)	Trans Loss 0.0601 (  nan)	Cls Acc 50.0 (96.4)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 3.0389e-02 (3.0389e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.0177e-01 (6.9920e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 3.5712e-02 (5.6227e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.8394e-01 (8.7638e-02)	Acc@1 100.00 ( 99.17)
+ * Acc@1 98.30853
+ * F1 macro = 0.96392
+ * F1 micro= 0.98309
+ * precision macro= 0.96888
+ * precision micro= 0.98309
+ * recall macro = 0.96042
+ * recall micro = 0.98309
+global correct: 98.3
+mean correct:98.1
+mean IoU: 95.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.87437438964844 | 99.87437438964844 |
+| Video on-demand  |       100.0       | 91.22806549072266 |
+| Interactive data | 94.31279754638672 | 94.31279754638672 |
++------------------+-------------------+-------------------+
+Epoch: [20][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.10 (0.10)	Trans Loss 0.0421 (0.0421)	Cls Acc 100.0 (100.0)
+Epoch: [20][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.67 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 75.0 (95.0)
+Epoch: [20][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (96.1)
+Epoch: [20][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.3)
+Epoch: [20][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.0)
+Test: [  0/370]	Time  0.102 ( 0.102)	Loss 3.5883e-02 (3.5883e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.5524e-01 (8.6598e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.008)	Loss 4.3125e-02 (6.8508e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 6.9491e-02 (7.3279e-02)	Acc@1 100.00 ( 99.34)
+ * Acc@1 98.98512
+ * F1 macro = 0.97809
+ * F1 micro= 0.98985
+ * precision macro= 0.98106
+ * precision micro= 0.98985
+ * recall macro = 0.97598
+ * recall micro = 0.98985
+global correct: 99.0
+mean correct:98.9
+mean IoU: 97.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 94.54545593261719 |
+| Interactive data | 97.15640258789062 | 97.15640258789062 |
++------------------+-------------------+-------------------+
+Epoch: [21][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.12 (0.12)	Trans Loss 0.9363 (0.9363)	Cls Acc 100.0 (100.0)
+Epoch: [21][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 0.4329 (  nan)	Cls Acc 100.0 (96.5)
+Epoch: [21][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.22 (nan)	Trans Loss 0.8090 (  nan)	Cls Acc 100.0 (95.8)
+Epoch: [21][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (95.8)
+Epoch: [21][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.19 (nan)	Trans Loss 0.9960 (  nan)	Cls Acc 100.0 (96.3)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 3.2948e-02 (3.2948e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 8.9844e-02 (6.4970e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 3.6903e-02 (5.4008e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.0473e-01 (7.0506e-02)	Acc@1 100.00 ( 99.25)
+ * Acc@1 98.84980
+ * F1 macro = 0.97500
+ * F1 micro= 0.98850
+ * precision macro= 0.97835
+ * precision micro= 0.98850
+ * recall macro = 0.97260
+ * recall micro = 0.98850
+global correct: 98.8
+mean correct:98.8
+mean IoU: 96.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       |  93.8628158569336 |
+| Interactive data | 96.68246459960938 | 96.68246459960938 |
++------------------+-------------------+-------------------+
+Epoch: [22][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.23 (0.23)	Trans Loss 0.0366 (0.0366)	Cls Acc 100.0 (100.0)
+Epoch: [22][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (98.0)
+Epoch: [22][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.15 (nan)	Trans Loss 0.4509 (  nan)	Cls Acc 100.0 (97.1)
+Epoch: [22][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.9)
+Epoch: [22][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 75.0 (96.6)
+Test: [  0/370]	Time  0.096 ( 0.096)	Loss 4.5533e-02 (4.5533e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 8.9387e-02 (6.9846e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.2031e-02 (6.4314e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 6.4357e-02 (7.3794e-02)	Acc@1 100.00 ( 99.34)
+ * Acc@1 98.98512
+ * F1 macro = 0.97809
+ * F1 micro= 0.98985
+ * precision macro= 0.98106
+ * precision micro= 0.98985
+ * recall macro = 0.97598
+ * recall micro = 0.98985
+global correct: 99.0
+mean correct:98.9
+mean IoU: 97.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 94.54545593261719 |
+| Interactive data | 97.15640258789062 | 97.15640258789062 |
++------------------+-------------------+-------------------+
+Epoch: [23][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [23][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (95.3)
+Epoch: [23][200/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (95.8)
+Epoch: [23][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (95.6)
+Epoch: [23][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 0.0848 (  nan)	Cls Acc 100.0 (96.1)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 3.8581e-02 (3.8581e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 8.1080e-02 (6.5390e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.6012e-02 (5.7436e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 9.1900e-02 (7.8994e-02)	Acc@1 100.00 ( 99.25)
+ * Acc@1 98.51150
+ * F1 macro = 0.96727
+ * F1 micro= 0.98512
+ * precision macro= 0.97158
+ * precision micro= 0.98512
+ * recall macro = 0.96414
+ * recall micro = 0.98512
+global correct: 98.5
+mean correct:98.3
+mean IoU: 95.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.87437438964844 | 99.87437438964844 |
+| Video on-demand  |       100.0       | 92.19857788085938 |
+| Interactive data | 95.02369689941406 | 95.02369689941406 |
++------------------+-------------------+-------------------+
+Epoch: [24][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [24][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [24][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 0.4432 (  nan)	Cls Acc 100.0 (96.3)
+Epoch: [24][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.80 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 75.0 (96.3)
+Epoch: [24][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (96.4)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 5.3423e-02 (5.3423e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.2705e-01 (7.3054e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.4499e-02 (7.1212e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 5.8713e-02 (7.8980e-02)	Acc@1 100.00 ( 99.34)
+ * Acc@1 98.98512
+ * F1 macro = 0.97809
+ * F1 micro= 0.98985
+ * precision macro= 0.98106
+ * precision micro= 0.98985
+ * recall macro = 0.97598
+ * recall micro = 0.98985
+global correct: 99.0
+mean correct:98.9
+mean IoU: 97.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 94.54545593261719 |
+| Interactive data | 97.15640258789062 | 97.15640258789062 |
++------------------+-------------------+-------------------+
+Epoch: [25][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [25][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.05 (nan)	Trans Loss 0.1255 (  nan)	Cls Acc 100.0 (96.8)
+Epoch: [25][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 0.2732 (  nan)	Cls Acc 100.0 (96.4)
+Epoch: [25][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.44 (nan)	Trans Loss 0.5759 (  nan)	Cls Acc 100.0 (96.7)
+Epoch: [25][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.12 (nan)	Trans Loss 0.4803 (  nan)	Cls Acc 100.0 (96.8)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 3.7093e-02 (3.7093e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.1113e-01 (7.3553e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.0933e-02 (6.0719e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 7.7096e-02 (6.8814e-02)	Acc@1 100.00 ( 99.42)
+ * Acc@1 99.05277
+ * F1 macro = 0.97964
+ * F1 micro= 0.99053
+ * precision macro= 0.98241
+ * precision micro= 0.99053
+ * recall macro = 0.97767
+ * recall micro = 0.99053
+global correct: 99.1
+mean correct:99.0
+mean IoU: 97.3
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  |       100.0       | 94.89051055908203 |
+| Interactive data | 97.15640258789062 | 97.15640258789062 |
++------------------+-------------------+-------------------+
+Epoch: [26][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [26][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.09 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [26][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [26][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.10 (nan)	Trans Loss 0.0598 (  nan)	Cls Acc 100.0 (98.1)
+Epoch: [26][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.07 (nan)	Trans Loss 0.4638 (  nan)	Cls Acc 100.0 (97.6)
+Test: [  0/370]	Time  0.097 ( 0.097)	Loss 3.3869e-02 (3.3869e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.6615e-01 (7.7623e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 3.7112e-02 (5.9920e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 8.0692e-02 (6.7839e-02)	Acc@1 100.00 ( 99.50)
+ * Acc@1 99.18809
+ * F1 macro = 0.98273
+ * F1 micro= 0.99188
+ * precision macro= 0.98512
+ * precision micro= 0.99188
+ * recall macro = 0.98106
+ * recall micro = 0.99188
+global correct: 99.2
+mean correct:99.1
+mean IoU: 97.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  |       100.0       |  95.5882339477539 |
+| Interactive data | 97.63033294677734 | 97.63033294677734 |
++------------------+-------------------+-------------------+
+Epoch: [27][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.19 (0.19)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [27][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.05 (nan)	Trans Loss 0.0380 (  nan)	Cls Acc 100.0 (98.3)
+Epoch: [27][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [27][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.3)
+Epoch: [27][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.4)
+Test: [  0/370]	Time  0.092 ( 0.092)	Loss 6.2552e-02 (6.2552e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.3591e-01 (6.9971e-02)	Acc@1 100.00 ( 99.26)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.9032e-02 (7.3805e-02)	Acc@1 100.00 ( 99.50)
+Test: [300/370]	Time  0.006 ( 0.007)	Loss 2.1974e-02 (7.5159e-02)	Acc@1 100.00 ( 99.42)
+ * Acc@1 99.18809
+ * F1 macro = 0.98273
+ * F1 micro= 0.99188
+ * precision macro= 0.98512
+ * precision micro= 0.99188
+ * recall macro = 0.98106
+ * recall micro = 0.99188
+global correct: 99.2
+mean correct:99.2
+mean IoU: 97.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.49748229980469 | 99.49748229980469 |
+| Video on-demand  | 99.61538696289062 | 95.57195281982422 |
+| Interactive data | 98.34123229980469 |  98.1087417602539 |
++------------------+-------------------+-------------------+
+Epoch: [28][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.04 (0.04)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (100.0)
+Epoch: [28][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.80 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 75.0 (97.3)
+Epoch: [28][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.0)
+Epoch: [28][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.41 (nan)	Trans Loss 0.9849 (  nan)	Cls Acc 50.0 (96.8)
+Epoch: [28][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.27 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.7)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 4.3489e-02 (4.3489e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.1512e-01 (7.6384e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.6256e-02 (6.4699e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 3.2032e-02 (6.4013e-02)	Acc@1 100.00 ( 99.58)
+ * Acc@1 99.32341
+ * F1 macro = 0.98582
+ * F1 micro= 0.99323
+ * precision macro= 0.98782
+ * precision micro= 0.99323
+ * recall macro = 0.98444
+ * recall micro = 0.99323
+global correct: 99.3
+mean correct:99.3
+mean IoU: 98.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  |       100.0       | 96.29629516601562 |
+| Interactive data |  98.1042709350586 |  98.1042709350586 |
++------------------+-------------------+-------------------+
+Epoch: [29][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [29][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [29][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.20 (nan)	Trans Loss 0.0198 (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [29][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.17 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.2)
+Epoch: [29][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.15 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.4)
+Test: [  0/370]	Time  0.099 ( 0.099)	Loss 4.9255e-02 (4.9255e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.5914e-01 (8.8465e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.4542e-02 (7.6734e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 5.1547e-02 (7.8919e-02)	Acc@1 100.00 ( 99.50)
+ * Acc@1 99.18809
+ * F1 macro = 0.98273
+ * F1 micro= 0.99188
+ * precision macro= 0.98512
+ * precision micro= 0.99188
+ * recall macro = 0.98106
+ * recall micro = 0.99188
+global correct: 99.2
+mean correct:99.2
+mean IoU: 97.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       |  95.5882339477539 |
+| Interactive data | 97.86729431152344 | 97.86729431152344 |
++------------------+-------------------+-------------------+
+Epoch: [30][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.22 (0.22)	Trans Loss 0.0389 (0.0389)	Cls Acc 100.0 (100.0)
+Epoch: [30][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (95.3)
+Epoch: [30][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (95.6)
+Epoch: [30][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.49 (nan)	Trans Loss 0.0387 (  nan)	Cls Acc 75.0 (96.5)
+Epoch: [30][400/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.15 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.7)
+Test: [  0/370]	Time  0.128 ( 0.128)	Loss 4.6705e-02 (4.6705e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 9.9555e-02 (6.4413e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.008)	Loss 5.3706e-02 (6.2200e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 3.3877e-02 (6.7756e-02)	Acc@1 100.00 ( 99.50)
+ * Acc@1 99.12043
+ * F1 macro = 0.98118
+ * F1 micro= 0.99120
+ * precision macro= 0.98376
+ * precision micro= 0.99120
+ * recall macro = 0.97936
+ * recall micro = 0.99120
+global correct: 99.1
+mean correct:99.1
+mean IoU: 97.5
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 95.23809814453125 |
+| Interactive data | 97.63033294677734 | 97.63033294677734 |
++------------------+-------------------+-------------------+
+Epoch: [31][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.16 (0.16)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [31][100/500]	Time 0.04 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (98.3)
+Epoch: [31][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.17 (nan)	Trans Loss 0.3491 (  nan)	Cls Acc 100.0 (98.1)
+Epoch: [31][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.97 (nan)	Trans Loss 0.0026 (  nan)	Cls Acc 75.0 (97.8)
+Epoch: [31][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.6)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 7.0669e-02 (7.0669e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 7.1899e-02 (6.6663e-02)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.006 ( 0.007)	Loss 7.7153e-02 (7.8683e-02)	Acc@1 100.00 ( 99.63)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 2.4204e-02 (9.0769e-02)	Acc@1 100.00 ( 98.92)
+ * Acc@1 98.51150
+ * F1 macro = 0.96727
+ * F1 micro= 0.98512
+ * precision macro= 0.97158
+ * precision micro= 0.98512
+ * recall macro = 0.96414
+ * recall micro = 0.98512
+global correct: 98.5
+mean correct:98.4
+mean IoU: 95.8
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.37185668945312 | 99.37185668945312 |
+| Video on-demand  |       100.0       | 92.19857788085938 |
+| Interactive data | 95.97156524658203 | 95.97156524658203 |
++------------------+-------------------+-------------------+
+Epoch: [32][  0/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.14 (0.14)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [32][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.12 (nan)	Trans Loss 0.8486 (  nan)	Cls Acc 100.0 (96.0)
+Epoch: [32][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.48 (nan)	Trans Loss 0.0003 (  nan)	Cls Acc 100.0 (96.0)
+Epoch: [32][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.22 (nan)	Trans Loss 0.5952 (  nan)	Cls Acc 100.0 (95.8)
+Epoch: [32][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (96.1)
+Test: [  0/370]	Time  0.096 ( 0.096)	Loss 3.2258e-02 (3.2258e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 2.0225e-01 (7.1470e-02)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 3.8032e-02 (5.8055e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 3.2243e-02 (5.8744e-02)	Acc@1 100.00 ( 99.67)
+ * Acc@1 99.39107
+ * F1 macro = 0.98608
+ * F1 micro= 0.99391
+ * precision macro= 0.98782
+ * precision micro= 0.99391
+ * recall macro = 0.98478
+ * recall micro = 0.99391
+global correct: 99.4
+mean correct:99.3
+mean IoU: 98.2
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  | 99.61538696289062 | 96.64179229736328 |
+| Interactive data | 98.57819366455078 | 98.34515380859375 |
++------------------+-------------------+-------------------+
+Epoch: [33][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 75.0 (75.0)
+Epoch: [33][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.18 (nan)	Trans Loss 0.4158 (  nan)	Cls Acc 100.0 (97.3)
+Epoch: [33][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 0.2956 (  nan)	Cls Acc 100.0 (97.0)
+Epoch: [33][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (96.9)
+Epoch: [33][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.9)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 3.1892e-02 (3.1892e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.006 ( 0.008)	Loss 1.0723e-01 (6.4194e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 3.6996e-02 (5.3198e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.006 ( 0.007)	Loss 4.7683e-02 (5.7367e-02)	Acc@1 100.00 ( 99.50)
+ * Acc@1 99.12043
+ * F1 macro = 0.98118
+ * F1 micro= 0.99120
+ * precision macro= 0.98376
+ * precision micro= 0.99120
+ * recall macro = 0.97936
+ * recall micro = 0.99120
+global correct: 99.1
+mean correct:99.0
+mean IoU: 97.5
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  |       100.0       | 95.23809814453125 |
+| Interactive data | 97.39336395263672 | 97.39336395263672 |
++------------------+-------------------+-------------------+
+Epoch: [34][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [34][100/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.3)
+Epoch: [34][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.1)
+Epoch: [34][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.41 (nan)	Trans Loss 0.9697 (  nan)	Cls Acc 75.0 (97.4)
+Epoch: [34][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.83 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 75.0 (97.1)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 3.4119e-02 (3.4119e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.006 ( 0.008)	Loss 5.4047e-02 (5.1054e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 3.9401e-02 (4.7457e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 5.3560e-02 (6.7839e-02)	Acc@1 100.00 ( 99.17)
+ * Acc@1 98.37618
+ * F1 macro = 0.96417
+ * F1 micro= 0.98376
+ * precision macro= 0.96888
+ * precision micro= 0.98376
+ * recall macro = 0.96076
+ * recall micro = 0.98376
+global correct: 98.4
+mean correct:98.1
+mean IoU: 95.3
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.87437438964844 | 99.87437438964844 |
+| Video on-demand  |       100.0       |  91.5492935180664 |
+| Interactive data | 94.54976654052734 | 94.54976654052734 |
++------------------+-------------------+-------------------+
+Epoch: [35][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.06 (0.06)	Trans Loss 0.0822 (0.0822)	Cls Acc 100.0 (100.0)
+Epoch: [35][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.16 (nan)	Trans Loss 0.1742 (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [35][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.3)
+Epoch: [35][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.10 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [35][400/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.8)
+Test: [  0/370]	Time  0.101 ( 0.101)	Loss 6.4557e-02 (6.4557e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 6.2126e-02 (6.3639e-02)	Acc@1 100.00 ( 99.50)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.8809e-02 (7.3146e-02)	Acc@1 100.00 ( 99.50)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 2.1413e-02 (8.0601e-02)	Acc@1 100.00 ( 99.17)
+ * Acc@1 98.91746
+ * F1 macro = 0.97654
+ * F1 micro= 0.98917
+ * precision macro= 0.97970
+ * precision micro= 0.98917
+ * recall macro = 0.97429
+ * recall micro = 0.98917
+global correct: 98.9
+mean correct:99.0
+mean IoU: 97.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.24623107910156 | 99.24623107910156 |
+| Video on-demand  |       100.0       | 94.20289611816406 |
+| Interactive data | 97.63033294677734 | 97.63033294677734 |
++------------------+-------------------+-------------------+
+Epoch: [36][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.64 (0.64)	Trans Loss 0.2175 (0.2175)	Cls Acc 100.0 (100.0)
+Epoch: [36][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (98.5)
+Epoch: [36][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (98.1)
+Epoch: [36][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [36][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.12 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (97.6)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 3.4514e-02 (3.4514e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 8.7403e-02 (6.4511e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.2033e-02 (5.5954e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 4.2790e-02 (6.0771e-02)	Acc@1 100.00 ( 99.58)
+ * Acc@1 99.18809
+ * F1 macro = 0.98273
+ * F1 micro= 0.99188
+ * precision macro= 0.98512
+ * precision micro= 0.99188
+ * recall macro = 0.98106
+ * recall micro = 0.99188
+global correct: 99.2
+mean correct:99.1
+mean IoU: 97.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  |       100.0       |  95.5882339477539 |
+| Interactive data | 97.63033294677734 | 97.63033294677734 |
++------------------+-------------------+-------------------+
+Epoch: [37][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.10 (0.10)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [37][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 75.0 (97.3)
+Epoch: [37][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.16 (nan)	Trans Loss 0.4956 (  nan)	Cls Acc 100.0 (97.4)
+Epoch: [37][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.1)
+Epoch: [37][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.4)
+Test: [  0/370]	Time  0.097 ( 0.097)	Loss 2.1641e-02 (2.1641e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 9.3252e-02 (4.9584e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 2.2969e-02 (3.8466e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.0264e-01 (5.6291e-02)	Acc@1 100.00 ( 99.42)
+ * Acc@1 98.91746
+ * F1 macro = 0.97654
+ * F1 micro= 0.98917
+ * precision macro= 0.97970
+ * precision micro= 0.98917
+ * recall macro = 0.97429
+ * recall micro = 0.98917
+global correct: 98.9
+mean correct:98.8
+mean IoU: 96.8
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.87437438964844 | 99.87437438964844 |
+| Video on-demand  |       100.0       | 94.20289611816406 |
+| Interactive data | 96.44549560546875 | 96.44549560546875 |
++------------------+-------------------+-------------------+
+Epoch: [38][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.79 (0.79)	Trans Loss 0.2745 (0.2745)	Cls Acc 75.0 (75.0)
+Epoch: [38][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.3)
+Epoch: [38][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.25 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.4)
+Epoch: [38][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (96.9)
+Epoch: [38][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.21 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (96.9)
+Test: [  0/370]	Time  0.096 ( 0.096)	Loss 4.3134e-02 (4.3134e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 9.8671e-02 (7.5010e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.9519e-02 (6.4876e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 5.3789e-02 (6.8117e-02)	Acc@1 100.00 ( 99.58)
+ * Acc@1 99.25575
+ * F1 macro = 0.98428
+ * F1 micro= 0.99256
+ * precision macro= 0.98647
+ * precision micro= 0.99256
+ * recall macro = 0.98275
+ * recall micro = 0.99256
+global correct: 99.3
+mean correct:99.2
+mean IoU: 97.8
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.87437438964844 | 99.87437438964844 |
+| Video on-demand  |       100.0       | 95.94095611572266 |
+| Interactive data | 97.63033294677734 | 97.63033294677734 |
++------------------+-------------------+-------------------+
+Epoch: [39][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.15 (0.15)	Trans Loss 0.6991 (0.6991)	Cls Acc 100.0 (100.0)
+Epoch: [39][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.0)
+Epoch: [39][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 0.1182 (  nan)	Cls Acc 100.0 (98.0)
+Epoch: [39][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 0.8853 (  nan)	Cls Acc 100.0 (98.0)
+Epoch: [39][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.81 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 75.0 (97.6)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 4.0734e-02 (4.0734e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 7.5834e-02 (5.9798e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.5754e-02 (5.4854e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 5.4511e-02 (6.8079e-02)	Acc@1 100.00 ( 99.34)
+ * Acc@1 98.78214
+ * F1 macro = 0.97345
+ * F1 micro= 0.98782
+ * precision macro= 0.97700
+ * precision micro= 0.98782
+ * recall macro = 0.97091
+ * recall micro = 0.98782
+global correct: 98.8
+mean correct:98.7
+mean IoU: 96.5
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  |       100.0       | 93.52517700195312 |
+| Interactive data | 96.20853424072266 | 96.20853424072266 |
++------------------+-------------------+-------------------+
+Epoch: [40][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.59 (0.59)	Trans Loss 0.2105 (0.2105)	Cls Acc 75.0 (75.0)
+Epoch: [40][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.3)
+Epoch: [40][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.19 (nan)	Trans Loss 0.5733 (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [40][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [40][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.09 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.8)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 2.5730e-02 (2.5730e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.7754e-01 (7.6740e-02)	Acc@1 100.00 (100.00)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 2.8557e-02 (5.4706e-02)	Acc@1 100.00 (100.00)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 4.0990e-02 (5.6489e-02)	Acc@1 100.00 ( 99.58)
+ * Acc@1 99.18809
+ * F1 macro = 0.98273
+ * F1 micro= 0.99188
+ * precision macro= 0.98512
+ * precision micro= 0.99188
+ * recall macro = 0.98106
+ * recall micro = 0.99188
+global correct: 99.2
+mean correct:99.1
+mean IoU: 97.6
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    |       100.0       |       100.0       |
+| Video on-demand  |       100.0       |  95.5882339477539 |
+| Interactive data | 97.15640258789062 | 97.15640258789062 |
++------------------+-------------------+-------------------+
+Epoch: [41][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [41][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (96.8)
+Epoch: [41][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.9)
+Epoch: [41][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [41][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.64 (nan)	Trans Loss 0.0145 (  nan)	Cls Acc 75.0 (97.6)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 5.3699e-02 (5.3699e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.9996e-01 (9.3818e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.7449e-02 (8.0651e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 2.6522e-02 (7.6456e-02)	Acc@1 100.00 ( 99.58)
+ * Acc@1 99.39107
+ * F1 macro = 0.98737
+ * F1 micro= 0.99391
+ * precision macro= 0.98917
+ * precision micro= 0.99391
+ * recall macro = 0.98613
+ * recall micro = 0.99391
+global correct: 99.4
+mean correct:99.4
+mean IoU: 98.2
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  |       100.0       | 96.65428161621094 |
+| Interactive data | 98.34123229980469 | 98.34123229980469 |
++------------------+-------------------+-------------------+
+Epoch: [42][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.15 (0.15)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [42][100/500]	Time 0.04 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [42][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.12 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.3)
+Epoch: [42][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.21 (nan)	Trans Loss 0.1344 (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [42][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.8)
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 2.5452e-02 (2.5452e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.0055e-01 (6.8291e-02)	Acc@1 100.00 (100.00)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 2.7436e-02 (4.9927e-02)	Acc@1 100.00 (100.00)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 4.0847e-02 (5.5125e-02)	Acc@1 100.00 ( 99.58)
+ * Acc@1 99.12043
+ * F1 macro = 0.98118
+ * F1 micro= 0.99120
+ * precision macro= 0.98376
+ * precision micro= 0.99120
+ * recall macro = 0.97936
+ * recall micro = 0.99120
+global correct: 99.1
+mean correct:99.0
+mean IoU: 97.4
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    |       100.0       |       100.0       |
+| Video on-demand  |       100.0       | 95.23809814453125 |
+| Interactive data | 96.91942596435547 | 96.91942596435547 |
++------------------+-------------------+-------------------+
+Epoch: [43][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.11 (0.11)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [43][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.06 (nan)	Trans Loss 0.0543 (  nan)	Cls Acc 100.0 (98.5)
+Epoch: [43][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.84 (nan)	Trans Loss 0.7463 (  nan)	Cls Acc 75.0 (98.1)
+Epoch: [43][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.18 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.9)
+Epoch: [43][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.16 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.9)
+Test: [  0/370]	Time  0.096 ( 0.096)	Loss 3.0753e-02 (3.0753e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.8781e-01 (7.5151e-02)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 3.3294e-02 (5.6793e-02)	Acc@1 100.00 ( 99.88)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 2.7058e-02 (5.4516e-02)	Acc@1 100.00 ( 99.75)
+ * Acc@1 99.45873
+ * F1 macro = 0.98892
+ * F1 micro= 0.99459
+ * precision macro= 0.99053
+ * precision micro= 0.99459
+ * recall macro = 0.98782
+ * recall micro = 0.99459
+global correct: 99.5
+mean correct:99.4
+mean IoU: 98.4
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.87437438964844 | 99.87437438964844 |
+| Video on-demand  |       100.0       | 97.01493072509766 |
+| Interactive data | 98.34123229980469 | 98.34123229980469 |
++------------------+-------------------+-------------------+
+Epoch: [44][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.38 (0.38)	Trans Loss 1.0000 (1.0000)	Cls Acc 100.0 (100.0)
+Epoch: [44][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (98.3)
+Epoch: [44][200/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.22 (nan)	Trans Loss 0.0738 (  nan)	Cls Acc 100.0 (98.4)
+Epoch: [44][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.11 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (98.7)
+Epoch: [44][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.24 (nan)	Trans Loss 0.0268 (  nan)	Cls Acc 100.0 (98.3)
+Test: [  0/370]	Time  0.100 ( 0.100)	Loss 3.7646e-02 (3.7646e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 8.6058e-02 (6.1475e-02)	Acc@1 100.00 (100.00)
+Test: [200/370]	Time  0.007 ( 0.008)	Loss 4.3082e-02 (5.3492e-02)	Acc@1 100.00 (100.00)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 5.3155e-02 (6.5609e-02)	Acc@1 100.00 ( 99.50)
+ * Acc@1 98.98512
+ * F1 macro = 0.97809
+ * F1 micro= 0.98985
+ * precision macro= 0.98106
+ * precision micro= 0.98985
+ * recall macro = 0.97598
+ * recall micro = 0.98985
+global correct: 99.0
+mean correct:98.8
+mean IoU: 97.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    |       100.0       |       100.0       |
+| Video on-demand  |       100.0       | 94.54545593261719 |
+| Interactive data | 96.44549560546875 | 96.44549560546875 |
++------------------+-------------------+-------------------+
+Epoch: [45][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.11 (0.11)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (100.0)
+Epoch: [45][100/500]	Time 0.04 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [45][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.08 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (98.3)
+Epoch: [45][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.7)
+Epoch: [45][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.12 (nan)	Trans Loss 0.4838 (  nan)	Cls Acc 100.0 (97.8)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 4.9572e-02 (4.9572e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 2.2210e-01 (7.0355e-02)	Acc@1 100.00 (100.00)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.7872e-02 (6.6581e-02)	Acc@1 100.00 (100.00)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 2.5870e-02 (6.8333e-02)	Acc@1 100.00 ( 99.75)
+ * Acc@1 99.32341
+ * F1 macro = 0.98582
+ * F1 micro= 0.99323
+ * precision macro= 0.98782
+ * precision micro= 0.99323
+ * recall macro = 0.98444
+ * recall micro = 0.99323
+global correct: 99.3
+mean correct:99.2
+mean IoU: 98.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.87437438964844 | 99.87437438964844 |
+| Video on-demand  |       100.0       | 96.29629516601562 |
+| Interactive data | 97.86729431152344 | 97.86729431152344 |
++------------------+-------------------+-------------------+
+Epoch: [46][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.60 (0.60)	Trans Loss 1.0000 (1.0000)	Cls Acc 75.0 (75.0)
+Epoch: [46][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.05 (nan)	Trans Loss 0.0001 (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [46][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 75.0 (97.0)
+Epoch: [46][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.61 (nan)	Trans Loss 0.1104 (  nan)	Cls Acc 75.0 (96.9)
+Epoch: [46][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.15 (nan)	Trans Loss 0.0000 (  nan)	Cls Acc 100.0 (97.3)
+Test: [  0/370]	Time  0.097 ( 0.097)	Loss 5.0352e-02 (5.0352e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.6126e-01 (8.9941e-02)	Acc@1 100.00 (100.00)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 5.3879e-02 (7.4143e-02)	Acc@1 100.00 (100.00)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.6070e-02 (7.0571e-02)	Acc@1 100.00 ( 99.75)
+ * Acc@1 99.39107
+ * F1 macro = 0.98737
+ * F1 micro= 0.99391
+ * precision macro= 0.98917
+ * precision micro= 0.99391
+ * recall macro = 0.98613
+ * recall micro = 0.99391
+global correct: 99.4
+mean correct:99.3
+mean IoU: 98.2
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    |       100.0       |       100.0       |
+| Video on-demand  |       100.0       | 96.65428161621094 |
+| Interactive data | 97.86729431152344 | 97.86729431152344 |
++------------------+-------------------+-------------------+
+Epoch: [47][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.45 (0.45)	Trans Loss 0.1381 (0.1381)	Cls Acc 75.0 (75.0)
+Epoch: [47][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.16 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (98.5)
+Epoch: [47][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.12 (nan)	Trans Loss 0.9019 (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [47][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.24 (nan)	Trans Loss 0.0002 (  nan)	Cls Acc 100.0 (98.1)
+Epoch: [47][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (98.0)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 4.3987e-02 (4.3987e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 5.9000e-01 (9.6748e-02)	Acc@1  75.00 ( 99.01)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 4.7463e-02 (7.6151e-02)	Acc@1 100.00 ( 99.38)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.9430e-02 (6.7919e-02)	Acc@1 100.00 ( 99.34)
+ * Acc@1 99.32341
+ * F1 macro = 0.98582
+ * F1 micro= 0.99323
+ * precision macro= 0.98782
+ * precision micro= 0.99323
+ * recall macro = 0.98444
+ * recall micro = 0.99323
+global correct: 99.3
+mean correct:99.1
+mean IoU: 98.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.74874114990234 | 99.74874114990234 |
+| Video on-demand  | 98.46154022216797 |  96.2406005859375 |
+| Interactive data | 99.05213165283203 | 98.12206268310547 |
++------------------+-------------------+-------------------+
+Epoch: [48][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [48][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.19 (nan)	Trans Loss 0.0162 (  nan)	Cls Acc 100.0 (97.8)
+Epoch: [48][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.14 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (97.5)
+Epoch: [48][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.1)
+Epoch: [48][400/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (97.1)
+Test: [  0/370]	Time  0.094 ( 0.094)	Loss 2.5469e-02 (2.5469e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.006 ( 0.008)	Loss 1.1534e-01 (5.7403e-02)	Acc@1 100.00 (100.00)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 2.8201e-02 (4.4382e-02)	Acc@1 100.00 (100.00)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 5.3106e-02 (5.2769e-02)	Acc@1 100.00 ( 99.50)
+ * Acc@1 98.98512
+ * F1 macro = 0.97809
+ * F1 micro= 0.98985
+ * precision macro= 0.98106
+ * precision micro= 0.98985
+ * recall macro = 0.97598
+ * recall micro = 0.98985
+global correct: 99.0
+mean correct:98.8
+mean IoU: 97.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    |       100.0       |       100.0       |
+| Video on-demand  |       100.0       | 94.54545593261719 |
+| Interactive data | 96.44549560546875 | 96.44549560546875 |
++------------------+-------------------+-------------------+
+Epoch: [49][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (100.0)
+Epoch: [49][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.13 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (99.0)
+Epoch: [49][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss nan (nan)	Trans Loss   nan (  nan)	Cls Acc 100.0 (98.6)
+Epoch: [49][300/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.15 (nan)	Trans Loss 1.0000 (  nan)	Cls Acc 100.0 (98.4)
+Epoch: [49][400/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.31 (nan)	Trans Loss 0.0361 (  nan)	Cls Acc 100.0 (98.1)
+Test: [  0/370]	Time  0.093 ( 0.093)	Loss 5.9009e-02 (5.9009e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 5.1805e-01 (9.6685e-02)	Acc@1  75.00 ( 99.26)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.0452e-02 (8.3278e-02)	Acc@1 100.00 ( 99.50)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.8990e-02 (7.8391e-02)	Acc@1 100.00 ( 99.34)
+ * Acc@1 99.25575
+ * F1 macro = 0.98428
+ * F1 micro= 0.99256
+ * precision macro= 0.98647
+ * precision micro= 0.99256
+ * recall macro = 0.98275
+ * recall micro = 0.99256
+global correct: 99.3
+mean correct:99.2
+mean IoU: 97.9
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.49748229980469 | 99.49748229980469 |
+| Video on-demand  | 99.23076629638672 | 95.91078186035156 |
+| Interactive data | 98.81517028808594 | 98.34906005859375 |
++------------------+-------------------+-------------------+
+Elapsed time: 810.6199789047241
+best_acc1 = 99.45873
+Test: [  0/370]	Time  0.095 ( 0.095)	Loss 5.2474e-02 (5.2474e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 1.7998e-01 (1.1326e-01)	Acc@1 100.00 ( 99.75)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 6.4925e-02 (9.3664e-02)	Acc@1 100.00 ( 99.75)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 8.9926e-02 (9.6035e-02)	Acc@1 100.00 ( 99.67)
+ * Acc@1 99.45873
+ * F1 macro = 0.98763
+ * F1 micro= 0.99459
+ * precision macro= 0.98917
+ * precision micro= 0.99459
+ * recall macro = 0.98647
+ * recall micro = 0.99459
+global correct: 99.5
+mean correct:99.5
+mean IoU: 98.5
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |       100.0       | 97.37828063964844 |
+| Interactive data | 98.81517028808594 | 98.58155822753906 |
++------------------+-------------------+-------------------+
+Test result below...
+test_acc1 = 99.45873
+F1 macro = 0.98763
+F1 micro= 0.99459
+precision macro= 0.98917
+precision micro= 0.99459
+recall macro = 0.98647
+recall micro = 0.99459
+avg_time = 2.62432
+min_time = 2.00000
+max_time = 11.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    1.00000   0.99623   0.99811       796
+ Video on-demand    0.97378   1.00000   0.98672       260
+Interactive data    0.99761   0.98815   0.99286       422
+
+        accuracy                        0.99459      1478
+       macro avg    0.99046   0.99479   0.99256      1478
+    weighted avg    0.99470   0.99459   0.99461      1478
+

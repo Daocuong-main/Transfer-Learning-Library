@@ -1,0 +1,69 @@
+Namespace(arch='resnet50', batch_size=4, bottleneck_dim=256, byte_size=256, data='Both', epochs=250, iters_per_epoch=500, label=3, log='Result/DAN/percent/MKMMD/lambd_0/use_1/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=1, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='pinverse', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 2.01 (2.01)	Data 0.0 (0.0)	Loss 1.18 (1.18)	Trans Loss 0.0000 (0.0000)	Cls Acc 0.0 (0.0)
+Epoch: [0][100/500]	Time 0.02 (0.04)	Data 0.0 (0.0)	Loss 1.26 (1.13)	Trans Loss 0.0000 (0.0000)	Cls Acc 0.0 (29.0)
+Epoch: [0][200/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 0.94 (1.09)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (35.1)
+Epoch: [0][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.72 (1.05)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (39.0)
+Epoch: [0][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.73 (1.03)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (42.8)
+Test: [  0/370]	Time  0.060 ( 0.060)	Loss 7.5903e-01 (7.5903e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.006 ( 0.007)	Loss 6.9035e-01 (7.2920e-01)	Acc@1 100.00 ( 98.02)
+Test: [200/370]	Time  0.006 ( 0.007)	Loss 7.3030e-01 (7.4973e-01)	Acc@1 100.00 ( 97.89)
+Test: [300/370]	Time  0.006 ( 0.007)	Loss 3.9951e-01 (7.1500e-01)	Acc@1 100.00 ( 95.60)
+ * Acc@1 92.08390
+ * F1 macro = 0.85161
+ * F1 micro= 0.92084
+ * precision macro= 0.87618
+ * precision micro= 0.92084
+ * recall macro = 0.83660
+ * recall micro = 0.92084
+global correct: 92.1
+mean correct:91.2
+mean IoU: 81.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 97.73869323730469 | 97.37171173095703 |
+| Video on-demand  | 98.46154022216797 | 69.00269317626953 |
+| Interactive data | 77.48815155029297 | 76.94117736816406 |
++------------------+-------------------+-------------------+
+Epoch: [1][  0/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.59 (0.59)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (100.0)
+Epoch: [1][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.47 (0.78)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (80.0)
+Epoch: [1][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.71 (0.75)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (80.7)
+Epoch: [1][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.45 (0.72)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (80.9)
+Epoch: [1][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.20 (0.70)	Trans Loss 0.0000 (0.0000)	Cls Acc 50.0 (81.6)
+Test: [  0/370]	Time  0.057 ( 0.057)	Loss 3.3595e-01 (3.3595e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.006 ( 0.008)	Loss 5.2023e-01 (4.1925e-01)	Acc@1 100.00 ( 98.27)
+Test: [200/370]	Time  0.006 ( 0.007)	Loss 3.2702e-01 (3.9706e-01)	Acc@1 100.00 ( 98.63)
+Test: [300/370]	Time  0.006 ( 0.007)	Loss 2.8157e-01 (3.8976e-01)	Acc@1 100.00 ( 97.01)
+ * Acc@1 94.72260
+ * F1 macro = 0.89742
+ * F1 micro= 0.94723
+ * precision macro= 0.91340
+ * precision micro= 0.94723
+ * recall macro = 0.88701
+ * recall micro = 0.94723
+global correct: 94.7
+mean correct:94.1
+mean IoU: 86.5
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 98.49246215820312 | 98.49246215820312 |
+| Video on-demand  | 98.46154022216797 | 76.64671325683594 |
+| Interactive data | 85.30805969238281 | 84.50704193115234 |
++------------------+-------------------+-------------------+
+Epoch: [2][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.59 (0.59)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (75.0)
+Epoch: [2][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.33 (0.60)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (82.7)
+Epoch: [2][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.30 (0.59)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (83.6)
+Epoch: [2][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.47 (0.58)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (83.7)
+Epoch: [2][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.55 (0.56)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (84.9)
+Traceback (most recent call last):
+  File "custom_dan.py", line 915, in <module>
+    main(args)
+  File "custom_dan.py", line 645, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 763, in train
+    if args.trade_off != 0:
+KeyboardInterrupt

@@ -1,0 +1,126 @@
+Namespace(arch='resnet50', batch_size=4, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_256/SCF_pinverse/lambda_0/use_0.05/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.05, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='pinverse', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+(183000, 258) (123380, 258)
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 1.29 (1.29)	Data 0.0 (0.0)	Loss 1.19 (1.19)	Trans Loss 0.0000 (0.0000)	Cls Acc 0.0 (0.0)
+Epoch: [0][100/500]	Time 0.02 (0.03)	Data 0.0 (0.0)	Loss 1.01 (1.08)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (41.1)
+Epoch: [0][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.91 (1.04)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (51.7)
+Epoch: [0][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.95 (1.00)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (57.3)
+Epoch: [0][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.81 (0.96)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (61.1)
+Test: [  0/370]	Time  0.080 ( 0.080)	Loss 1.4451e-01 (1.4451e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 7.2238e-01 (4.9953e-01)	Acc@1 100.00 ( 96.78)
+Test: [200/370]	Time  0.006 ( 0.007)	Loss 1.6334e-01 (3.3961e-01)	Acc@1 100.00 ( 98.26)
+Test: [300/370]	Time  0.006 ( 0.007)	Loss 1.1127e+00 (3.9859e-01)	Acc@1   0.00 ( 86.71)
+ * Acc@1 70.77131
+ * F1 macro = 0.69409
+ * F1 micro= 0.70771
+ * precision macro= 0.70095
+ * precision micro= 0.70771
+ * recall macro = 0.69080
+ * recall micro = 0.70771
+global correct: 70.8
+mean correct:65.4
+mean IoU: 45.5
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 99.49748229980469  | 98.63013458251953  |
+| Video on-demand  | 95.38461303710938  | 36.47058868408203  |
+| Interactive data | 1.4218008518218994 | 1.4051522016525269 |
++------------------+--------------------+--------------------+
+Epoch: [1][  0/500]	Time 0.01 (0.01)	Data 0.0 (0.0)	Loss 0.59 (0.59)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (100.0)
+Epoch: [1][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.62 (0.72)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (73.8)
+Epoch: [1][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.55 (0.70)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (75.7)
+Epoch: [1][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.96 (0.69)	Trans Loss 0.0000 (0.0000)	Cls Acc 50.0 (76.4)
+Epoch: [1][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.51 (0.68)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (76.6)
+Test: [  0/370]	Time  0.077 ( 0.077)	Loss 1.5140e-01 (1.5140e-01)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.007)	Loss 5.2969e-01 (2.8556e-01)	Acc@1 100.00 ( 99.01)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.7855e-01 (2.3850e-01)	Acc@1 100.00 ( 99.13)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.1021e+00 (3.4031e-01)	Acc@1  25.00 ( 87.71)
+ * Acc@1 71.92152
+ * F1 macro = 0.70749
+ * F1 micro= 0.71922
+ * precision macro= 0.71854
+ * precision micro= 0.71922
+ * recall macro = 0.70332
+ * recall micro = 0.71922
+global correct: 71.9
+mean correct:67.5
+mean IoU: 47.1
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 98.86934661865234 | 98.86934661865234 |
+| Video on-demand  | 99.61538696289062 | 38.42729949951172 |
+| Interactive data | 4.028436183929443 | 4.018912315368652 |
++------------------+-------------------+-------------------+
+Epoch: [2][  0/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.76 (0.76)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (100.0)
+Epoch: [2][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.46 (0.61)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (80.4)
+Epoch: [2][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.47 (0.60)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (79.9)
+Epoch: [2][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.47 (0.58)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (80.9)
+Epoch: [2][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.62 (0.57)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (81.9)
+Test: [  0/370]	Time  0.079 ( 0.079)	Loss 1.2515e-02 (1.2515e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.013 ( 0.008)	Loss 7.5478e-01 (2.8661e-01)	Acc@1  50.00 ( 97.77)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 1.4476e-02 (1.5781e-01)	Acc@1 100.00 ( 98.76)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 9.8333e-01 (2.3722e-01)	Acc@1  50.00 ( 89.95)
+ * Acc@1 77.74019
+ * F1 macro = 0.75324
+ * F1 micro= 0.77740
+ * precision macro= 0.80334
+ * precision micro= 0.77740
+ * recall macro = 0.73745
+ * recall micro = 0.77740
+global correct: 77.7
+mean correct:73.5
+mean IoU: 55.7
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    |       100.0        |  99.8745346069336  |
+| Video on-demand  | 96.15384674072266  | 43.177894592285156 |
+| Interactive data | 24.407583236694336 | 23.897911071777344 |
++------------------+--------------------+--------------------+
+Epoch: [3][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.27 (0.27)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (100.0)
+Epoch: [3][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.28 (0.49)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (85.1)
+Epoch: [3][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.73 (0.48)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (85.8)
+Epoch: [3][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.36 (0.47)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (86.8)
+Epoch: [3][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.60 (0.47)	Trans Loss 0.0000 (0.0000)	Cls Acc 50.0 (86.3)
+Test: [  0/370]	Time  0.078 ( 0.078)	Loss 5.9419e-02 (5.9419e-02)	Acc@1 100.00 (100.00)
+Test: [100/370]	Time  0.007 ( 0.008)	Loss 9.0078e-01 (2.2187e-01)	Acc@1  50.00 ( 96.78)
+Test: [200/370]	Time  0.007 ( 0.007)	Loss 7.1600e-02 (1.5156e-01)	Acc@1 100.00 ( 98.13)
+Test: [300/370]	Time  0.007 ( 0.007)	Loss 1.1159e+00 (2.3820e-01)	Acc@1   0.00 ( 90.28)
+ * Acc@1 78.48444
+ * F1 macro = 0.75023
+ * F1 micro= 0.78484
+ * precision macro= 0.79928
+ * precision micro= 0.78484
+ * recall macro = 0.73331
+ * recall micro = 0.78484
+global correct: 78.5
+mean correct:74.3
+mean IoU: 57.0
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    | 99.62311553955078 | 99.62311553955078 |
+| Video on-demand  |  94.6153793334961 | 43.61702346801758 |
+| Interactive data | 28.67298698425293 | 27.75229263305664 |
++------------------+-------------------+-------------------+
+Epoch: [4][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.85 (0.85)	Trans Loss 0.0000 (0.0000)	Cls Acc 50.0 (50.0)
+Epoch: [4][100/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.27 (0.45)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (86.6)
+Epoch: [4][200/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.23 (0.44)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (87.9)
+Epoch: [4][300/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.36 (0.44)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (88.4)
+Epoch: [4][400/500]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 0.32 (0.43)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (89.2)
+Traceback (most recent call last):
+  File "custom_dan.py", line 910, in <module>
+    main(args)
+  File "custom_dan.py", line 625, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 802, in train
+    loss.backward()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/_tensor.py", line 489, in backward
+    self, gradient, retain_graph, create_graph, inputs=inputs
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/autograd/__init__.py", line 199, in backward
+    allow_unreachable=True, accumulate_grad=True)  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt

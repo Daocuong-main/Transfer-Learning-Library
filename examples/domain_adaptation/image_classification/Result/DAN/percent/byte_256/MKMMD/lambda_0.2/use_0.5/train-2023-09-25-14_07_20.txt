@@ -1,0 +1,36 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_256/MKMMD/lambda_0.2/use_0.5/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.5, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.2, wd=0.0005, workers=2)
+Concate data
+Traceback (most recent call last):
+  File "custom_dan.py", line 916, in <module>
+    main(args)
+  File "custom_dan.py", line 485, in main
+    train_source,train_target=create_set_with_target_percentage(train_source,train_target)
+  File "custom_dan.py", line 94, in create_set_with_target_percentage
+    data_by_label[i] = data_by_label[i].drop(sampled_group.index)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/frame.py", line 4174, in drop
+    errors=errors,
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3889, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 3924, in _drop_axis
+    result = self.reindex(**{axis_name: new_axis})
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/util/_decorators.py", line 309, in wrapper
+    return func(*args, **kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/frame.py", line 4036, in reindex
+    return super().reindex(**kwargs)
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 4464, in reindex
+    axes, level, limit, tolerance, method, fill_value, copy
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/frame.py", line 3883, in _reindex_axes
+    index, method, copy, level, fill_value, limit, tolerance
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/frame.py", line 3905, in _reindex_index
+    allow_dups=False,
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/generic.py", line 4532, in _reindex_with_indexers
+    copy=copy,
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1301, in reindex_indexer
+    for blk in self.blocks
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/internals/managers.py", line 1301, in <listcomp>
+    for blk in self.blocks
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/internals/blocks.py", line 1256, in take_nd
+    values, indexer, axis=axis, allow_fill=allow_fill, fill_value=fill_value
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/core/algorithms.py", line 1737, in take_nd
+    func(arr, indexer, out, fill_value)
+KeyboardInterrupt

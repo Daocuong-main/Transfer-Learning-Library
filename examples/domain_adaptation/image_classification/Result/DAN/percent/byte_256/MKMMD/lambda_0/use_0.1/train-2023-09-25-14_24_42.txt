@@ -1,0 +1,15 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_256/MKMMD/lambda_0/use_0.1/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.1, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+(123300, 258) (183080, 258)
+Traceback (most recent call last):
+  File "custom_dan.py", line 916, in <module>
+    main(args)
+  File "custom_dan.py", line 487, in main
+    train_source_dataset = data_processing(train_source, args.arch)
+  File "custom_dan.py", line 308, in data_processing
+    datas = np.array([resize_image(img, args.byte_size) for img in datas])
+  File "custom_dan.py", line 308, in <listcomp>
+    datas = np.array([resize_image(img, args.byte_size) for img in datas])
+  File "custom_dan.py", line 289, in resize_image
+    return cv2.resize(image, target_size, interpolation=cv2.INTER_LINEAR)
+KeyboardInterrupt

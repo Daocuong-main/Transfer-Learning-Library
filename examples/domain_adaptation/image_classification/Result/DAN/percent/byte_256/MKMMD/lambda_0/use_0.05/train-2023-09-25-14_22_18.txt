@@ -1,0 +1,40 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_256/MKMMD/lambda_0/use_0.05/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.05, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+(123460, 258) (182920, 258)
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 1.37 (1.37)	Data 0.0 (0.0)	Loss 1.15 (1.15)	Trans Loss 0.0000 (0.0000)	Cls Acc 37.5 (37.5)
+Epoch: [0][100/500]	Time 0.03 (0.04)	Data 0.0 (0.0)	Loss 0.97 (1.06)	Trans Loss 0.0000 (0.0000)	Cls Acc 37.5 (40.1)
+Epoch: [0][200/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.71 (0.99)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (50.7)
+Epoch: [0][300/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.81 (0.94)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (57.9)
+Epoch: [0][400/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.94 (0.88)	Trans Loss 0.0000 (0.0000)	Cls Acc 50.0 (64.0)
+Test: [  0/185]	Time  0.076 ( 0.076)	Loss 5.2092e-01 (5.2092e-01)	Acc@1 100.00 (100.00)
+Test: [100/185]	Time  0.010 ( 0.012)	Loss 5.2187e-01 (5.9625e-01)	Acc@1 100.00 ( 98.27)
+ * Acc@1 93.03112
+ * F1 macro = 0.81974
+ * F1 micro= 0.93031
+ * precision macro= 0.83965
+ * precision micro= 0.93031
+ * recall macro = 0.80641
+ * recall micro = 0.93031
+global correct: 93.0
+mean correct:91.6
+mean IoU: 82.7
++------------------+-------------------+-------------------+
+|      class       |        acc        |        iou        |
++------------------+-------------------+-------------------+
+|    E-commerce    |   99.12060546875  | 98.50187683105469 |
+| Video on-demand  | 96.15384674072266 |  70.821533203125  |
+| Interactive data | 79.62085723876953 | 78.68852233886719 |
++------------------+-------------------+-------------------+
+Epoch: [1][  0/500]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 0.63 (0.63)	Trans Loss 0.0000 (0.0000)	Cls Acc 75.0 (75.0)
+Epoch: [1][100/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.32 (0.54)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (88.4)
+Epoch: [1][200/500]	Time 0.03 (0.03)	Data 0.0 (0.0)	Loss 0.63 (0.52)	Trans Loss 0.0000 (0.0000)	Cls Acc 100.0 (89.2)
+Traceback (most recent call last):
+  File "custom_dan.py", line 916, in <module>
+    main(args)
+  File "custom_dan.py", line 646, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 802, in train
+    losses.update(loss.item(), x_s.size(0))
+KeyboardInterrupt

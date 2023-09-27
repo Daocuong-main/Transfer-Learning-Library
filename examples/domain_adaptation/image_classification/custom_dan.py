@@ -53,6 +53,32 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 plt.rcParams['font.family'] = 'Arial'
 plt.rcParams['font.size'] = 14
+
+def create_set_with_target_percentage(target_df, source_df):
+    counts = target_df['Label'].value_counts()
+    data_by_label = {}
+    for label, group in target_df.groupby('Label'):
+        data_by_label[label] = group.iloc[:, :-1] 
+    sampled_rows = []
+    for i in range(counts.shape[0]):
+        data_by_label[i]['Label'] = i
+        count = len(data_by_label[i])/20 * args.percent/100
+        count = int(count)
+        for _ in range(count):
+            start_idx = int(data_by_label[i].sample(1).index[0]/20)*20
+            end_idx = start_idx + 20
+            sampled_group = target_df.iloc[start_idx:end_idx]
+            
+            sampled_rows.append(sampled_group)
+            data_by_label[i] = data_by_label[i].drop(sampled_group.index)
+        
+    sampled_target_df = pd.concat(sampled_rows, ignore_index=True)
+    source_df = pd.concat([source_df, sampled_target_df], ignore_index=True)
+    remaining_target_df = pd.concat([data_by_label[k] for k in range(counts.shape[0])], ignore_index=True)
+    del data_by_label,sampled_target_df,sampled_rows
+    return source_df, remaining_target_df
+
+
 def tsne_visualize(source_feature: torch.Tensor, target_feature: torch.Tensor, filename: str, source_color='r', target_color='b'):
     """
     Visualize features from different domains using t-SNE.
@@ -434,7 +460,9 @@ def main(args: argparse.Namespace):
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
                 test_raw = val_raw = pd.read_feather(
                     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw_{}.feather'.format(byte_size))
-
+            if args.percent != 0:
+                train_source,train_target=create_set_with_target_percentage(train_target,train_source)
+            print(train_source.shape,train_target.shape)
             train_source_dataset = data_processing(train_source, args.arch)
             train_target_dataset = data_processing(train_target, args.arch)
             val_dataset = data_processing(val_raw, args.arch)
@@ -561,7 +589,7 @@ def main(args: argparse.Namespace):
         csv_filename = osp.join(logger.visualize_directory, 'results.csv')
         result_data = [
             [args.arch, args.loss_function, args.test_statistic, args.scenario, args.subset,
-                args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time],
+                args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time, args.percent],
         ]
 
         # Check if the file exists and write header row if necessary
@@ -569,7 +597,7 @@ def main(args: argparse.Namespace):
             with open(csv_filename, 'w', newline='') as csvfile:
                 csv_writer = csv.writer(csvfile)
                 csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'subset', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
-                                    'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time'])
+                                    'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time', 'percent'])
 
         # Write the data to the CSV file
         with open(csv_filename, 'a', newline='') as csvfile:
@@ -646,7 +674,7 @@ def main(args: argparse.Namespace):
     csv_filename = osp.join(logger.visualize_directory, 'results.csv')
     result_data = [
         [args.arch, args.loss_function, args.test_statistic, args.scenario, args.subset,
-            args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time],
+            args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time, args.percent],
     ]
 
     # Check if the file exists and write header row if necessary
@@ -654,7 +682,7 @@ def main(args: argparse.Namespace):
         with open(csv_filename, 'w', newline='') as csvfile:
             csv_writer = csv.writer(csvfile)
             csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'target', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
-                                'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time'])
+                                'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time', 'percent'])
 
     # Write the data to the CSV file
     with open(csv_filename, 'a', newline='') as csvfile:
@@ -686,6 +714,21 @@ def main(args: argparse.Namespace):
         confusion_matrix=conf_mat, display_labels=args.class_names)
     disp.plot(xticks_rotation='vertical', ax=ax, colorbar=False)
     plt.savefig(conf_filename, bbox_inches="tight")
+    
+    # Save results to txt
+    txt_filename = osp.join(logger.visualize_directory, 'acc_loss.txt')
+    result_data = [
+        ['train_acc', train_acc],
+        ['val_acc', val_acc],
+        ['train_loss', train_loss],
+        ['val_loss', val_loss],
+    ]
+
+    # Write the data to the txt file
+    with open(txt_filename, 'w') as txtfile:
+        for name, data in result_data:
+            txtfile.write(name + ': ' + str(data) + '\n')
+
 
 
 def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverDataIterator, model: ImageClassifier,
@@ -818,6 +861,9 @@ if __name__ == '__main__':
                         help='no pool layer after the feature extractor.')
     parser.add_argument('--scratch', action='store_true',
                         help='whether train from scratch.')
+    parser.add_argument('-per', '--percent', default=0, type=float,
+                        metavar='PR',
+                        help='percent')
     parser.add_argument('--non-linear', default=False, action='store_true',
                         help='whether not use the linear version')
     parser.add_argument('--trade-off', default=1., type=float,
