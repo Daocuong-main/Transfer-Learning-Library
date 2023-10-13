@@ -534,7 +534,6 @@ def main(args: argparse.Namespace):
         kernels=[GaussianKernel(alpha=2 ** k) for k in range(-3, 2)],
         linear=not args.non_linear
     )
-
     # resume from the best checkpoint
     if args.phase != 'train':
         checkpoint = torch.load(

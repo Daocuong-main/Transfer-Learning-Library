@@ -1,0 +1,88 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Result/DAN/Lambda_zero/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+(182980, 258) (123400, 258)
+num_classes: 3
+=> using model 'resnet50'
+Linear: True
+Epoch: [0][0/2]	Time 1.40 (1.40)	Data 0.0 (0.0)	Loss 1.04 (1.04)	Trans Loss 0.0000 (0.0000)	Cls Acc 62.5 (62.5)
+Test: [  0/185]	Time  0.063 ( 0.063)	Loss 1.0920e+00 (1.0920e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/185]	Time  0.010 ( 0.011)	Loss 1.0734e+00 (1.0725e+00)	Acc@1  62.50 ( 60.64)
+ * Acc@1 46.34641
+ * F1 macro = 0.30349
+ * F1 micro= 0.46346
+ * precision macro= 0.40407
+ * precision micro= 0.46346
+ * recall macro = 0.27150
+ * recall micro = 0.46346
+global correct: 46.3
+mean correct:38.1
+mean IoU: 22.3
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 71.23115539550781 | 42.345035552978516 |
+| Video on-demand  | 39.61538314819336 | 21.19341468811035  |
+| Interactive data | 3.554502487182617 | 3.3632285594940186 |
++------------------+-------------------+--------------------+
+Epoch: [1][0/2]	Time 0.04 (0.04)	Data 0.0 (0.0)	Loss 1.20 (1.20)	Trans Loss 0.0000 (0.0000)	Cls Acc 0.0 (0.0)
+Test: [  0/185]	Time  0.085 ( 0.085)	Loss 1.0900e+00 (1.0900e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/185]	Time  0.011 ( 0.011)	Loss 1.0842e+00 (1.0711e+00)	Acc@1  50.00 ( 56.68)
+ * Acc@1 43.36942
+ * F1 macro = 0.26834
+ * F1 micro= 0.43369
+ * precision macro= 0.37401
+ * precision micro= 0.43369
+ * recall macro = 0.23182
+ * recall micro = 0.43369
+global correct: 43.4
+mean correct:36.7
+mean IoU: 20.9
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 65.07537841796875  | 39.03541946411133  |
+| Video on-demand  | 41.153846740722656 | 20.303606033325195 |
+| Interactive data | 3.7914693355560303 | 3.4707159996032715 |
++------------------+--------------------+--------------------+
+Elapsed time: 8.226646184921265
+best_acc1 = 46.34641
+Test: [  0/185]	Time  0.080 ( 0.080)	Loss 1.0920e+00 (1.0920e+00)	Acc@1  12.50 ( 12.50)
+Test: [100/185]	Time  0.012 ( 0.012)	Loss 1.0734e+00 (1.0725e+00)	Acc@1  62.50 ( 60.64)
+ * Acc@1 46.34641
+ * F1 macro = 0.30349
+ * F1 micro= 0.46346
+ * precision macro= 0.40407
+ * precision micro= 0.46346
+ * recall macro = 0.27150
+ * recall micro = 0.46346
+global correct: 46.3
+mean correct:38.1
+mean IoU: 22.3
++------------------+-------------------+--------------------+
+|      class       |        acc        |        iou         |
++------------------+-------------------+--------------------+
+|    E-commerce    | 71.23115539550781 | 42.345035552978516 |
+| Video on-demand  | 39.61538314819336 | 21.19341468811035  |
+| Interactive data | 3.554502487182617 | 3.3632285594940186 |
++------------------+-------------------+--------------------+
+Test result below...
+test_acc1 = 46.34641
+F1 macro = 0.30349
+F1 micro= 0.46346
+precision macro= 0.40407
+precision micro= 0.46346
+recall macro = 0.27150
+recall micro = 0.46346
+avg_time = 2.97297
+min_time = 2.00000
+max_time = 6.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.51081   0.71231   0.59496       796
+ Video on-demand    0.31307   0.39615   0.34975       260
+Interactive data    0.38462   0.03555   0.06508       422
+
+        accuracy                        0.46346      1478
+       macro avg    0.40283   0.38134   0.33659      1478
+    weighted avg    0.43999   0.46346   0.40053      1478
+

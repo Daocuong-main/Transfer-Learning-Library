@@ -1,0 +1,87 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=256, data='Both', epochs=2, iters_per_epoch=2, label=3, log='Result/DAN/Lambda_zero/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.0, wd=0.0005, workers=2)
+Concate data
+(182980, 258) (123400, 258)
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][0/2]	Time 1.41 (1.41)	Data 0.0 (0.0)	Loss 1.15 (1.15)	Trans Loss 0.0000 (0.0000)	Cls Acc 50.0 (50.0)
+Test: [  0/185]	Time  0.106 ( 0.106)	Loss 1.1461e+00 (1.1461e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.010 ( 0.011)	Loss 1.1379e+00 (1.1185e+00)	Acc@1   0.00 ( 16.58)
+ * Acc@1 23.61299
+ * F1 macro = 0.14153
+ * F1 micro= 0.23613
+ * precision macro= 0.24481
+ * precision micro= 0.23613
+ * recall macro = 0.10971
+ * recall micro = 0.23613
+global correct: 23.6
+mean correct:32.0
+mean IoU: 13.0
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 4.0201005935668945 | 3.8507823944091797 |
+| Video on-demand  | 44.23076629638672  | 15.091863632202148 |
+| Interactive data |  47.8672981262207  | 19.921104431152344 |
++------------------+--------------------+--------------------+
+Epoch: [1][0/2]	Time 0.02 (0.02)	Data 0.0 (0.0)	Loss 1.30 (1.30)	Trans Loss 0.0000 (0.0000)	Cls Acc 0.0 (0.0)
+Test: [  0/185]	Time  0.063 ( 0.063)	Loss 1.1591e+00 (1.1591e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.010 ( 0.012)	Loss 1.1421e+00 (1.1246e+00)	Acc@1   0.00 ( 16.34)
+ * Acc@1 32.34100
+ * F1 macro = 0.19885
+ * F1 micro= 0.32341
+ * precision macro= 0.27405
+ * precision micro= 0.32341
+ * recall macro = 0.17619
+ * recall micro = 0.32341
+global correct: 32.3
+mean correct:42.2
+mean IoU: 18.2
++------------------+--------------------+-------------------+
+|      class       |        acc         |        iou        |
++------------------+--------------------+-------------------+
+|    E-commerce    | 4.0201005935668945 | 3.864734172821045 |
+| Video on-demand  | 43.846153259277344 | 18.41680145263672 |
+| Interactive data | 78.67298889160156  | 32.20174789428711 |
++------------------+--------------------+-------------------+
+Elapsed time: 8.701333284378052
+best_acc1 = 32.34100
+Test: [  0/185]	Time  0.063 ( 0.063)	Loss 1.1591e+00 (1.1591e+00)	Acc@1   0.00 (  0.00)
+Test: [100/185]	Time  0.010 ( 0.011)	Loss 1.1421e+00 (1.1246e+00)	Acc@1   0.00 ( 16.34)
+ * Acc@1 32.34100
+ * F1 macro = 0.19885
+ * F1 micro= 0.32341
+ * precision macro= 0.27405
+ * precision micro= 0.32341
+ * recall macro = 0.17619
+ * recall micro = 0.32341
+global correct: 32.3
+mean correct:42.2
+mean IoU: 18.2
++------------------+--------------------+-------------------+
+|      class       |        acc         |        iou        |
++------------------+--------------------+-------------------+
+|    E-commerce    | 4.0201005935668945 | 3.864734172821045 |
+| Video on-demand  | 43.846153259277344 | 18.41680145263672 |
+| Interactive data | 78.67298889160156  | 32.20174789428711 |
++------------------+--------------------+-------------------+
+Test result below...
+test_acc1 = 32.34100
+F1 macro = 0.19885
+F1 micro= 0.32341
+precision macro= 0.27405
+precision micro= 0.32341
+recall macro = 0.17619
+recall micro = 0.32341
+avg_time = 2.80000
+min_time = 2.00000
+max_time = 9.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.50000   0.04020   0.07442       796
+ Video on-demand    0.24101   0.43846   0.31105       260
+Interactive data    0.35282   0.78673   0.48716       422
+
+        accuracy                        0.32341      1478
+       macro avg    0.36461   0.42180   0.29088      1478
+    weighted avg    0.41242   0.32341   0.23389      1478
+

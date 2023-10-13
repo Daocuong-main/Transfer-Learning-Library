@@ -1,0 +1,34 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=512, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_512/MKMMD/lambda_0.05/use_0.5/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.5, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.05, wd=0.0005, workers=2)
+Concate data
+(183560, 514) (122820, 514)
+num_classes: 3
+=> using model 'resnet50'
+Epoch: [0][  0/500]	Time 3.93 (3.93)	Data 0.0 (0.0)	Loss 1.15 (1.15)	Trans Loss 0.1451 (0.1451)	Cls Acc 37.5 (37.5)
+Epoch: [0][100/500]	Time 0.21 (0.25)	Data 0.0 (0.0)	Loss 1.04 (1.08)	Trans Loss 0.1970 (0.2723)	Cls Acc 50.0 (41.2)
+Epoch: [0][200/500]	Time 0.21 (0.23)	Data 0.0 (0.0)	Loss 1.02 (1.07)	Trans Loss 0.1770 (0.2646)	Cls Acc 62.5 (43.3)
+Epoch: [0][300/500]	Time 0.21 (0.22)	Data 0.0 (0.0)	Loss 0.96 (1.04)	Trans Loss 0.2487 (0.2510)	Cls Acc 62.5 (48.1)
+Epoch: [0][400/500]	Time 0.21 (0.22)	Data 0.0 (0.0)	Loss 0.84 (1.03)	Trans Loss 0.5899 (0.2512)	Cls Acc 75.0 (51.2)
+Test: [  0/185]	Time  0.252 ( 0.252)	Loss 9.8349e-01 (9.8349e-01)	Acc@1  62.50 ( 62.50)
+Test: [100/185]	Time  0.042 ( 0.045)	Loss 1.0848e+00 (9.0234e-01)	Acc@1  25.00 ( 69.31)
+ * Acc@1 46.07578
+ * F1 macro = 0.34642
+ * F1 micro= 0.46076
+ * precision macro= 0.43368
+ * precision micro= 0.46076
+ * recall macro = 0.31419
+ * recall micro = 0.46076
+global correct: 46.1
+mean correct:49.7
+mean IoU: 24.2
++------------------+--------------------+--------------------+
+|      class       |        acc         |        iou         |
++------------------+--------------------+--------------------+
+|    E-commerce    | 54.64823913574219  | 38.90876388549805  |
+| Video on-demand  | 94.23077392578125  | 33.378746032714844 |
+| Interactive data | 0.2369668334722519 | 0.2364066243171692 |
++------------------+--------------------+--------------------+
+Epoch: [1][  0/500]	Time 0.20 (0.20)	Data 0.0 (0.0)	Loss 0.90 (0.90)	Trans Loss -0.1141 (-0.1141)	Cls Acc 50.0 (50.0)
+Epoch: [1][100/500]	Time 0.22 (0.22)	Data 0.0 (0.0)	Loss 0.68 (0.84)	Trans Loss 0.4046 (0.2417)	Cls Acc 100.0 (71.4)
+Epoch: [1][200/500]	Time 0.22 (0.22)	Data 0.0 (0.0)	Loss 0.63 (0.81)	Trans Loss 0.3092 (0.2399)	Cls Acc 87.5 (72.9)
+Epoch: [1][300/500]	Time 0.22 (0.22)	Data 0.0 (0.0)	Loss 0.76 (0.78)	Trans Loss 0.3321 (0.2474)	Cls Acc 75.0 (73.5)
+Epoch: [1][400/500]	Time 0.22 (0.22)	Data 0.0 (0.0)	Loss 0.66 (0.77)	Trans Loss -0.2304 (0.2552)	Cls Acc 75.0 (73.7)

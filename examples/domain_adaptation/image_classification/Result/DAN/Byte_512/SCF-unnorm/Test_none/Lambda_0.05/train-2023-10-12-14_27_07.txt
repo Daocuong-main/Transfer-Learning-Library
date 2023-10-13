@@ -1,0 +1,2 @@
+Namespace(arch='resnet50', batch_size=4, bottleneck_dim=256, byte_size=512, data='Both', epochs=250, iters_per_epoch=500, label=3, log='Result/DAN/Byte_512/SCF-unnorm/Test_none/Lambda_0.05/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='unnorm', trade_off=0.05, wd=0.0005, workers=2)
+Concate data

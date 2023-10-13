@@ -1,0 +1,17 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=512, data='Both', epochs=50, iters_per_epoch=500, label=3, log='Result/DAN/percent/byte_512/MKMMD/lambda_0.05/use_1/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=1.0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.05, wd=0.0005, workers=2)
+Concate data
+(184180, 514) (122200, 514)
+num_classes: 3
+=> using model 'resnet50'
+Traceback (most recent call last):
+  File "custom_dan.py", line 910, in <module>
+    main(args)
+  File "custom_dan.py", line 625, in main
+    lr_scheduler, epoch, args)
+  File "custom_dan.py", line 802, in train
+    loss.backward()
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/_tensor.py", line 489, in backward
+    self, gradient, retain_graph, create_graph, inputs=inputs
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/torch/autograd/__init__.py", line 199, in backward
+    allow_unreachable=True, accumulate_grad=True)  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.06 GiB (GPU 0; 9.77 GiB total capacity; 5.06 GiB already allocated; 2.07 GiB free; 6.14 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

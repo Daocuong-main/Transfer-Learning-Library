@@ -134,3 +134,29 @@ iter: 1, byte 512 ,lambda: 0.05, use_0.05 percent
 iter: 1, byte 512 ,lambda: 0.05, use_0.1 percent
 iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
 iter: 1, byte 512 ,lambda: 0.05, use_1 percent
+iter: 1, byte 512 ,lambda: 1, use_0 percent
+iter: 1, byte 512 ,lambda: 1, use_0.05 percent
+iter: 1, byte 512 ,lambda: 1, use_0.1 percent
+iter: 1, byte 512 ,lambda: 1, use_0.5 percent
+iter: 1, byte 512 ,lambda: 1, use_1 percent
+iter: 1, byte 512 ,lambda: 0.05, use_1 percent
+iter: 1, byte 512 ,lambda: 1, use_1 percent
+iter: 1, byte 512 ,lambda: 0.05, use_1 percent
+iter: 1, byte 512 ,lambda: 1, use_1 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.05 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.1 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
+iter: 1, byte 512 ,lambda: 0.05, use_1 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.05 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.1 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
+iter: 1, byte 512 ,lambda: 0.05, use_1 percent
+iter: 1, i: 512, lambda: 0.05
+iter: 2, i: 512, lambda: 0.05
+iter: 3, i: 512, lambda: 0.05
+iter: 4, i: 512, lambda: 0.05
+iter: 5, i: 512, lambda: 0.05
+iter: 1, i: 512, lambda: 0.05
+iter: 2, i: 512, lambda: 0.05
+iter: 1, byte 512 ,lambda: 0.05, use_0.1 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
