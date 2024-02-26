@@ -34,7 +34,6 @@ from sklearn.metrics import ConfusionMatrixDisplay
 from torch.optim import SGD
 from torch.optim.lr_scheduler import LambdaLR
 from torch.utils.data import DataLoader, Dataset
-from torchsummary import summary
 
 from tllib.alignment.dan import (ImageClassifier,
                                  MultipleKernelMaximumMeanDiscrepancy)
