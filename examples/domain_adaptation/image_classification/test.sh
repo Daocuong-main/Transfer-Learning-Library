@@ -43,4 +43,4 @@
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 3 -b 4 -i 1 --byte-size 256 -ss none -scenario S2T -per 0 --trade-off 1 --log Test/ --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 3 -b 4 -i 1 --byte-size 256 -ss none -scenario S2T -per 0 --trade-off 1 --log Test/ --per-class-eval --phase analysis
 
-# python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 2 -b 8 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 0 -per 0 --log Result/DAN/Lambda_zero/ --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 1 -b 32 -i 300 --byte-size 256 -ss none -scenario S2T --trade-off 1 -per 0 --log Test/ --per-class-eval

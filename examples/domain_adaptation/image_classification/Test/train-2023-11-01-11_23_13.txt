@@ -1,0 +1,3667 @@
+Namespace(arch='resnet50', batch_size=32, bottleneck_dim=256, byte_size=256, data='Both', epochs=1, iters_per_epoch=300, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+(182980, 258) (123400, 258)
+num_classes: 3
+=> using model 'resnet50'
+LOSS MKMMD
+0
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+Epoch: [0][  0/300]	Time 1.63 (1.63)	Data 0.0 (0.0)	Loss 1.04 (1.04)	Trans Loss -0.0498 (-0.0498)	Cls Acc 43.8 (43.8)
+LOSS MKMMD
+1
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+2
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+3
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+4
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+5
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+6
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+7
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+8
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+9
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+10
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+11
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+12
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+13
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+14
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+15
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+16
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+17
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+18
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+19
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+20
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+21
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+22
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+23
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+24
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+25
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+26
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+27
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+28
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+29
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+30
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+31
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+32
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+33
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+34
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+35
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+36
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+37
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+38
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+39
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+40
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+41
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+42
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+43
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+44
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+45
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+46
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+47
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+48
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+49
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+50
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+51
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+52
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+53
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+54
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+55
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+56
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+57
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+58
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+59
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+60
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+61
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+62
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+63
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+64
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+65
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+66
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+67
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+68
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+69
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+70
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+71
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+72
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+73
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+74
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+75
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+76
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+77
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+78
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+79
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+80
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+81
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+82
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+83
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+84
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+85
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+86
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+87
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+88
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+89
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+90
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+91
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+92
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+93
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+94
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+95
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+96
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+97
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+98
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+99
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+100
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+Epoch: [0][100/300]	Time 0.17 (0.19)	Data 0.0 (0.0)	Loss 1.00 (1.13)	Trans Loss -0.0130 (0.0485)	Cls Acc 50.0 (38.6)
+LOSS MKMMD
+101
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+102
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+103
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+104
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+105
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+106
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+107
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+108
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+109
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+110
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+111
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+112
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+113
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+114
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+115
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+116
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+117
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+118
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+119
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+120
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+121
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+122
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+123
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+124
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+125
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+126
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+127
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+128
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+129
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+130
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+131
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+132
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+133
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+134
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+135
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+136
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+137
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+138
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+139
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+140
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+141
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+142
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+143
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+144
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+145
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+146
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+147
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+148
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+149
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+150
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+151
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+152
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+153
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+154
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+155
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+156
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+157
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+158
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+159
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+160
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+161
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+162
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+163
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+164
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+165
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+166
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+167
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+168
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+169
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+170
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+171
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+172
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+173
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+174
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+175
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+176
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+177
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+178
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+179
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+180
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+181
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+182
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+183
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+184
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+185
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+186
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+187
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+188
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+189
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+190
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+191
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+192
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+193
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+194
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+195
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+196
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+197
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+198
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+199
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+200
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+Epoch: [0][200/300]	Time 0.18 (0.18)	Data 0.0 (0.0)	Loss 1.06 (1.10)	Trans Loss 0.1145 (0.0538)	Cls Acc 62.5 (42.6)
+LOSS MKMMD
+201
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+202
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+203
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+204
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+205
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+206
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+207
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+208
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+209
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+210
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+211
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+212
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+213
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+214
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+215
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+216
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+217
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+218
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+219
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+220
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+221
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+222
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+223
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+224
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+225
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+226
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+227
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+228
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+229
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+230
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+231
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+232
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+233
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+234
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+235
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+236
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+237
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+238
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+239
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+240
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+241
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+242
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+243
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+244
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+245
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+246
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+247
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+248
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+249
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+250
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+251
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+252
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+253
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+254
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+255
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+256
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+257
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+258
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+259
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+260
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+261
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+262
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+263
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+264
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+265
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+266
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+267
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+268
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+269
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+270
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+271
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+272
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+273
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+274
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+275
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+276
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+277
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+278
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+279
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+280
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+281
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+282
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+283
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+284
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+285
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+286
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+287
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+288
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+289
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+290
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+291
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+292
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+293
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+294
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+295
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+296
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+297
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+298
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+LOSS MKMMD
+299
+z_s
+torch.Size([32, 256])
+z_t
+torch.Size([32, 256])
+features
+torch.Size([64, 256])
+Kernel_matrix:
+torch.Size([64, 64])
+Index matrix
+torch.Size([64, 64])
+Test: [ 0/47]	Time  0.101 ( 0.101)	Loss 6.0525e-01 (6.0525e-01)	Acc@1  96.88 ( 96.88)
+ * Acc@1 68.80920
+ * F1 macro = 0.57011
+ * F1 micro= 0.68809
+ * precision macro= 0.58563
+ * precision micro= 0.68809
+ * recall macro = 0.57389
+ * recall micro = 0.68809
+global correct: 68.8
+mean correct:62.6
+mean IoU: 42.8
++------------------+--------------------+---------------------+
+|      class       |        acc         |         iou         |
++------------------+--------------------+---------------------+
+|    E-commerce    | 98.49246215820312  |  70.56706237792969  |
+| Video on-demand  | 88.84615325927734  |  57.320098876953125 |
+| Interactive data | 0.4739336669445038 | 0.47058820724487305 |
++------------------+--------------------+---------------------+
+Elapsed time: 57.28494143486023
+best_acc1 = 68.80920
+Test: [ 0/47]	Time  0.100 ( 0.100)	Loss 6.0525e-01 (6.0525e-01)	Acc@1  96.88 ( 96.88)
+ * Acc@1 68.80920
+ * F1 macro = 0.57011
+ * F1 micro= 0.68809
+ * precision macro= 0.58563
+ * precision micro= 0.68809
+ * recall macro = 0.57389
+ * recall micro = 0.68809
+global correct: 68.8
+mean correct:62.6
+mean IoU: 42.8
++------------------+--------------------+---------------------+
+|      class       |        acc         |         iou         |
++------------------+--------------------+---------------------+
+|    E-commerce    | 98.49246215820312  |  70.56706237792969  |
+| Video on-demand  | 88.84615325927734  |  57.320098876953125 |
+| Interactive data | 0.4739336669445038 | 0.47058820724487305 |
++------------------+--------------------+---------------------+
+Test result below...
+test_acc1 = 68.80920
+F1 macro = 0.57011
+F1 micro= 0.68809
+precision macro= 0.58563
+precision micro= 0.68809
+recall macro = 0.57389
+recall micro = 0.68809
+avg_time = 3.25532
+min_time = 3.00000
+max_time = 4.00000
+                  precision    recall  f1-score   support
+
+      E-commerce    0.71338   0.98492   0.82744       796
+ Video on-demand    0.61765   0.88846   0.72871       260
+Interactive data    0.40000   0.00474   0.00937       422
+
+        accuracy                        0.68809      1478
+       macro avg    0.57701   0.62604   0.52184      1478
+    weighted avg    0.60706   0.68809   0.57650      1478
+

@@ -775,7 +775,8 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
             transfer_loss = np.float64(0)
         else:
             if args.loss_function == 'MKMMD':
-
+                print("LOSS MKMMD")
+                print(i)
                 transfer_loss = mkmmd_loss(f_s, f_t)
             elif args.loss_function == "SCF":
                 scf_loss = SmoothCFTest(

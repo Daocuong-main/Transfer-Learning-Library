@@ -79,14 +79,23 @@ class MultipleKernelMaximumMeanDiscrepancy(nn.Module):
         self.linear = linear
 
     def forward(self, z_s: torch.Tensor, z_t: torch.Tensor) -> torch.Tensor:
+        print("z_s")
+        print(z_s.size())
+        print("z_t")
+        print(z_t.size())
         features = torch.cat([z_s, z_t], dim=0)
         batch_size = int(z_s.size(0))
         self.index_matrix = _update_index_matrix(batch_size, self.index_matrix, self.linear).to(z_s.device)
 
-
+        print("features")
+        print(features.size())
         kernel_matrix = sum([kernel(features) for kernel in self.kernels])  # Add up the matrix of each kernel
         # Add 2 / (n-1) to make up for the value on the diagonal
         # to ensure loss is positive in the non-linear version
+        print("Kernel_matrix:")
+        print(kernel_matrix.size())
+        print("Index matrix")
+        print(self.index_matrix.size())
         loss = (kernel_matrix * self.index_matrix).sum() + 2. / float(batch_size - 1)
 
         return loss
