@@ -4,6 +4,7 @@
 """
 import random
 import time
+import csv
 import gc
 import warnings
 import argparse
@@ -12,9 +13,13 @@ import os.path as osp
 import cv2
 import os
 import os.path as osp
-
+import matplotlib
+import matplotlib.pyplot as plt
+from custom_utils import plot_graph
+import custom_utils
 import numpy as np
 import pandas as pd
+from sklearn.metrics import ConfusionMatrixDisplay
 import torch
 import torch.nn as nn
 import torch.backends.cudnn as cudnn
@@ -393,7 +398,7 @@ def main(args: argparse.Namespace):
     # create model
     print("num_classes: {}".format(num_classes))
     print("=> using model '{}'".format(args.arch))
-    backbone = utils.get_model(args.arch, pretrain=not args.scratch)
+    backbone = custom_utils.get_model(args.arch, pretrain=not args.scratch)
     pool_layer = nn.Identity() if args.no_pool else None
     classifier = ImageClassifier(backbone, num_classes, bottleneck_dim=args.bottleneck_dim,
                                  pool_layer=pool_layer, finetune=not args.scratch).to(device)
@@ -431,20 +436,65 @@ def main(args: argparse.Namespace):
         return
 
     if args.phase == 'test':
-        acc1 = utils.validate(test_loader, classifier, args, device)
-        print(acc1)
+        acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time, report_table = custom_utils.validate(
+            test_loader, classifier, args, device)
+        print("Test result below...")
+        print("test_acc1 = {:3.5f}".format(acc1))
+        print("F1 macro = {:3.5f}".format(scorema1))
+        print("F1 micro= {:3.5f}".format(scoremi1))
+        print("precision macro= {:3.5f}".format(precisionma1))
+        print("precision micro= {:3.5f}".format(precisionmi1))
+        print("recall macro = {:3.5f}".format(recallma1))
+        print("recall micro = {:3.5f}".format(recallmi1))
+        print('avg_time = {:3.5f}'.format(avg_time))
+        print('min_time = {:3.5f}'.format(min_time))
+        print('max_time = {:3.5f}'.format(max_time))
+        print(report_table)
+        # Save results to CSV
+        csv_filename = osp.join(logger.visualize_directory, 'results.csv')
+        result_data = [
+            [args.arch, args.loss_function, args.test_statistic, args.scenario, args.subset,
+                args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time, args.percent],
+        ]
+
+        # Check if the file exists and write header row if necessary
+        if not osp.isfile(csv_filename):
+            with open(csv_filename, 'w', newline='') as csvfile:
+                csv_writer = csv.writer(csvfile)
+                csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'subset', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
+                                    'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time', 'percent'])
+
+        # Write the data to the CSV file
+        with open(csv_filename, 'a', newline='') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerows(result_data)
+
+        # Save the confusion matrix plot
+        fig, ax = plt.subplots(figsize=(10, 10))
+        conf_filename = osp.join(logger.visualize_directory, 'conf.pdf')
+        disp = ConfusionMatrixDisplay(
+            confusion_matrix=conf_mat, display_labels=args.class_names)
+        disp.plot(xticks_rotation='vertical', ax=ax, colorbar=False)
+        plt.savefig(conf_filename, bbox_inches="tight")
         return
 
     # start training
+    train_acc = []
+    train_loss = []
+    val_acc = []
+    val_loss = []
     best_acc1 = 0.
+    start_time = time.time()
     for epoch in range(args.epochs):
         print("lr:", lr_scheduler.get_last_lr())
         # train for one epoch
-        train(train_source_iter, train_target_iter,
-              classifier, optimizer, lr_scheduler, epoch, args)
-
+        train_acc1, train_loss1 = train(train_source_iter, train_target_iter, classifier, optimizer,
+                                        lr_scheduler, epoch, args)
+        train_acc.append(train_acc1)
+        train_loss.append(train_loss1)
         # evaluate on validation set
-        acc1 = utils.validate(val_loader, classifier, args, device)
+        acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time, report_table = custom_utils.validate(
+            val_loader, classifier, args, device)
 
         # remember best acc@1 and save checkpoint
         torch.save(classifier.state_dict(),
@@ -452,14 +502,99 @@ def main(args: argparse.Namespace):
         if acc1 > best_acc1:
             shutil.copy(logger.get_checkpoint_path('latest'),
                         logger.get_checkpoint_path('best'))
+        # print(conf_mat)
         best_acc1 = max(acc1, best_acc1)
+    # Calculate the elapsed time
+    elapsed_time = time.time() - start_time
 
-    print("best_acc1 = {:3.1f}".format(best_acc1))
+    # # Convert elapsed time to hours, minutes, seconds, and smaller units of seconds
+    # hours, rem = divmod(elapsed_time, 3600)
+    # minutes, rem = divmod(rem, 60)
+    # seconds, microseconds = divmod(rem, 1)
+    # microseconds = round(microseconds, 3)
+
+    # Print the elapsed time
+    # print("Elapsed time: {:0>2}:{:0>2}:{:05.3f}".format(
+    #     int(hours), int(minutes), seconds + microseconds))
+    print("Elapsed time: {}".format(elapsed_time))
+    print("best_acc1 = {:3.5f}".format(best_acc1))
 
     # evaluate on test set
     classifier.load_state_dict(torch.load(logger.get_checkpoint_path('best')))
-    acc1 = utils.validate(test_loader, classifier, args, device)
-    print("test_acc1 = {:3.1f}".format(acc1))
+    acc1, loss1, scorema1, scoremi1, precisionma1, precisionmi1, recallma1, recallmi1, conf_mat, avg_time, min_time, max_time, report_table = custom_utils.validate(
+        test_loader, classifier, args, device)
+    print("Test result below...")
+    print("test_acc1 = {:3.5f}".format(acc1))
+    print("F1 macro = {:3.5f}".format(scorema1))
+    print("F1 micro= {:3.5f}".format(scoremi1))
+    print("precision macro= {:3.5f}".format(precisionma1))
+    print("precision micro= {:3.5f}".format(precisionmi1))
+    print("recall macro = {:3.5f}".format(recallma1))
+    print("recall micro = {:3.5f}".format(recallmi1))
+    print('avg_time = {:3.5f}'.format(avg_time))
+    print('min_time = {:3.5f}'.format(min_time))
+    print('max_time = {:3.5f}'.format(max_time))
+    print(report_table)
+
+    # Save results to CSV
+    csv_filename = osp.join(logger.visualize_directory, 'results.csv')
+    result_data = [
+        [args.arch, args.loss_function, args.test_statistic, args.scenario, args.subset,
+            args.byte_size, args.trade_off, args.epochs, acc1, scorema1,  precisionma1, recallma1, scoremi1, precisionmi1,  recallmi1, avg_time, min_time, max_time, elapsed_time, args.percent],
+    ]
+
+    # Check if the file exists and write header row if necessary
+    if not osp.isfile(csv_filename):
+        with open(csv_filename, 'w', newline='') as csvfile:
+            csv_writer = csv.writer(csvfile)
+            csv_writer.writerow(['backbone', 'method', 'test_function', 'scenario', 'target', 'byte_size', 'trade_off', 'epoch', 'test_acc', 'F1_marco',
+                                'precision_macro', 'recall_macro', 'F1_micro', 'precision_micro', 'recall_micro', 'avg_time', 'min_time', 'max_time', 'training_time', 'percent'])
+
+    # Write the data to the CSV file
+    with open(csv_filename, 'a', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        csv_writer.writerows(result_data)
+
+    # graph
+    fig = plt.figure(figsize=(10, 6))
+    plot_graph(list(range(0, args.epochs)),
+               train_acc, label='Train Accuracy')
+    plot_graph(list(range(0, args.epochs)),
+               val_acc, label='Val Accuracy')
+    plt.legend()
+    Accuracy_filename = osp.join(
+        logger.visualize_directory, 'model_Accuracy.pdf')
+    plt.savefig(Accuracy_filename, bbox_inches="tight")
+    fig = plt.figure(figsize=(10, 6))
+    plot_graph(list(range(0, args.epochs)),
+               train_loss, label='Train Loss')
+    plot_graph(list(range(0, args.epochs)),
+               val_loss, label='Val Loss')
+    plt.legend()
+    Loss_filename = osp.join(logger.visualize_directory, 'model_Loss.pdf')
+    plt.savefig(Loss_filename, bbox_inches="tight")
+
+    fig, ax = plt.subplots(figsize=(8, 8))
+    conf_filename = osp.join(logger.visualize_directory, 'conf.pdf')
+    disp = ConfusionMatrixDisplay(
+        confusion_matrix=conf_mat, display_labels=args.class_names)
+    disp.plot(xticks_rotation='vertical', ax=ax, colorbar=False)
+    plt.savefig(conf_filename, bbox_inches="tight")
+    
+    # Save results to txt
+    txt_filename = osp.join(logger.visualize_directory, 'acc_loss.txt')
+    result_data = [
+        ['train_acc', train_acc],
+        ['val_acc', val_acc],
+        ['train_loss', train_loss],
+        ['val_loss', val_loss],
+    ]
+
+    # Write the data to the txt file
+    with open(txt_filename, 'w') as txtfile:
+        for name, data in result_data:
+            txtfile.write(name + ': ' + str(data) + '\n')
+
 
     logger.close()
 
@@ -550,6 +685,7 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
 
         if i % args.print_freq == 0:
             progress.display(i)
+    return cls_acc.avg, losses.avg
 
 
 if __name__ == '__main__':
@@ -580,11 +716,11 @@ if __name__ == '__main__':
     parser.add_argument('--auto-augment', default='rand-m10-n2-mstd2', type=str,
                         help='AutoAugment policy (default: rand-m10-n2-mstd2)')
     # model parameters
-    parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet18',
-                        choices=utils.get_model_names(),
-                        help='backbone architecture: ' +
-                             ' | '.join(utils.get_model_names()) +
-                             ' (default: resnet18)')
+    # parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet18',
+    #                     choices=utils.get_model_names(),
+    #                     help='backbone architecture: ' +
+    #                          ' | '.join(utils.get_model_names()) +
+    #                          ' (default: resnet18)')
     parser.add_argument('--bottleneck-dim', default=1024, type=int,
                         help='Dimension of bottleneck')
     parser.add_argument('--no-pool', action='store_true',
