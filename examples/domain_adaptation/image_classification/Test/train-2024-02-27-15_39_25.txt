@@ -1,0 +1,12 @@
+Namespace(arch='resnet50', batch_size=8, bottleneck_dim=256, byte_size=512, data='Both', epochs=1, iters_per_epoch=500, label=3, log='Test/', loss_function='MKMMD', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0.5, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='none', trade_off=0.05, wd=0.0005, workers=2)
+Concate data
+(183560, 514) (122820, 514)
+(9178,)
+Traceback (most recent call last):
+  File "custom_dan.py", line 940, in <module>
+    main(args)
+  File "custom_dan.py", line 490, in main
+    train_source_dataset = data_processing(train_source, args.arch)
+  File "custom_dan.py", line 317, in data_processing
+    datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed

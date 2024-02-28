@@ -1,0 +1,11 @@
+Namespace(arch='resnet50', batch_size=32, bottleneck_dim=256, byte_size=256, data='Both', epochs=20, iters_per_epoch=300, label=3, log='Test/', loss_function='MKMMD', lr=0.001, lr_decay=0.75, lr_gamma=0.0004, momentum=0.9, no_pool=False, per_class_eval=True, percent=0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=0, subset='none', test_statistic='none', threshold=0.9, trade_off=1.0, unlabeled_batch_size=96, weight_decay=0.001, workers=4)
+Concate data
+(182980, 258) (123400, 258)
+Traceback (most recent call last):
+  File "custom_fixmatch.py", line 797, in <module>
+    main(args)
+  File "custom_fixmatch.py", line 343, in main
+    train_source_dataset = data_processing(train_source, args.arch)
+  File "custom_fixmatch.py", line 152, in data_processing
+    datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed

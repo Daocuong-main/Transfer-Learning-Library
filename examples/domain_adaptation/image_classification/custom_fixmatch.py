@@ -128,7 +128,10 @@ def source_target_split(df, choice, frac=0.5):
 
 def resize_image(image, byte_size, target_size=(224, 224)):
     if byte_size == 256:
-        target_size
+        target_size = (224, 224)
+    else:
+        target_size = (byte_size, byte_size)
+    return cv2.resize(image, target_size, interpolation=cv2.INTER_LINEAR)
 
 
 def data_processing(raw_data, backbone):
@@ -692,29 +695,29 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(
         description='FixMatch for Unsupervised Domain Adaptation')
     # dataset parameters
-    parser.add_argument('root', metavar='DIR',
-                        help='root path of dataset')
-    parser.add_argument('-d', '--data', metavar='DATA', default='Office31', choices=utils.get_dataset_names(),
-                        help='dataset: ' + ' | '.join(utils.get_dataset_names()) +
-                             ' (default: Office31)')
-    parser.add_argument('-s', '--source', help='source domain(s)', nargs='+')
-    parser.add_argument('-t', '--target', help='target domain(s)', nargs='+')
-    parser.add_argument('--train-resizing', type=str, default='default')
-    parser.add_argument('--val-resizing', type=str, default='default')
-    parser.add_argument('--resize-size', type=int, default=224,
-                        help='the image size after resizing')
-    parser.add_argument('--scale', type=float, nargs='+', default=[0.5, 1.0], metavar='PCT',
-                        help='Random resize scale (default: 0.5 1.0)')
-    parser.add_argument('--ratio', type=float, nargs='+', default=[3. / 4., 4. / 3.], metavar='RATIO',
-                        help='Random resize aspect ratio (default: 0.75 1.33)')
-    parser.add_argument('--no-hflip', action='store_true',
-                        help='no random horizontal flipping during training')
-    parser.add_argument('--norm-mean', type=float, nargs='+',
-                        default=(0.485, 0.456, 0.406), help='normalization mean')
-    parser.add_argument('--norm-std', type=float, nargs='+',
-                        default=(0.229, 0.224, 0.225), help='normalization std')
-    parser.add_argument('--auto-augment', default='rand-m10-n2-mstd2', type=str,
-                        help='AutoAugment policy (default: rand-m10-n2-mstd2)')
+    # parser.add_argument('root', metavar='DIR',
+    #                     help='root path of dataset')
+    # parser.add_argument('-d', '--data', metavar='DATA', default='Office31', choices=utils.get_dataset_names(),
+    #                     help='dataset: ' + ' | '.join(utils.get_dataset_names()) +
+    #                          ' (default: Office31)')
+    # parser.add_argument('-s', '--source', help='source domain(s)', nargs='+')
+    # parser.add_argument('-t', '--target', help='target domain(s)', nargs='+')
+    # parser.add_argument('--train-resizing', type=str, default='default')
+    # parser.add_argument('--val-resizing', type=str, default='default')
+    # parser.add_argument('--resize-size', type=int, default=224,
+    #                     help='the image size after resizing')
+    # parser.add_argument('--scale', type=float, nargs='+', default=[0.5, 1.0], metavar='PCT',
+    #                     help='Random resize scale (default: 0.5 1.0)')
+    # parser.add_argument('--ratio', type=float, nargs='+', default=[3. / 4., 4. / 3.], metavar='RATIO',
+    #                     help='Random resize aspect ratio (default: 0.75 1.33)')
+    # parser.add_argument('--no-hflip', action='store_true',
+    #                     help='no random horizontal flipping during training')
+    # parser.add_argument('--norm-mean', type=float, nargs='+',
+    #                     default=(0.485, 0.456, 0.406), help='normalization mean')
+    # parser.add_argument('--norm-std', type=float, nargs='+',
+    #                     default=(0.229, 0.224, 0.225), help='normalization std')
+    # parser.add_argument('--auto-augment', default='rand-m10-n2-mstd2', type=str,
+    #                     help='AutoAugment policy (default: rand-m10-n2-mstd2)')
     # model parameters
     # parser.add_argument('-a', '--arch', metavar='ARCH', default='resnet18',
     #                     choices=utils.get_model_names(),

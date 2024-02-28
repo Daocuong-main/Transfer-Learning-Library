@@ -160,3 +160,8 @@ iter: 1, i: 512, lambda: 0.05
 iter: 2, i: 512, lambda: 0.05
 iter: 1, byte 512 ,lambda: 0.05, use_0.1 percent
 iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent
+iter: 1, byte 512 ,lambda: 0.05, use_0.5 percent

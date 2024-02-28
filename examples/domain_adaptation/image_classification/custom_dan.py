@@ -293,7 +293,10 @@ def source_target_split(df, choice, frac=0.5):
 
 def resize_image(image, byte_size, target_size=(224, 224)):
     if byte_size == 256:
-        target_size 
+        target_size = (224, 224)
+    else:
+        target_size = (byte_size, byte_size)
+    return cv2.resize(image, target_size, interpolation=cv2.INTER_LINEAR)
 
 def data_processing(raw_data, backbone):
     # Get flow label
@@ -306,6 +309,7 @@ def data_processing(raw_data, backbone):
     true_data = raw_data.drop('flow_id', axis=1)
     datas = true_data.drop('Label', axis=1).to_numpy()/255
     datas = datas.reshape(-1, 20, args.byte_size).astype('float32')
+    # print(f"Shape of datas before resize is {datas.shape}")
     # Resize each image in the dataset
     datas = np.array([resize_image(img, args.byte_size) for img in datas])
     # print("before:")
@@ -313,6 +317,7 @@ def data_processing(raw_data, backbone):
     if 'lenet' in backbone:
         datas = np.repeat(datas[:, :, np.newaxis, ], 1, axis=2)
     else:
+        # print(f"Shape of datas befor get error is: {datas.shape}")
         datas = np.repeat(datas[:, :, np.newaxis, ], 3, axis=2)
     # print('middle')
     # print(datas.shape)
@@ -798,8 +803,8 @@ def train(train_source_iter: ForeverDataIterator, train_target_iter: ForeverData
             transfer_loss = np.float64(0)
         else:
             if args.loss_function == 'MKMMD':
-                print("LOSS MKMMD")
-                print(i)
+                # print("LOSS MKMMD")
+                # print(i)
                 transfer_loss = mkmmd_loss(f_s, f_t)
             elif args.loss_function == "SCF":
                 scf_loss = SmoothCFTest(
