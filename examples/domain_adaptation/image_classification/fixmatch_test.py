@@ -18,6 +18,7 @@ from torch.utils.data import DataLoader
 import torch.nn.functional as F
 
 import utils
+import custom_utils
 from tllib.modules.classifier import Classifier
 from tllib.self_training.pseudo_label import ConfidenceBasedSelfTrainingLoss
 from tllib.vision.transforms import MultipleApply
@@ -86,7 +87,7 @@ def main(args: argparse.Namespace):
     print("val_transform: ", val_transform)
 
     train_source_dataset, train_target_dataset, val_dataset, test_dataset, num_classes, args.class_names = \
-        utils.get_dataset(args.data, args.root, args.source, args.target, train_source_transform, val_transform,
+        custom_utils.get_dataset(args.data, args.root, args.source, args.target, train_source_transform, val_transform,
                           train_target_transform=train_target_transform)
     print(train_target_dataset.shape)
     train_source_loader = DataLoader(train_source_dataset, batch_size=args.batch_size,
@@ -255,8 +256,11 @@ if __name__ == '__main__':
     # dataset parameters
     parser.add_argument('root', metavar='DIR',
                         help='root path of dataset')
-    parser.add_argument('-d', '--data', metavar='DATA', default='Office31', choices=utils.get_dataset_names(),
-                        help='dataset: ' + ' | '.join(utils.get_dataset_names()) +
+    # parser.add_argument('-d', '--data', metavar='DATA', default='Office31', choices=custom_utils.get_dataset_names(),
+    #                     help='dataset: ' + ' | '.join(custom_utils.get_dataset_names()) +
+    #                          ' (default: Office31)')
+    parser.add_argument('-d', '--data', metavar='DATA', default='Office31',
+                        help='dataset: ' + ' | '.join(custom_utils.get_dataset_names()) +
                              ' (default: Office31)')
     parser.add_argument('-s', '--source', help='source domain(s)', nargs='+')
     parser.add_argument('-t', '--target', help='target domain(s)', nargs='+')

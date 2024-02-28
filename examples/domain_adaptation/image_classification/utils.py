@@ -75,17 +75,13 @@ def get_dataset(dataset_name, root, source, target, train_source_transform, val_
             return MultipleDomainsDataset([dataset(task=task, **kwargs) for task in tasks], tasks,
                                           domain_ids=list(range(start_idx, start_idx + len(tasks))))
 
-        train_source_dataset = concat_dataset(root=root, tasks=source, download=True, transform=train_source_transform,
+        train_source_dataset = concat_dataset(root=root, tasks=source, download=False, transform=None,
                                               start_idx=0)
-        train_target_dataset = concat_dataset(root=root, tasks=target, download=True, transform=train_target_transform,
+        train_target_dataset = concat_dataset(root=root, tasks=target, download=False, transform=None,
                                               start_idx=len(source))
-        val_dataset = concat_dataset(root=root, tasks=target, download=True, transform=val_transform,
+        val_dataset = concat_dataset(root=root, tasks=target, download=True, transform=None,
                                      start_idx=len(source))
-        if dataset_name == 'DomainNet':
-            test_dataset = concat_dataset(root=root, tasks=target, split='test', download=True, transform=val_transform,
-                                          start_idx=len(source))
-        else:
-            test_dataset = val_dataset
+        test_dataset = val_dataset
         class_names = train_source_dataset.datasets[0].classes
         num_classes = len(class_names)
     else:
