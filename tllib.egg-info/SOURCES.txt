@@ -104,6 +104,7 @@ tllib/vision/datasets/aircrafts.py
 tllib/vision/datasets/caltech101.py
 tllib/vision/datasets/cifar.py
 tllib/vision/datasets/coco70.py
+tllib/vision/datasets/concatdata.py
 tllib/vision/datasets/cub200.py
 tllib/vision/datasets/digits.py
 tllib/vision/datasets/domainnet.py

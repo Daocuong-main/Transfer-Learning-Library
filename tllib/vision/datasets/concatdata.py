@@ -35,12 +35,11 @@ class Concatdata(ImageList):
                 dslr.txt
                 webcam.txt
     """
-    # download_list = [
-    #     ("image_list", "image_list.zip", "https://cloud.tsinghua.edu.cn/f/d9bca681c71249f19da2/?dl=1"),
-    #     ("amazon", "amazon.tgz", "https://cloud.tsinghua.edu.cn/f/edc8d1bba1c740dc821c/?dl=1"),
-    #     ("dslr", "dslr.tgz", "https://cloud.tsinghua.edu.cn/f/ca6df562b7e64850ad7f/?dl=1"),
-    #     ("webcam", "webcam.tgz", "https://cloud.tsinghua.edu.cn/f/82b24ed2e08f4a3c8888/?dl=1"),
-    # ]
+    download_list = [
+        ("image_list", "image_list.zip", "https://cloud.tsinghua.edu.cn/f/d9bca681c71249f19da2/?dl=1"),
+        ("dataset_1", "amazon.tgz", "https://cloud.tsinghua.edu.cn/f/edc8d1bba1c740dc821c/?dl=1"),
+        ("dataset_2", "dslr.tgz", "https://cloud.tsinghua.edu.cn/f/ca6df562b7e64850ad7f/?dl=1"),
+    ]
     image_list = {
         "D1": "image_list/dataset_1.txt",
         "D2": "image_list/dataset_2.txt"
@@ -54,7 +53,7 @@ class Concatdata(ImageList):
         if download:
             list(map(lambda args: download_data(root, *args), self.download_list))
         else:
-            list(map(lambda file_name, _: check_exits(root, file_name), self.download_list))
+            list(map(lambda args: check_exits(root, args[0]), self.download_list))
 
         super(Concatdata, self).__init__(root, Concatdata.CLASSES, data_list_file=data_list_file, **kwargs)
 

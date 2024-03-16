@@ -1,0 +1,34 @@
+Namespace(arch='resnet50', batch_size=36, bottleneck_dim=1024, data='Office31', epochs=1, iters_per_epoch=2, log='logs/mcc/Office31_W2A', lr=0.005, lr_decay=0.75, lr_gamma=0.001, momentum=0.9, no_hflip=False, no_pool=False, norm_mean=(0.485, 0.456, 0.406), norm_std=(0.229, 0.224, 0.225), per_class_eval=False, phase='train', print_freq=100, ratio=[0.75, 1.3333333333333333], resize_size=224, root='data/office31', scale=[0.08, 1.0], scratch=False, seed=2, source=['W'], target=['A'], temperature=2.5, trade_off=1.0, train_resizing='default', val_resizing='default', weight_decay=0.001, workers=2)
+mcc.py:39: UserWarning: You have chosen to seed training. This will turn on the CUDNN deterministic setting, which can slow down your training considerably! You may see unexpected behavior when restarting from checkpoints.
+  warnings.warn('You have chosen to seed training. '
+train_transform:  Compose(
+    Compose(
+    ResizeImage(size=(256, 256))
+    RandomResizedCrop(size=(224, 224), scale=(0.08, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear), antialias=None)
+)
+    RandomHorizontalFlip(p=0.5)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+val_transform:  Compose(
+    Compose(
+    ResizeImage(size=(256, 256))
+    CenterCrop(size=(224, 224))
+)
+    ToTensor()
+    Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225))
+)
+Traceback (most recent call last):
+  File "mcc.py", line 262, in <module>
+    main(args)
+  File "mcc.py", line 58, in main
+    utils.get_dataset(args.data, args.root, args.source, args.target, train_transform, val_transform)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/utils.py", line 79, in get_dataset
+    start_idx=0)
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/utils.py", line 75, in concat_dataset
+    return MultipleDomainsDataset([dataset(task=task, **kwargs) for task in tasks], tasks,
+  File "/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/utils.py", line 75, in <listcomp>
+    return MultipleDomainsDataset([dataset(task=task, **kwargs) for task in tasks], tasks,
+  File "/home/bkcs/HDD/Transfer-Learning-Library/tllib/vision/datasets/office31.py", line 61, in __init__
+    list(map(lambda file_name, _: check_exits(root, file_name), self.download_list))
+TypeError: <lambda>() missing 1 required positional argument: '_'

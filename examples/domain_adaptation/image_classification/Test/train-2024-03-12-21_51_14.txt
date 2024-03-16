@@ -1,0 +1,6 @@
+Namespace(arch='resnet50', batch_size=1, bottleneck_dim=256, byte_size=256, data='Both', epochs=50, iters_per_epoch=100, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='pinverse', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+(182980, 258) (123400, 258)
+num_classes: 3
+=> using model 'resnet50'
+torch.Size([1, 256])

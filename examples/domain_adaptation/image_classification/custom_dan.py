@@ -2,6 +2,7 @@
 @author: Junguang Jiang
 @contact: JiangJunguang1123@outlook.com
 """
+import sys
 import argparse
 import csv
 import datetime
@@ -141,6 +142,19 @@ def pinverse(difference, num_random_features):
         stat = num_samples * right_side
     return chi2.sf(stat.detach().cpu(), num_random_features)
 
+def inverse(difference, num_random_features):
+    num_samples, _ = difference.shape
+    sigma = torch.cov(difference.T)
+    mu = torch.mean(difference, 0)
+    if num_random_features == 1:
+        stat = float(num_samples * torch.pow(mu, 2)) / float(sigma)
+    else:
+        print(sigma.shape)
+        print(sigma)
+        sigma = torch.inverse(sigma)
+        right_side = torch.matmul(mu, torch.matmul(sigma, mu.T))
+        stat = num_samples * right_side
+    return chi2.sf(stat.detach().cpu(), num_random_features)
 
 def unnorm(difference, num_random_features):
     num_samples, _ = difference.shape
@@ -234,7 +248,7 @@ class SmoothCFTest:
             self.random_frequencies, self.data_x, self.data_y)
         if self.method == "unnorm":
             return unnorm(difference, self.num_random_features)
-        return pinverse(difference, self.num_random_features)
+        return inverse(difference, self.num_random_features)
 
 
 def split_data(df, frac=0.2):
@@ -555,8 +569,6 @@ def main(args: argparse.Namespace):
                     momentum=args.momentum, weight_decay=args.wd, nesterov=True)
     lr_scheduler = LambdaLR(optimizer, lambda x: args.lr *
                             (1. + args.lr_gamma * float(x)) ** (-args.lr_decay))
-    classifier = ImageClassifier(backbone, num_classes, bottleneck_dim=args.bottleneck_dim,
-                                 pool_layer=pool_layer, finetune=not args.scratch).to(device)
     # define loss function
     mkmmd_loss = MultipleKernelMaximumMeanDiscrepancy(
         kernels=[GaussianKernel(alpha=2 ** k) for k in range(-3, 2)],

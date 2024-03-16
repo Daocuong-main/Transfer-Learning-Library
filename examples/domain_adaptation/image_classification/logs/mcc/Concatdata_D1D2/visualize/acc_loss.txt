@@ -1,0 +1,4 @@
+train_acc: [45.833330154418945]
+val_acc: []
+train_loss: [1.7243428230285645]
+val_loss: []

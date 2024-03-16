@@ -44,7 +44,11 @@
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts unnorm --epochs 3 -b 4 -i 1 --byte-size 256 -ss none -scenario S2T -per 0 --trade-off 1 --log Test/ --per-class-eval --phase analysis
 
 # python custom_dan.py -d Both -a resnet50 -lf MKMMD -ts none --epochs 1 -b 32 -i 300 --byte-size 256 -ss none -scenario S2T --trade-off 1 -per 0 --log Test/ --per-class-eval
-python fixmatch_test.py data/concat_dataset -d Concatdata -s D1 -t D2 -a resnet50 --lr 0.001 --bottleneck-dim 256 -ub 96 --epochs 1 --seed 0 --log logs/fixmatch/Concatdata_D1D2 --per-class-eval
+# python fixmatch_test.py data/office31 -d Office31 -s W -t A -a resnet50 --lr 0.001 --bottleneck-dim 256 -ub 96 --epochs 1 --seed 0 --log logs/fixmatch/Office31_W2A --per-class-eval
+# python fixmatch_test.py data/concat_dataset -d Concatdata -s D1 -t D2 -a resnet50 --lr 0.001 --bottleneck-dim 256 -ub 96 --epochs 20 --i 500 --seed 0 --log logs/New_revision/ --per-class-eval
+# python mcc_test.py data/office31 -d Office31 -s W -t A -a resnet50 --epochs 1 -i 2 --seed 2 --bottleneck-dim 1024 --log logs/mcc/Office31_W2A
+# python fixmatch_test.py data/office31 -d Office31 -s W -t A -a resnet50 --lr 0.001 --bottleneck-dim 256 -ub 96 --epochs 1 --i 2 --seed 0 --log logs/fixmatch/Office31_W2A
+# python mcc_test.py data/concat_dataset -d Concatdata -s D1 -t D2 -a resnet50 --epochs 20 -i 500 --seed 0 --bottleneck-dim 1024 --log logs/New_revision/ --per-class-eval
 # python custom_fixmatch.py -d Both -a resnet50 --lr 0.001 --bottleneck-dim 256 -ub 96 --epochs 20 --seed 0 --log Test/ --per-class-eval -scenario S2T --byte-size 256 -ss none -b 32 -i 300 -ts none
 # output_file="variable_values.txt"
 # for ((iter=1; iter<=1; iter++))
@@ -68,3 +72,8 @@ python fixmatch_test.py data/concat_dataset -d Concatdata -s D1 -t D2 -a resnet5
 #         done
 #     done
 # done
+
+# python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 1 -b 4 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 1 -b 2 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 50 -b 32 -i 100 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 1 -b 32 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
