@@ -1,0 +1,21 @@
+Namespace(arch='resnet50', batch_size=4, bottleneck_dim=256, byte_size=256, data='Both', epochs=1, iters_per_epoch=2, label=3, log='Test/', loss_function='SCF', lr=0.003, lr_decay=0.75, lr_gamma=0.0003, momentum=0.9, no_pool=False, non_linear=False, per_class_eval=True, percent=0, phase='train', print_freq=100, random_frequencies=5, scale_parameter=1, scenario='S2T', scratch=False, seed=None, subset='none', test_statistic='pinverse', trade_off=1.0, wd=0.0005, workers=2)
+Concate data
+Traceback (most recent call last):
+  File "custom_dan.py", line 956, in <module>
+    main(args)
+  File "custom_dan.py", line 491, in main
+    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pandas/io/feather_format.py", line 103, in read_feather
+    df = feather.read_feather(path, columns=columns, use_threads=bool(use_threads))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pyarrow/feather.py", line 228, in read_feather
+    use_threads=use_threads).to_pandas(use_threads=use_threads, **kwargs))
+  File "/home/bkcs/miniconda3/lib/python3.7/site-packages/pyarrow/feather.py", line 253, in read_table
+    source, use_memory_map=memory_map, use_threads=use_threads)
+  File "pyarrow/_feather.pyx", line 77, in pyarrow._feather.FeatherReader.__cinit__
+  File "pyarrow/io.pxi", line 1961, in pyarrow.lib.get_reader
+  File "pyarrow/io.pxi", line 1952, in pyarrow.lib.get_native_file
+  File "pyarrow/io.pxi", line 1094, in pyarrow.lib.OSFile.__cinit__
+  File "pyarrow/io.pxi", line 1104, in pyarrow.lib.OSFile._open_readable
+  File "pyarrow/error.pxi", line 144, in pyarrow.lib.pyarrow_internal_check_status
+  File "pyarrow/error.pxi", line 113, in pyarrow.lib.check_status
+FileNotFoundError: [Errno 2] Failed to open local file '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_256.feather'. Detail: [errno 2] No such file or directory

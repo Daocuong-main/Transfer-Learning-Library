@@ -389,8 +389,8 @@ def main(args: argparse.Namespace):
             # Set data path
             Train_path = '/home/bkcs/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Train/GQUIC_data_256.feather'
             Test_path = '/home/bkcs/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Test/GQUIC_test_256.feather'
-            fallback_Train_path = '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Train/GQUIC_data_256.feather'
-            fallback_Test_path = '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Test/GQUIC_test_256.feather'
+            fallback_Train_path = '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Train/GQUIC_data_256.feather'
+            fallback_Test_path = '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/gquic/Test/GQUIC_test_256.feather'
 
             if os.path.isfile(Train_path):
                 Train_data = pd.read_feather(Train_path)
@@ -412,10 +412,10 @@ def main(args: argparse.Namespace):
             num_classes = 2
 
             # Set data path
-            Train_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
-            Test_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
-            fallback_Train_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
-            fallback_Test_path = '/home/bkcs/HDD/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
+            Train_path = '/home/bkcs/HDD/Dao_Cuong/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
+            Test_path = '/home/bkcs/HDD/Dao_Cuong/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
+            fallback_Train_path = '/home/bkcs/HDD/Dao_Cuong/FL/Data_Processing/Capture_small/Train/Capture_data_20_256.feather'
+            fallback_Test_path = '/home/bkcs/HDD/Dao_Cuong/FL/Data_Processing/Capture_small/Test/Capture_test_20_256.feather'
 
             if os.path.isfile(Train_path):
                 Train_data = pd.read_feather(Train_path)
@@ -449,11 +449,11 @@ def main(args: argparse.Namespace):
                                     'Youtube', 'shopee', 'thegioididong', 'tiki']
                 num_classes = len(args.class_names)
                 train_source = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_source_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_source_{}.feather'.format(byte_size))
                 # train_target = pd.read_feather(
                 #     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_target_{}.feather'.format(byte_size))
                 val_raw = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/val_raw_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/val_raw_{}.feather'.format(byte_size))
             else:
                 args.class_names = ['VoIP', 'alibaba',
                                     'amazon', 'ebay', 'facebook']
@@ -461,9 +461,9 @@ def main(args: argparse.Namespace):
                 # train_target = pd.read_feather(
                 #     '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_source_{}.feather'.format(byte_size))
                 train_source = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_target_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/train_target_{}.feather'.format(byte_size))
                 val_raw = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/test_raw_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/non_DAN/test_raw_{}.feather'.format(byte_size))
             
             train_source_dataset = data_processing(train_source, args.arch)
             # train_target_dataset = data_processing(train_target, args.arch)
@@ -488,20 +488,20 @@ def main(args: argparse.Namespace):
             num_classes = len(args.class_names)
             if args.scenario == "S2T":
                 train_source = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
                 if args.subset == "none":
-                    train_target = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
-                    test_raw = val_raw = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw_{}.feather'.format(byte_size))
+                    train_target = pd.read_feather('/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
+                    test_raw = val_raw = pd.read_feather('/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_raw_{}.feather'.format(byte_size))
                 else:
-                    train_target = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}_{}.feather'.format(args.subset,byte_size))
-                    test_raw = val_raw = pd.read_feather('/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_target_{}_{}.feather'.format(args.subset,byte_size))
+                    train_target = pd.read_feather('/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}_{}.feather'.format(args.subset,byte_size))
+                    test_raw = val_raw = pd.read_feather('/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/test_target_{}_{}.feather'.format(args.subset,byte_size))
             else:
                 train_target = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_source_{}.feather'.format(byte_size))
                 train_source = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/train_target_{}.feather'.format(byte_size))
                 test_raw = val_raw = pd.read_feather(
-                    '/home/bkcs/HDD/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw_{}.feather'.format(byte_size))
+                    '/home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/examples/domain_adaptation/image_classification/data/concat/val_raw_{}.feather'.format(byte_size))
             if args.percent != 0:
                 train_source,train_target=create_set_with_target_percentage(train_target,train_source)
             print(train_source.shape,train_target.shape)

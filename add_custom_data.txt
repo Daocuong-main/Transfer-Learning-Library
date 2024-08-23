@@ -1,0 +1,13 @@
+Để thêm data riêng vào code
+
+Đầu tiên tạo file custom_data.py trong /home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/tllib/vision/datasets
+
+"custom_data.py" là tên tự tạo
+
+lưu ý file phải có cấu trúc giống các file data khác có sẵn.
+
+Add tên data tự tạo vào trong /home/bkcs/HDD/Dao_Cuong/Transfer-Learning-Library/tllib/vision/datasets/__init__.py
+
+mở terminal ở thư mục root của project, nhập "pip install -e ."
+
+Xong

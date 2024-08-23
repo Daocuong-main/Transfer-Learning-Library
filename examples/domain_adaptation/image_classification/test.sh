@@ -73,7 +73,9 @@
 #     done
 # done
 
-# python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 1 -b 4 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 1 -b 4 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 1 -b 2 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
-python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 50 -b 32 -i 100 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+# python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 50 -b 32 -i 100 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
 # python custom_dan.py -d Both -a resnet50 -lf SCF -ts pinverse --epochs 1 -b 32 -i 2 --byte-size 256 -ss none -scenario S2T --trade-off 1 --log Test/ --per-class-eval
+# python fixmatch_test.py data/concat_dataset -d Concatdata -s D1 -t D2 -a resnet50 --lr 0.001 --bottleneck-dim 256 -ub 96 --epochs 200 --i 500 --seed 0 --log logs/Chay_cho_Son/ --per-class-eval
+# python mcc_test.py data/concat_dataset -d Concatdata -s D1 -t D2 -a resnet50 --epochs 20 -i 500 --seed 0 --bottleneck-dim 1024 --log logs/Chay_cho_Son/ --per-class-eval
